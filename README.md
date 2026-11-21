@@ -6,6 +6,60 @@ GreenTrack is a production-quality, AI-powered carbon intelligence and reduction
 
 Core workflow: **Measure → Calculate → Explain → Recommend → Reduce → Verify → Report**
 
+## Machine-learning pipeline
+
+The optional, reproducible ML pipeline is implemented in `backend/ml/`. It provides
+Isolation Forest anomaly detection, Gradient Boosting emission prediction, and a
+monthly Ridge time-trend forecast. Models train from prepared, real activity data;
+the API reports `503` when artifacts are unavailable instead of inventing predictions.
+See [ML_DOCUMENTATION.md](./ML_DOCUMENTATION.md), [API_DOCUMENTATION.md](./API_DOCUMENTATION.md),
+and [data/README.md](./data/README.md) for dataset sources and commands.
+
+The knowledge assistant supports Gemini or OpenAI through `backend/.env`.
+Set `AI_PROVIDER=gemini` with `GEMINI_API_KEY`, or set `AI_PROVIDER=openai`
+with `OPENAI_API_KEY`. The key is read only by the backend and must never be
+committed or pasted into source files.
+
+## Production preparation
+
+The repository includes a containerized production setup:
+
+```powershell
+Copy-Item .env.production.example .env
+docker compose -f docker-compose.production.yml up --build -d
+```
+
+Set `GREENTRACK_ALLOWED_ORIGINS`, `GREENTRACK_TRUSTED_HOSTS`, and
+`GREENTRACK_COOKIE_SECURE=true` for a real HTTPS domain. The backend uses a
+persistent SQLite volume in this setup because the current data layer is
+implemented directly with `sqlite3` and SQLite-specific schema/queries.
+Migrating to PostgreSQL requires a dedicated adapter and schema migration; do
+not set a PostgreSQL URL and assume it is supported.
+
+### Production TLS certificates
+
+The production Nginx configuration terminates TLS on port 443 and redirects port
+80 to HTTPS. Do not commit certificate private keys.
+
+Place `fullchain.pem` and `privkey.pem` in an external directory, set
+`GREENTRACK_TLS_CERT_DIR` to that directory, and keep
+`GREENTRACK_COOKIE_SECURE=true`. Example:
+
+```text
+GREENTRACK_ALLOWED_ORIGINS=https://your-domain.example
+GREENTRACK_TRUSTED_HOSTS=your-domain.example
+GREENTRACK_COOKIE_SECURE=true
+GREENTRACK_TLS_CERT_DIR=/absolute/path/to/certificates
+```
+
+The Compose mount exposes only the certificate directory read-only to Nginx.
+Renew certificates outside the repository and remount/restart the frontend
+container after certificate replacement.
+
+CI runs Python compilation/tests and the frontend production build. Production
+operations still require TLS termination, secret storage, backups, monitoring,
+and a tested restore procedure at the hosting provider.
+
 ---
 
 ## 1. Architecture & Design
@@ -126,15 +180,22 @@ The entire platform adheres to a high-contrast **Digital Climate Intelligence** 
 ## 4. Accurate Carbon Calculation Engine
 
 Core calculation formula:
-$$\text{Emissions (kg CO}_2\text{e)} = \text{Activity Quantity} \times \text{Traceable Emission Factor} \times \text{Unit Conversion}$$
+$$\text{Emissions (kg)} = \text{Activity Quantity} \times \text{Traceable Emission Factor} \times \text{Unit Conversion}$$
+
+Every factor records whether its gas basis is **CO2** or **CO2e**, along with
+its region, applicable period, publication/version, methodology, and
+classification. Electricity uses the CEA Version 22.0 fiscal-year records;
+FY 2026-27 uses the latest published factor only as an explicitly labelled
+proxy until a new CEA record is available.
 
 ### Traceable Reference Emission Factors
 
 | Category | Sub-type | Factor | Unit | Authority / Source |
 |---|---|---|---|---|
-| Electricity | India National Grid | `0.7100` | $\text{kg CO}_2\text{e/kWh}$ | CEA CO₂ Baseline Database v19 (India) |
-| Transport | Passenger Car (Petrol) | `0.1700` | $\text{kg CO}_2\text{e/km}$ | UK DEFRA / BEIS Conversion Factors 2024 |
-| Transport | 2-Wheeler Motorcycle | `0.0450` | $\text{kg CO}_2\text{e/km}$ | UK DEFRA / BEIS Conversion Factors 2024 |
+| Electricity | India National Grid FY 2024-25 | `0.7100` | $\text{kg CO}_2\text{/kWh}$ | CEA Baseline Database v22.0, Table S |
+| Electricity | India National Grid FY 2025-26 | `0.6750` | $\text{kg CO}_2\text{/kWh}$ | CEA Baseline Database v22.0, Table S |
+| Transport | Passenger Car (Petrol) | `0.1700` | $\text{kg CO}_2\text{e/vehicle-km}$ | DEFRA 2024; exact applicability requires verification |
+| Transport | 2-Wheeler Motorcycle | `0.0450` | $\text{kg CO}_2\text{e/vehicle-km}$ | ARAI / DEFRA; exact applicability requires verification |
 | Transport | Transit Bus | `0.0890` | $\text{kg CO}_2\text{e/passenger-km}$ | UK DEFRA / BEIS Conversion Factors 2024 |
 | Transport | Metro Rail | `0.0350` | $\text{kg CO}_2\text{e/passenger-km}$ | UK DEFRA / BEIS Conversion Factors 2024 |
 | Transport | Active Travel (Walk/Bike)| `0.0000` | $\text{kg CO}_2\text{e/km}$ | Zero direct emissions |

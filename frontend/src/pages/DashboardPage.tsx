@@ -53,6 +53,10 @@ const CATEGORY_COLORS: Record<string, string> = {
   water: "#F472D0",       // soft magenta
 };
 
+function gasLabel(gasBasis: DashboardData["gas_basis"]) {
+  return gasBasis === "CO2" ? "kg CO₂" : gasBasis === "mixed" ? "kg CO₂ / CO₂e" : "kg CO₂e";
+}
+
 function currentPeriod() {
   const date = new Date();
   return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}`;
@@ -287,7 +291,7 @@ export function DashboardPage() {
               <span className="text-3xl font-black tracking-tight text-slate-900 dark:text-white">
                 <CountUp end={data.total_kg} decimals={2} duration={1.2} separator="," preserveValue />
               </span>
-              <span className="text-xs font-bold text-slate-500 dark:text-slate-400">kg CO₂e</span>
+              <span className="text-xs font-bold text-slate-500 dark:text-slate-400">{gasLabel(data.gas_basis)}</span>
             </div>
             <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">
               Across {data.activity_count} verified {data.activity_count === 1 ? "activity" : "activities"}

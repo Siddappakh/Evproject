@@ -6,6 +6,8 @@ from pathlib import Path
 from typing import Any
 
 from .config import DATABASE_PATH
+from .auth import hash_token, new_session_token
+import hmac
 
 
 def connect() -> sqlite3.Connection:
@@ -86,20 +88,29 @@ def initialize_database() -> None:
             CREATE INDEX IF NOT EXISTS idx_sessions_expiry ON user_sessions(expires_at);
             CREATE TABLE IF NOT EXISTS emission_factors (
                 id TEXT PRIMARY KEY,
-                category TEXT NOT NULL CHECK(category IN ('electricity', 'transport', 'fuel', 'waste')),
+                category TEXT NOT NULL CHECK(category IN ('electricity', 'transport', 'fuel', 'waste', 'water')),
                 name TEXT NOT NULL,
                 value REAL NOT NULL CHECK(value >= 0),
                 unit TEXT NOT NULL,
+                gas_basis TEXT NOT NULL DEFAULT 'CO2e',
                 source_name TEXT NOT NULL,
                 source_url TEXT NOT NULL,
+                source_publication TEXT NOT NULL DEFAULT '',
+                methodology TEXT NOT NULL DEFAULT '',
                 factor_year INTEGER NOT NULL,
                 region TEXT NOT NULL,
                 assumptions TEXT NOT NULL DEFAULT '',
+                effective_start TEXT,
+                effective_end TEXT,
+                classification TEXT NOT NULL DEFAULT 'unverified'
+                    CHECK(classification IN ('official', 'estimated', 'demonstration', 'proxy', 'unverified')),
+                last_verified_date TEXT,
+                workspace_id TEXT,
                 created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
             );
             CREATE TABLE IF NOT EXISTS activities (
                 id TEXT PRIMARY KEY,
-                category TEXT NOT NULL CHECK(category IN ('electricity', 'transport', 'fuel', 'waste')),
+                category TEXT NOT NULL CHECK(category IN ('electricity', 'transport', 'fuel', 'waste', 'water')),
                 description TEXT NOT NULL,
                 quantity REAL NOT NULL CHECK(quantity > 0),
                 unit TEXT NOT NULL,
@@ -109,15 +120,56 @@ def initialize_database() -> None:
                 factor_name TEXT NOT NULL,
                 factor_value REAL NOT NULL,
                 factor_unit TEXT NOT NULL,
+                factor_gas_basis TEXT NOT NULL DEFAULT 'CO2e',
                 factor_source TEXT NOT NULL,
                 factor_source_url TEXT NOT NULL,
+                factor_source_publication TEXT NOT NULL DEFAULT '',
+                factor_methodology TEXT NOT NULL DEFAULT '',
                 factor_year INTEGER NOT NULL,
                 factor_region TEXT NOT NULL,
                 assumptions TEXT NOT NULL,
+                factor_effective_start TEXT,
+                factor_effective_end TEXT,
+                factor_classification TEXT NOT NULL DEFAULT 'unverified',
+                factor_source_classification TEXT NOT NULL DEFAULT 'unverified',
+                factor_selection_status TEXT NOT NULL DEFAULT 'direct',
+                factor_last_verified_date TEXT,
                 emissions_kg REAL NOT NULL,
                 created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
             );
             CREATE INDEX IF NOT EXISTS idx_activities_period ON activities(period);
+            CREATE TABLE IF NOT EXISTS urbanev_demand (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                dataset_version TEXT NOT NULL,
+                recorded_at TEXT NOT NULL,
+                zone_id TEXT NOT NULL,
+                charging_volume_kwh REAL NOT NULL CHECK(charging_volume_kwh >= 0),
+                occupancy REAL,
+                duration_hours REAL,
+                electricity_price REAL,
+                service_price REAL,
+                temperature REAL,
+                UNIQUE(dataset_version, recorded_at, zone_id)
+            );
+            CREATE INDEX IF NOT EXISTS idx_urbanev_demand_time
+                ON urbanev_demand(dataset_version, recorded_at, zone_id);
+            CREATE TABLE IF NOT EXISTS ml_model_runs (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                model_name TEXT NOT NULL,
+                model_version TEXT NOT NULL,
+                dataset_name TEXT NOT NULL,
+                dataset_version TEXT NOT NULL,
+                trained_at TEXT NOT NULL,
+                training_start TEXT,
+                training_end TEXT,
+                testing_start TEXT,
+                testing_end TEXT,
+                features_json TEXT NOT NULL,
+                target TEXT NOT NULL,
+                metrics_json TEXT NOT NULL,
+                artifact_path TEXT NOT NULL,
+                status TEXT NOT NULL
+            );
             CREATE TABLE IF NOT EXISTS iot_devices (
                 device_id TEXT PRIMARY KEY,
                 workspace_id TEXT NOT NULL REFERENCES workspace(id) ON DELETE CASCADE,
@@ -254,6 +306,8 @@ def initialize_database() -> None:
             CREATE INDEX IF NOT EXISTS idx_participants_challenge ON challenge_participants(challenge_id);
             """
         )
+        _migrate_factor_schema(connection)
+        _migrate_water_factor_category(connection)
         _add_column(connection, 'activities', 'data_origin', "TEXT NOT NULL DEFAULT 'manual'")
         _add_column(connection, 'activities', 'scope', "TEXT DEFAULT 'scope_2'")
         _add_column(connection, "workspace", "onboarding_complete", "INTEGER NOT NULL DEFAULT 0")
@@ -261,6 +315,32 @@ def initialize_database() -> None:
         _add_column(connection, "activities", "workspace_id", "TEXT")
         _add_column(connection, "activities", "activity_date", "TEXT")
         _add_column(connection, "documents", "workspace_id", "TEXT")
+        _add_column(connection, "emission_factors", "gas_basis", "TEXT NOT NULL DEFAULT 'CO2e'")
+        _add_column(connection, "emission_factors", "source_publication", "TEXT NOT NULL DEFAULT ''")
+        _add_column(connection, "emission_factors", "methodology", "TEXT NOT NULL DEFAULT ''")
+        _add_column(connection, "emission_factors", "effective_start", "TEXT")
+        _add_column(connection, "emission_factors", "effective_end", "TEXT")
+        _add_column(connection, "emission_factors", "classification", "TEXT NOT NULL DEFAULT 'unverified'")
+        _add_column(connection, "emission_factors", "last_verified_date", "TEXT")
+        _add_column(connection, "activities", "factor_gas_basis", "TEXT NOT NULL DEFAULT 'CO2e'")
+        _add_column(connection, "activities", "factor_source_publication", "TEXT NOT NULL DEFAULT ''")
+        _add_column(connection, "activities", "factor_methodology", "TEXT NOT NULL DEFAULT ''")
+        _add_column(connection, "activities", "factor_effective_start", "TEXT")
+        _add_column(connection, "activities", "factor_effective_end", "TEXT")
+        _add_column(connection, "activities", "factor_classification", "TEXT NOT NULL DEFAULT 'unverified'")
+        _add_column(connection, "activities", "factor_source_classification", "TEXT NOT NULL DEFAULT 'unverified'")
+        _add_column(connection, "activities", "factor_selection_status", "TEXT NOT NULL DEFAULT 'direct'")
+        _add_column(connection, "activities", "factor_last_verified_date", "TEXT")
+        connection.execute(
+            """
+            UPDATE activities
+            SET factor_source_classification = COALESCE(
+                (SELECT classification FROM emission_factors WHERE emission_factors.id = activities.factor_id),
+                factor_source_classification
+            )
+            WHERE factor_source_classification = 'unverified'
+            """
+        )
         connection.execute(
             "UPDATE activities SET activity_date = period || '-01' WHERE activity_date IS NULL"
         )
@@ -298,6 +378,198 @@ def initialize_database() -> None:
             CREATE INDEX IF NOT EXISTS idx_documents_workspace ON documents(workspace_id);
             """
         )
+    with connect() as connection:
+        workspace_ids = [
+            row["id"] for row in connection.execute("SELECT id FROM workspace").fetchall()
+        ]
+    for workspace_id in workspace_ids:
+        seed_reference_factors_if_empty(workspace_id)
+
+
+def _migrate_factor_schema(connection: sqlite3.Connection) -> None:
+    factor_sql = connection.execute(
+        "SELECT sql FROM sqlite_master WHERE type = 'table' AND name = 'emission_factors'"
+    ).fetchone()
+    activity_sql = connection.execute(
+        "SELECT sql FROM sqlite_master WHERE type = 'table' AND name = 'activities'"
+    ).fetchone()
+    if not factor_sql or not activity_sql:
+        return
+    factor_definition = str(factor_sql["sql"])
+    activity_definition = str(activity_sql["sql"])
+    needs_migration = (
+        "'water'" not in factor_definition
+        or "gas_basis" not in factor_definition
+        or "'water'" not in activity_definition
+        or "factor_gas_basis" not in activity_definition
+    )
+    if not needs_migration:
+        return
+
+    connection.execute("PRAGMA foreign_keys = OFF")
+    connection.execute("ALTER TABLE activities RENAME TO activities_factor_schema_legacy")
+    connection.execute("ALTER TABLE emission_factors RENAME TO emission_factors_schema_legacy")
+    connection.executescript(
+        """
+        CREATE TABLE emission_factors (
+            id TEXT PRIMARY KEY,
+            category TEXT NOT NULL CHECK(category IN ('electricity', 'transport', 'fuel', 'waste', 'water')),
+            name TEXT NOT NULL,
+            value REAL NOT NULL CHECK(value >= 0),
+            unit TEXT NOT NULL,
+            gas_basis TEXT NOT NULL DEFAULT 'CO2e',
+            source_name TEXT NOT NULL,
+            source_url TEXT NOT NULL,
+            source_publication TEXT NOT NULL DEFAULT '',
+            methodology TEXT NOT NULL DEFAULT '',
+            factor_year INTEGER NOT NULL,
+            region TEXT NOT NULL,
+            assumptions TEXT NOT NULL DEFAULT '',
+            effective_start TEXT,
+            effective_end TEXT,
+            classification TEXT NOT NULL DEFAULT 'unverified',
+            last_verified_date TEXT,
+            workspace_id TEXT,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+        );
+        CREATE TABLE activities (
+            id TEXT PRIMARY KEY,
+            category TEXT NOT NULL CHECK(category IN ('electricity', 'transport', 'fuel', 'waste', 'water')),
+            description TEXT NOT NULL,
+            quantity REAL NOT NULL CHECK(quantity > 0),
+            unit TEXT NOT NULL,
+            period TEXT NOT NULL,
+            reporting_unit TEXT NOT NULL DEFAULT '',
+            factor_id TEXT NOT NULL REFERENCES emission_factors(id) ON DELETE RESTRICT,
+            factor_name TEXT NOT NULL,
+            factor_value REAL NOT NULL,
+            factor_unit TEXT NOT NULL,
+            factor_gas_basis TEXT NOT NULL DEFAULT 'CO2e',
+            factor_source TEXT NOT NULL,
+            factor_source_url TEXT NOT NULL,
+            factor_source_publication TEXT NOT NULL DEFAULT '',
+            factor_methodology TEXT NOT NULL DEFAULT '',
+            factor_year INTEGER NOT NULL,
+            factor_region TEXT NOT NULL,
+            assumptions TEXT NOT NULL,
+            factor_effective_start TEXT,
+            factor_effective_end TEXT,
+            factor_classification TEXT NOT NULL DEFAULT 'unverified',
+            factor_source_classification TEXT NOT NULL DEFAULT 'unverified',
+            factor_selection_status TEXT NOT NULL DEFAULT 'direct',
+            factor_last_verified_date TEXT,
+            emissions_kg REAL NOT NULL,
+            data_origin TEXT NOT NULL DEFAULT 'manual',
+            scope TEXT DEFAULT 'scope_2',
+            activity_date TEXT,
+            workspace_id TEXT,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+        );
+        """
+    )
+    legacy_factor_columns = {
+        row["name"]
+        for row in connection.execute(
+            "PRAGMA table_info(emission_factors_schema_legacy)"
+        )
+    }
+    factor_optional = {
+        column: column if column in legacy_factor_columns else "NULL"
+        for column in (
+            "workspace_id",
+            "gas_basis",
+            "source_publication",
+            "methodology",
+            "effective_start",
+            "effective_end",
+            "classification",
+            "last_verified_date",
+        )
+    }
+    connection.execute(
+        f"""
+        INSERT INTO emission_factors (
+            id, workspace_id, category, name, value, unit, gas_basis, source_name,
+            source_url, source_publication, methodology, factor_year, region, assumptions,
+            effective_start, effective_end, classification, last_verified_date, created_at
+        )
+        SELECT id, {factor_optional.get("workspace_id", "NULL")}, category, name, value, unit,
+            COALESCE({factor_optional["gas_basis"]}, CASE WHEN unit LIKE '%%CO2/%%' THEN 'CO2' ELSE 'CO2e' END),
+            source_name, source_url, COALESCE({factor_optional["source_publication"]}, ''),
+            COALESCE({factor_optional["methodology"]}, assumptions), factor_year, region, assumptions,
+            {factor_optional["effective_start"]}, {factor_optional["effective_end"]},
+            COALESCE({factor_optional["classification"]}, 'unverified'),
+            {factor_optional["last_verified_date"]}, created_at
+        FROM emission_factors_schema_legacy
+        """
+    )
+    legacy_activity_columns = {
+        row["name"]
+        for row in connection.execute(
+            "PRAGMA table_info(activities_factor_schema_legacy)"
+        )
+    }
+    activity_optional = {
+        column: f"a.{column}" if column in legacy_activity_columns else "NULL"
+        for column in (
+            "data_origin",
+            "scope",
+            "activity_date",
+            "workspace_id",
+            "factor_gas_basis",
+            "factor_source_publication",
+            "factor_methodology",
+            "factor_effective_start",
+            "factor_effective_end",
+            "factor_classification",
+            "factor_source_classification",
+            "factor_selection_status",
+            "factor_last_verified_date",
+        )
+    }
+    connection.execute(
+        f"""
+        INSERT INTO activities (
+            id, workspace_id, category, description, quantity, unit, period, activity_date,
+            reporting_unit, factor_id, factor_name, factor_value, factor_unit, factor_gas_basis,
+            factor_source, factor_source_url, factor_source_publication, factor_methodology,
+            factor_year, factor_region, assumptions, factor_effective_start, factor_effective_end,
+            factor_classification, factor_source_classification, factor_selection_status,
+            factor_last_verified_date, emissions_kg, data_origin, scope, created_at
+        )
+        SELECT a.id, {activity_optional["workspace_id"]}, a.category, a.description, a.quantity,
+            a.unit, a.period, {activity_optional["activity_date"]}, a.reporting_unit, a.factor_id,
+            a.factor_name, a.factor_value, a.factor_unit,
+            COALESCE({activity_optional["factor_gas_basis"]}, f.gas_basis, 'CO2e'),
+            a.factor_source, a.factor_source_url,
+            COALESCE({activity_optional["factor_source_publication"]}, f.source_publication, ''),
+            COALESCE({activity_optional["factor_methodology"]}, f.methodology, a.assumptions),
+            a.factor_year, a.factor_region, a.assumptions,
+            COALESCE({activity_optional["factor_effective_start"]}, f.effective_start),
+            COALESCE({activity_optional["factor_effective_end"]}, f.effective_end),
+            COALESCE({activity_optional["factor_classification"]}, f.classification, 'unverified'),
+            COALESCE({activity_optional["factor_source_classification"]}, f.classification, 'unverified'),
+            COALESCE({activity_optional["factor_selection_status"]}, 'direct'),
+            COALESCE({activity_optional["factor_last_verified_date"]}, f.last_verified_date),
+            a.emissions_kg, COALESCE({activity_optional["data_origin"]}, 'manual'),
+            COALESCE({activity_optional["scope"]}, 'scope_2'), a.created_at
+        FROM activities_factor_schema_legacy a
+        LEFT JOIN emission_factors f ON f.id = a.factor_id
+        """
+    )
+    connection.execute("DROP TABLE activities_factor_schema_legacy")
+    connection.execute("DROP TABLE emission_factors_schema_legacy")
+    connection.execute("PRAGMA foreign_keys = ON")
+
+
+def _migrate_water_factor_category(connection: sqlite3.Connection) -> None:
+    connection.execute(
+        """
+        UPDATE emission_factors
+        SET category = 'water'
+        WHERE category = 'waste' AND name = 'Municipal Water Supply'
+        """
+    )
 
 
 def _add_column(
@@ -522,18 +794,27 @@ def save_factor(
     factor_year: int,
     region: str,
     assumptions: str,
+    gas_basis: str = "CO2e",
+    source_publication: str = "",
+    methodology: str = "",
+    effective_start: str | None = None,
+    effective_end: str | None = None,
+    classification: str = "unverified",
+    last_verified_date: str | None = None,
 ) -> dict[str, Any]:
     factor_id = str(uuid.uuid4())
     with connect() as connection:
         connection.execute(
             """
             INSERT INTO emission_factors
-                (id, workspace_id, category, name, value, unit, source_name, source_url,
-                 factor_year, region, assumptions)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                (id, workspace_id, category, name, value, unit, gas_basis, source_name, source_url,
+                 source_publication, methodology, factor_year, region, assumptions,
+                 effective_start, effective_end, classification, last_verified_date)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
-            (factor_id, workspace_id, category, name, value, unit, source_name, source_url,
-             factor_year, region, assumptions),
+            (factor_id, workspace_id, category, name, value, unit, gas_basis, source_name, source_url,
+             source_publication, methodology, factor_year, region, assumptions,
+             effective_start, effective_end, classification, last_verified_date),
         )
         row = connection.execute(
             "SELECT * FROM emission_factors WHERE id = ?", (factor_id,)
@@ -565,6 +846,103 @@ def get_factor(factor_id: str, workspace_id: str) -> dict[str, Any] | None:
     return dict(row) if row else None
 
 
+def get_applicable_factor(
+    workspace_id: str,
+    category: str,
+    activity_unit: str,
+    activity_date: str,
+) -> dict[str, Any] | None:
+    with connect() as connection:
+        rows = connection.execute(
+            """
+            SELECT * FROM emission_factors
+            WHERE workspace_id = ? AND category = ?
+              AND lower(unit) LIKE ?
+              AND NOT (
+                  category = 'electricity'
+                  AND name = 'CEA National Grid Electricity Baseline'
+              )
+              AND value > 0
+            ORDER BY factor_year DESC, created_at DESC
+            """,
+            (workspace_id, category, f"%/{activity_unit.lower()}"),
+        ).fetchall()
+    if not rows:
+        return None
+
+    dated = [dict(row) for row in rows if row["effective_start"] or row["effective_end"]]
+    exact = [
+        row for row in dated
+        if (not row["effective_start"] or row["effective_start"] <= activity_date)
+        and (not row["effective_end"] or row["effective_end"] >= activity_date)
+    ]
+    if exact:
+        selected = max(
+            exact,
+            key=lambda row: (
+                row["effective_start"] or "",
+                row["effective_end"] or "",
+                row["factor_year"],
+                row["created_at"],
+            ),
+        )
+        selected["selection_status"] = "exact"
+        selected["source_classification"] = selected["classification"]
+        return selected
+
+    preceding = [
+        row for row in dated
+        if row["effective_end"]
+        and row["effective_end"] < activity_date
+        and (not row["effective_start"] or row["effective_start"] <= activity_date)
+    ]
+    undated = [dict(row) for row in rows if not row["effective_start"] and not row["effective_end"]]
+    if preceding:
+        selected = max(
+            preceding,
+            key=lambda row: (row["effective_end"], row["factor_year"], row["created_at"]),
+        )
+        selected["selection_status"] = "proxy"
+        selected["source_classification"] = selected["classification"]
+        selected["is_proxy"] = True
+        selected["proxy_reason"] = (
+            "No verified factor is published for this activity date; "
+            "the latest available preceding factor is used as a clearly labelled proxy."
+        )
+        return selected
+    if undated:
+        selected = max(undated, key=lambda row: (row["factor_year"], row["created_at"]))
+        selected["selection_status"] = "direct"
+        selected["source_classification"] = selected["classification"]
+        return selected
+    return None
+
+
+def resolve_factor_for_activity(
+    workspace_id: str,
+    category: str,
+    activity_unit: str,
+    activity_date: str,
+    factor_id: str | None = None,
+) -> dict[str, Any] | None:
+    automatic = get_applicable_factor(workspace_id, category, activity_unit, activity_date)
+    explicit = get_factor(factor_id, workspace_id) if factor_id else None
+    if not explicit:
+        return automatic
+    denominator = explicit["unit"].rsplit("/", 1)[-1].lower()
+    if explicit["category"] != category or denominator != activity_unit.lower():
+        return automatic
+    if explicit["name"] == "CEA National Grid Electricity Baseline":
+        return automatic
+    starts = explicit["effective_start"]
+    ends = explicit["effective_end"]
+    if (not starts or starts <= activity_date) and (not ends or ends >= activity_date):
+        explicit["selection_status"] = "exact" if starts or ends else "direct"
+        explicit["source_classification"] = explicit["classification"]
+        return explicit
+    return automatic
+
+
 def get_or_create_placeholder_factor(
     workspace_id: str, category: str, unit: str
 ) -> dict[str, Any]:
@@ -581,9 +959,9 @@ def get_or_create_placeholder_factor(
         connection.execute(
             """
             INSERT INTO emission_factors
-                (id, workspace_id, category, name, value, unit, source_name, source_url,
-                 factor_year, region, assumptions)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                (id, workspace_id, category, name, value, unit, gas_basis, source_name, source_url,
+                 source_publication, methodology, factor_year, region, assumptions, classification)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
             (
                 factor_id,
@@ -592,11 +970,15 @@ def get_or_create_placeholder_factor(
                 "No verified emission factor",
                 0,
                 factor_unit,
+                "CO2e",
                 "Not provided",
                 "",
+                "",
+                "No source or methodology is available.",
                 0,
                 "Not specified",
                 "Activity stored without carbon calculation until a verified factor is added.",
+                "unverified",
             ),
         )
         row = connection.execute(
@@ -624,15 +1006,25 @@ def save_activity(
             """
             INSERT INTO activities (
                 id, workspace_id, category, description, quantity, unit, period, activity_date, reporting_unit,
-                factor_id, factor_name, factor_value, factor_unit, factor_source,
-                factor_source_url, factor_year, factor_region, assumptions, emissions_kg, data_origin
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                factor_id, factor_name, factor_value, factor_unit, factor_gas_basis, factor_source,
+                factor_source_url, factor_source_publication, factor_methodology, factor_year, factor_region,
+                assumptions, factor_effective_start, factor_effective_end, factor_classification,
+                factor_source_classification, factor_selection_status, factor_last_verified_date,
+                emissions_kg, data_origin
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
             (
                 activity_id, workspace_id, category, description, quantity, unit, period,
                 activity_date or f"{period}-01", reporting_unit, factor["id"], factor["name"], factor["value"],
-                factor["unit"], factor["source_name"], factor["source_url"],
+                factor["unit"], factor.get("gas_basis", "CO2e"), factor["source_name"], factor["source_url"],
+                factor.get("source_publication", ""), factor.get("methodology", ""),
                 factor["factor_year"], factor["region"], factor["assumptions"],
+                factor.get("effective_start"), factor.get("effective_end"),
+                "proxy" if factor.get("selection_status") == "proxy"
+                else factor.get("classification", "unverified"),
+                factor.get("source_classification", factor.get("classification", "unverified")),
+                factor.get("selection_status", "direct"),
+                factor.get("last_verified_date"),
                 emissions_kg, data_origin,
             ),
         )
@@ -705,6 +1097,17 @@ def get_dashboard(workspace_id: str, period: str) -> dict[str, Any]:
             """,
             (workspace_id, period),
         ).fetchall()
+        gas_bases = [
+            row["factor_gas_basis"]
+            for row in connection.execute(
+                """
+                SELECT DISTINCT factor_gas_basis
+                FROM activities
+                WHERE workspace_id = ? AND period = ?
+                """,
+                (workspace_id, period),
+            ).fetchall()
+        ]
         trend = connection.execute(
             """
             SELECT period, SUM(emissions_kg) AS emissions_kg
@@ -726,6 +1129,7 @@ def get_dashboard(workspace_id: str, period: str) -> dict[str, Any]:
         "total_kg": current["total"],
         "previous_total_kg": previous,
         "activity_count": current["activity_count"],
+        "gas_basis": gas_bases[0] if len(gas_bases) == 1 else ("mixed" if gas_bases else None),
         "categories": [dict(row) for row in categories],
         "daily": [dict(row) for row in daily],
         "contributors": [dict(row) for row in contributors],
@@ -765,6 +1169,95 @@ def list_documents(workspace_id: str | None = None) -> list[dict[str, Any]]:
                 """,
             ).fetchall()
     return [dict(row) for row in rows]
+
+
+def import_urbanev_records(records: list[dict[str, Any]], dataset_version: str) -> int:
+    with connect() as connection:
+        before = connection.total_changes
+        connection.executemany(
+            """
+            INSERT OR IGNORE INTO urbanev_demand
+            (dataset_version, recorded_at, zone_id, charging_volume_kwh, occupancy,
+             duration_hours, electricity_price, service_price, temperature)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            [
+                (
+                    dataset_version,
+                    str(row["recorded_at"]),
+                    str(row["zone_id"]),
+                    float(row["charging_volume_kwh"]),
+                    row.get("occupancy"),
+                    row.get("duration_hours"),
+                    row.get("electricity_price"),
+                    row.get("service_price"),
+                    row.get("temperature"),
+                )
+                for row in records
+            ],
+        )
+        return connection.total_changes - before
+
+
+def get_urbanev_info(dataset_version: str) -> dict[str, Any]:
+    with connect() as connection:
+        row = connection.execute(
+            """
+            SELECT COUNT(*) AS records, COUNT(DISTINCT zone_id) AS zones,
+                   MIN(recorded_at) AS start, MAX(recorded_at) AS end
+            FROM urbanev_demand WHERE dataset_version = ?
+            """,
+            (dataset_version,),
+        ).fetchone()
+    return {"dataset": "UrbanEV", "dataset_version": dataset_version, **dict(row)}
+
+
+def list_urbanev_records(
+    dataset_version: str, zone_id: str | None = None, limit: int = 500
+) -> list[dict[str, Any]]:
+    query = "SELECT * FROM urbanev_demand WHERE dataset_version = ?"
+    params: list[Any] = [dataset_version]
+    if zone_id:
+        query += " AND zone_id = ?"
+        params.append(zone_id)
+    query += " ORDER BY recorded_at LIMIT ?"
+    params.append(limit)
+    with connect() as connection:
+        return [dict(row) for row in connection.execute(query, params).fetchall()]
+
+
+def save_ml_model_run(run: dict[str, Any]) -> None:
+    with connect() as connection:
+        connection.execute(
+            """
+            INSERT INTO ml_model_runs
+            (model_name, model_version, dataset_name, dataset_version, trained_at,
+             training_start, training_end, testing_start, testing_end, features_json,
+             target, metrics_json, artifact_path, status)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            (
+                run["model_name"], run["model_version"], run["dataset_name"],
+                run["dataset_version"], run["trained_at"], run.get("training_start"),
+                run.get("training_end"), run.get("testing_start"), run.get("testing_end"),
+                json.dumps(run["features"]), run["target"], json.dumps(run["metrics"]),
+                run["artifact_path"], run["status"],
+            ),
+        )
+
+
+def latest_ml_model_run(model_name: str) -> dict[str, Any] | None:
+    with connect() as connection:
+        row = connection.execute(
+            "SELECT * FROM ml_model_runs WHERE model_name = ? ORDER BY id DESC LIMIT 1",
+            (model_name,),
+        ).fetchone()
+    if not row:
+        return None
+    result = dict(row)
+    result["features"] = json.loads(result.pop("features_json"))
+    result["metrics"] = json.loads(result.pop("metrics_json"))
+    return result
 
 
 def get_document_by_hash(workspace_id: str, sha256: str) -> dict[str, Any] | None:
@@ -865,28 +1358,77 @@ def register_or_get_iot_device(
     workspace_id: str,
     device_id: str,
     device_name: str,
-    device_token: str | None = None,
     location: str = "",
 ) -> dict[str, Any]:
-    token = device_token or str(uuid.uuid4())
+    raw_token = new_session_token()
     with connect() as connection:
         row = connection.execute(
-            "SELECT * FROM iot_devices WHERE device_id = ? AND workspace_id = ?",
-            (device_id, workspace_id),
+            "SELECT * FROM iot_devices WHERE device_id = ?",
+            (device_id,),
         ).fetchone()
         if row:
-            return dict(row)
-        connection.execute(
-            """
-            INSERT INTO iot_devices (device_id, workspace_id, device_name, device_token, location)
-            VALUES (?, ?, ?, ?, ?)
-            """,
-            (device_id, workspace_id, device_name, token, location),
-        )
+            if str(row["workspace_id"]) != workspace_id:
+                raise ValueError("Device ID is already registered to another workspace.")
+            connection.execute(
+                "UPDATE iot_devices SET device_name = ?, location = ?, device_token = ? "
+                "WHERE device_id = ? AND workspace_id = ?",
+                (device_name, location, hash_token(raw_token), device_id, workspace_id),
+            )
+            row = connection.execute(
+                "SELECT * FROM iot_devices WHERE device_id = ? AND workspace_id = ?",
+                (device_id, workspace_id),
+            ).fetchone()
+        else:
+            connection.execute(
+                """
+                INSERT INTO iot_devices (device_id, workspace_id, device_name, device_token, location)
+                VALUES (?, ?, ?, ?, ?)
+                """,
+                (device_id, workspace_id, device_name, hash_token(raw_token), location),
+            )
+            row = connection.execute(
+                "SELECT * FROM iot_devices WHERE device_id = ? AND workspace_id = ?",
+                (device_id, workspace_id),
+            ).fetchone()
+    result = dict(row)
+    result["device_token"] = raw_token
+    return result
+
+
+def verify_iot_device(device_id: str, credential: str, workspace_id: str) -> bool:
+    if not credential:
+        return False
+    with connect() as connection:
         row = connection.execute(
-            "SELECT * FROM iot_devices WHERE device_id = ?", (device_id,)
+            "SELECT device_token FROM iot_devices WHERE device_id = ? AND workspace_id = ?",
+            (device_id, workspace_id),
         ).fetchone()
-    return dict(row)
+    if not row:
+        return False
+    stored = str(row["device_token"] or "")
+    if not stored:
+        return False
+
+    if len(stored) == 64:
+        valid = hmac.compare_digest(stored, hash_token(credential))
+    else:
+        valid = hmac.compare_digest(stored, credential)
+        if valid:
+            with connect() as connection:
+                connection.execute(
+                    "UPDATE iot_devices SET device_token = ? WHERE device_id = ? AND workspace_id = ?",
+                    (hash_token(credential), device_id, workspace_id),
+                )
+    return valid
+
+
+def revoke_iot_device(device_id: str, workspace_id: str) -> bool:
+    with connect() as connection:
+        result = connection.execute(
+            "UPDATE iot_devices SET device_token = '' WHERE device_id = ? AND workspace_id = ?",
+            (device_id, workspace_id),
+        )
+    return result.rowcount > 0
 
 
 def get_iot_device(device_id: str) -> dict[str, Any] | None:
@@ -903,7 +1445,12 @@ def list_iot_devices(workspace_id: str) -> list[dict[str, Any]]:
             "SELECT * FROM iot_devices WHERE workspace_id = ? ORDER BY created_at DESC",
             (workspace_id,),
         ).fetchall()
-    return [dict(r) for r in rows]
+    devices = []
+    for row in rows:
+        device = dict(row)
+        device.pop("device_token", None)
+        devices.append(device)
+    return devices
 
 
 def save_iot_reading(
@@ -1045,26 +1592,34 @@ def update_reduction_goal_status(goal_id: str, workspace_id: str, status: str) -
 def seed_reference_factors_if_empty(workspace_id: str) -> int:
     from .carbon import REFERENCE_FACTORS
     with connect() as connection:
-        count = connection.execute(
-            "SELECT COUNT(*) FROM emission_factors WHERE workspace_id = ?", (workspace_id,)
-        ).fetchone()[0]
-        if count > 0:
-            return 0
-
         inserted = 0
         for f in REFERENCE_FACTORS:
+            exists = connection.execute(
+                """
+                SELECT 1 FROM emission_factors
+                WHERE workspace_id = ? AND category = ? AND name = ? AND factor_year = ?
+                """,
+                (workspace_id, f["category"], f["name"], f["factor_year"]),
+            ).fetchone()
+            if exists:
+                continue
             factor_id = str(uuid.uuid4())
             connection.execute(
                 """
                 INSERT INTO emission_factors (
-                    id, workspace_id, category, name, value, unit,
-                    source_name, source_url, factor_year, region, assumptions
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    id, workspace_id, category, name, value, unit, gas_basis,
+                    source_name, source_url, source_publication, methodology,
+                    factor_year, region, assumptions, effective_start, effective_end,
+                    classification, last_verified_date
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 (
                     factor_id, workspace_id, f["category"], f["name"], f["value"],
-                    f["unit"], f["source_name"], f["source_url"],
+                    f["unit"], f.get("gas_basis", "CO2e"), f["source_name"], f["source_url"],
+                    f.get("source_publication", ""), f.get("methodology", ""),
                     f["factor_year"], f["region"], f["assumptions"],
+                    f.get("effective_start"), f.get("effective_end"),
+                    f.get("classification", "unverified"), f.get("last_verified_date"),
                 ),
             )
             inserted += 1
@@ -1091,9 +1646,12 @@ def start_trip(workspace_id: str, mode: str, user_id: str | None = None, initial
     return res
 
 
-def add_trip_points(trip_id: str, new_points: list[dict[str, Any]]) -> dict[str, Any]:
+def add_trip_points(trip_id: str, workspace_id: str, new_points: list[dict[str, Any]]) -> dict[str, Any]:
     with connect() as connection:
-        row = connection.execute("SELECT * FROM trips WHERE id = ?", (trip_id,)).fetchone()
+        row = connection.execute(
+            "SELECT * FROM trips WHERE id = ? AND workspace_id = ?",
+            (trip_id, workspace_id),
+        ).fetchone()
         if not row:
             raise ValueError("Trip not found")
         existing_points = json.loads(row["points_json"] or "[]")
@@ -1103,16 +1661,24 @@ def add_trip_points(trip_id: str, new_points: list[dict[str, Any]]) -> dict[str,
         dist_km, cleaned = filter_gps_track(existing_points)
 
         connection.execute(
-            "UPDATE trips SET distance_km = ?, points_json = ? WHERE id = ?",
-            (dist_km, json.dumps(cleaned), trip_id),
+            "UPDATE trips SET distance_km = ?, points_json = ? WHERE id = ? AND workspace_id = ?",
+            (dist_km, json.dumps(cleaned), trip_id, workspace_id),
         )
-        updated = connection.execute("SELECT * FROM trips WHERE id = ?", (trip_id,)).fetchone()
+        updated = connection.execute(
+            "SELECT * FROM trips WHERE id = ? AND workspace_id = ?",
+            (trip_id, workspace_id),
+        ).fetchone()
     res = dict(updated)
     res["points"] = cleaned
     return res
 
 
-def complete_trip(trip_id: str, factor_val: float = 0.170, factor_name: str = "Passenger Car") -> dict[str, Any]:
+def complete_trip(
+    trip_id: str,
+    factor_val: float = 0.170,
+    factor_name: str = "Passenger Car",
+    calculation_quantity: float | None = None,
+) -> dict[str, Any]:
     now = datetime.now(timezone.utc).isoformat()
     with connect() as connection:
         row = connection.execute("SELECT * FROM trips WHERE id = ?", (trip_id,)).fetchone()
@@ -1121,7 +1687,7 @@ def complete_trip(trip_id: str, factor_val: float = 0.170, factor_name: str = "P
         pts = json.loads(row["points_json"] or "[]")
         from .carbon import filter_gps_track
         dist_km, _ = filter_gps_track(pts)
-        emissions_kg = round(dist_km * factor_val, 4)
+        emissions_kg = round((calculation_quantity or dist_km) * factor_val, 4)
 
         connection.execute(
             """
@@ -1134,6 +1700,15 @@ def complete_trip(trip_id: str, factor_val: float = 0.170, factor_name: str = "P
     res = dict(updated)
     res["points"] = pts
     return res
+
+
+def get_trip(trip_id: str, workspace_id: str) -> dict[str, Any] | None:
+    with connect() as connection:
+        row = connection.execute(
+            "SELECT * FROM trips WHERE id = ? AND workspace_id = ?",
+            (trip_id, workspace_id),
+        ).fetchone()
+    return dict(row) if row else None
 
 
 def list_trips(workspace_id: str, limit: int = 25) -> list[dict[str, Any]]:
@@ -1279,6 +1854,12 @@ def list_green_challenges(workspace_id: str) -> list[dict[str, Any]]:
 def join_green_challenge(challenge_id: str, workspace_id: str, student_name: str, department_or_hostel: str, user_id: str | None = None) -> dict[str, Any]:
     pid = str(uuid.uuid4())
     with connect() as connection:
+        challenge = connection.execute(
+            "SELECT id FROM green_challenges WHERE id = ? AND workspace_id = ?",
+            (challenge_id, workspace_id),
+        ).fetchone()
+        if not challenge:
+            raise ValueError("Challenge not found")
         connection.execute(
             """
             INSERT INTO challenge_participants (id, challenge_id, workspace_id, user_id, student_name, department_or_hostel, points)
@@ -1287,8 +1868,8 @@ def join_green_challenge(challenge_id: str, workspace_id: str, student_name: str
             (pid, challenge_id, workspace_id, user_id, student_name, department_or_hostel),
         )
         connection.execute(
-            "UPDATE green_challenges SET participants_count = participants_count + 1 WHERE id = ?",
-            (challenge_id,),
+            "UPDATE green_challenges SET participants_count = participants_count + 1 WHERE id = ? AND workspace_id = ?",
+            (challenge_id, workspace_id),
         )
         row = connection.execute("SELECT * FROM challenge_participants WHERE id = ?", (pid,)).fetchone()
     return dict(row)

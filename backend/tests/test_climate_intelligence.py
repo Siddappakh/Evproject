@@ -103,6 +103,103 @@ def test_impact_equivalents():
     assert eq["money_saved_inr"] > 0
 
 
+def test_cross_workspace_trip_points_and_challenge_join_are_rejected(client):
+    trip = client.post(
+        "/api/trips/start",
+        json={"mode": "car", "initial_point": {"latitude": 12.97, "longitude": 77.60, "accuracy": 10}},
+    )
+    assert trip.status_code == 201
+    trip_id = trip.json()["id"]
+
+    challenge = client.post(
+        "/api/college/challenges",
+        json={
+            "title": "Private Campus Challenge",
+            "description": "A workspace-owned challenge",
+            "category": "electricity",
+            "target_reduction_pct": 10,
+            "start_date": "2026-10-01",
+            "end_date": "2026-10-31",
+        },
+    )
+    assert challenge.status_code == 201
+
+    with TestClient(main.app) as other:
+        registration = other.post(
+            "/api/auth/register",
+            json={
+                "full_name": "Other Campus Admin",
+                "email": "other.campus@greentrack.ai",
+                "password": "SecurePassword123!",
+                "account_type": "college",
+                "workspace_name": "Other Campus",
+                "location": "India",
+            },
+        )
+        assert registration.status_code == 201
+        csrf = other.cookies.get(main.CSRF_COOKIE_NAME)
+        if csrf:
+            other.headers["X-CSRF-Token"] = csrf
+        workspace = other.put(
+            "/api/workspace",
+            json={"name": "Other Campus", "account_type": "college", "region": "India"},
+        )
+        assert workspace.status_code == 200
+
+        trip_points = other.post(
+            f"/api/trips/{trip_id}/points",
+            json={"points": [{"latitude": 12.98, "longitude": 77.61, "accuracy": 10}]},
+        )
+        assert trip_points.status_code == 404
+
+        join = other.post(
+            f"/api/college/challenges/{challenge.json()['id']}/join",
+            json={"student_name": "Other Student", "department_or_hostel": "Other Hostel"},
+        )
+        assert join.status_code == 404
+
+
+def test_bulk_import_resolves_factor_by_date_and_unit(client):
+    result = client.post(
+        "/api/organization/bulk-import",
+        json={
+            "rows": [
+                {
+                    "category": "electricity",
+                    "description": "FY 2024-25 bulk import",
+                    "quantity": 100,
+                    "unit": "kWh",
+                    "period": "2024-10",
+                    "reporting_unit": "Main Campus",
+                }
+            ]
+        },
+    )
+    assert result.status_code == 201
+    assert result.json()["imported_count"] == 1
+    activity = client.get("/api/activities?period=2024-10")
+    assert activity.status_code == 200
+    assert activity.json()[0]["factor_value"] == pytest.approx(0.710)
+    assert activity.json()[0]["emissions_kg"] == pytest.approx(71.0)
+
+
+def test_campus_event_rejects_untraceable_meal_factor(client):
+    result = client.post(
+        "/api/college/events",
+        json={
+            "event_name": "Catering Test",
+            "event_date": "2026-10-15",
+            "attendees": 100,
+            "duration_hours": 4,
+            "generator_kwh": 10,
+            "meals_served": 100,
+            "travel_km": 20,
+        },
+    )
+    assert result.status_code == 422
+    assert "traceable per-meal emission factor" in result.json()["detail"]
+
+
 def test_trips_and_campus_endpoints(client):
     # 1. GPS Trip Flow
     trip_start = client.post(

@@ -1,0 +1,34 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    environment:
+      GREENTRACK_ENV: production
+      GREENTRACK_DATABASE: /data/greentrack.sqlite3
+      GREENTRACK_ALLOWED_ORIGINS: ${GREENTRACK_ALLOWED_ORIGINS:-https://localhost}
+      GREENTRACK_TRUSTED_HOSTS: ${GREENTRACK_TRUSTED_HOSTS:-localhost,backend}
+      GREENTRACK_COOKIE_SECURE: ${GREENTRACK_COOKIE_SECURE:-true}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+    volumes:
+      - greentrack-data:/data
+    expose:
+      - "8001"
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ${GREENTRACK_TLS_CERT_DIR:-./tls}:/etc/nginx/tls:ro
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  greentrack-data:

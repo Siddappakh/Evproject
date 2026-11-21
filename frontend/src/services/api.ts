@@ -24,6 +24,12 @@ import type {
   ReductionGoal,
   ScopeSummary,
   Workspace,
+  MlAnomaly,
+  MlForecastPoint,
+  MlModelStatus,
+  MlPrediction,
+  UrbanEvForecastResponse,
+  UrbanEvRecord,
 } from "../types/api";
 
 const API_BASE = (import.meta.env.VITE_API_BASE_URL ?? "").replace(/\/$/, "");
@@ -49,7 +55,7 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
   const response = await fetch(`${API_BASE}${path}`, {
     ...init,
     headers,
-    credentials: "same-origin",
+    credentials: "include",
   });
   if (!response.ok) {
     let message = `Request failed (${response.status}).`;
@@ -122,11 +128,15 @@ export const api = {
     name: string;
     value: number;
     unit: string;
+    gas_basis: "CO2" | "CO2e";
     source_name: string;
     source_url: string;
+    source_publication: string;
+    methodology: string;
     factor_year: number;
     region: string;
     assumptions: string;
+    classification: "official" | "estimated" | "demonstration" | "proxy" | "unverified";
   }) => request<Factor>("/api/factors", jsonBody(value)),
   seedFactors: () =>
     request<{ seeded_factors_count: number; message: string }>("/api/factors/seed", { method: "POST" }),
@@ -137,6 +147,29 @@ export const api = {
     }),
   getRecommendations: (period: string) =>
     request<Recommendation[]>(`/api/recommendations?period=${encodeURIComponent(period)}`),
+  getMlModelStatus: () => request<MlModelStatus>("/api/ml/model-status"),
+  getMlModelMetrics: () => request<{ metrics: Record<string, Record<string, unknown>> }>("/api/ml/model-metrics"),
+  predictEmissions: (value: { period?: string; activity_ids?: string[] } = {}) =>
+    request<{ predictions: MlPrediction[]; record_count: number; model: string; warning: string }>(
+      "/api/ml/predict-emissions",
+      jsonBody(value),
+    ),
+  detectMlAnomalies: (value: { period?: string; activity_ids?: string[] } = {}) =>
+    request<{ anomalies: MlAnomaly[]; record_count: number; model: string; warning: string }>(
+      "/api/ml/detect-anomalies",
+      jsonBody(value),
+    ),
+  forecastMlEmissions: (periods: number = 6, period?: string) =>
+    request<{ forecast: MlForecastPoint[]; record_count: number; model: string; estimated: true; warning: string }>(
+      "/api/ml/forecast-emissions",
+      jsonBody({ periods, period }),
+    ),
+  getUrbanEvInfo: () => request<{ dataset: string; dataset_version: string; records: number; zones: number; start: string; end: string }>("/api/urbanev/info"),
+  getUrbanEvZones: () => request<string[]>("/api/urbanev/zones"),
+  getUrbanEvData: (zoneId?: string, limit: number = 500) =>
+    request<UrbanEvRecord[]>(`/api/urbanev/data?limit=${limit}${zoneId ? `&zone_id=${encodeURIComponent(zoneId)}` : ""}`),
+  getUrbanEvForecast: (zoneId?: string, horizon: number = 24) =>
+    request<UrbanEvForecastResponse>("/api/urbanev/forecast", jsonBody({ zone_id: zoneId || null, horizon })),
   getCarbonExplanation: (period: string) =>
     request<{ period: string; monthly_total_kg: number; daily: Array<{ activity_date: string; emissions_kg: number }>; categories: Array<{ category: string; emissions_kg: number }>; explanation: string; ai_generated: boolean }>(`/api/carbon-explanation?period=${encodeURIComponent(period)}`),
   getExplainableAi: (period: string) =>
@@ -192,8 +225,8 @@ export const api = {
     request<GpsTrip>("/api/trips/start", jsonBody({ mode, initial_point: initialPoint })),
   addTripPoints: (tripId: string, points: Array<{ latitude: number; longitude: number; accuracy?: number; timestamp?: number }>) =>
     request<GpsTrip>(`/api/trips/${encodeURIComponent(tripId)}/points`, jsonBody({ points })),
-  stopTrip: (tripId: string, factorValue?: number, factorName?: string) =>
-    request<GpsTrip>(`/api/trips/${encodeURIComponent(tripId)}/stop`, jsonBody({ factor_value: factorValue, factor_name: factorName })),
+  stopTrip: (tripId: string, passengerKm?: number) =>
+    request<GpsTrip>(`/api/trips/${encodeURIComponent(tripId)}/stop`, jsonBody({ passenger_km: passengerKm })),
   getTrips: (limit: number = 25) => request<GpsTrip[]>(`/api/trips?limit=${limit}`),
 
   // Multi-Site & Campus Facilities

@@ -1,0 +1,80 @@
+{
+  "anomaly": {
+    "records": 49775,
+    "model": "IsolationForest",
+    "contamination": "auto",
+    "dataset_version": "activity-ledger-v1",
+    "dataset_path": "data\\processed\\urbanev_zone_daily_activities.csv",
+    "trained_at": "2026-11-03T15:42:32.473740+00:00"
+  },
+  "emission": {
+    "metrics": {
+      "mae_kg": 40.785416,
+      "rmse_kg": 94.609288,
+      "r2": 0.99993,
+      "baseline_mae_kg": 5306.169831
+    },
+    "feature_importance": [
+      {
+        "feature": "numeric__quantity",
+        "importance": 0.999999
+      },
+      {
+        "feature": "numeric__factor_value",
+        "importance": 0.0
+      },
+      {
+        "feature": "numeric__factor_year",
+        "importance": 0.0
+      },
+      {
+        "feature": "numeric__month",
+        "importance": 0.0
+      },
+      {
+        "feature": "numeric__day_of_month",
+        "importance": 0.0
+      },
+      {
+        "feature": "numeric__day_of_week",
+        "importance": 0.0
+      },
+      {
+        "feature": "categorical__category_electricity",
+        "importance": 0.0
+      },
+      {
+        "feature": "categorical__unit_kWh",
+        "importance": 0.0
+      },
+      {
+        "feature": "categorical__reporting_unit_UrbanEV-zone-1000",
+        "importance": 0.0
+      },
+      {
+        "feature": "categorical__reporting_unit_UrbanEV-zone-1009",
+        "importance": 0.0
+      }
+    ],
+    "records": 49775,
+    "model": "GradientBoostingRegressor",
+    "validation": "chronological 75/25 holdout",
+    "dataset_version": "activity-ledger-v1",
+    "dataset_path": "data\\processed\\urbanev_zone_daily_activities.csv",
+    "trained_at": "2026-11-03T15:42:32.473740+00:00"
+  },
+  "forecast": {
+    "records": 49775,
+    "periods": 6,
+    "model": "Ridge time trend",
+    "validation": "chronological last-period backtest",
+    "validation_metrics": {
+      "mae_kg": 583947.057412,
+      "rmse_kg": 583947.057412,
+      "r2": 0.0
+    },
+    "dataset_version": "activity-ledger-v1",
+    "dataset_path": "data\\processed\\urbanev_zone_daily_activities.csv",
+    "trained_at": "2026-11-03T15:42:32.473740+00:00"
+  }
+}

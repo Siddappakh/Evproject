@@ -1,0 +1,1255 @@
+period,activity_date,category,description,quantity,unit,reporting_unit,factor_value,factor_year,emissions_kg
+2024-01,2024-01-01,electricity,EV charging session - BMW i3,60.71234573492677,kWh,Station_391,0.71,2024,43.10576547179801
+2024-01,2024-01-01,electricity,EV charging session - Hyundai Kona,12.339275203733752,kWh,Station_428,0.71,2024,8.760885394650964
+2024-01,2024-01-01,electricity,EV charging session - Chevy Bolt,19.12887570011548,kWh,Station_181,0.71,2024,13.58150174708199
+2024-01,2024-01-01,electricity,EV charging session - Hyundai Kona,79.45782398845503,kWh,Station_327,0.71,2024,56.41505503180307
+2024-01,2024-01-01,electricity,EV charging session - Hyundai Kona,19.62910416772725,kWh,Station_108,0.71,2024,13.936663959086346
+2024-01,2024-01-01,electricity,EV charging session - Nissan Leaf,43.18113714248533,kWh,Station_335,0.71,2024,30.658607371164585
+2024-01,2024-01-01,electricity,EV charging session - Chevy Bolt,36.862139988267536,kWh,Station_162,0.71,2024,26.17211939166995
+2024-01,2024-01-01,electricity,EV charging session - Chevy Bolt,51.46761685839947,kWh,Station_302,0.71,2024,36.54200796946362
+2024-01,2024-01-01,electricity,EV charging session - Chevy Bolt,43.59237228216989,kWh,Station_493,0.71,2024,30.95058432034062
+2024-01,2024-01-01,electricity,EV charging session - Hyundai Kona,78.86860745126785,kWh,Station_452,0.71,2024,55.99671129040017
+2024-01,2024-01-01,electricity,EV charging session - BMW i3,18.20619747737872,kWh,Station_206,0.71,2024,12.92640020893889
+2024-01,2024-01-01,electricity,EV charging session - Chevy Bolt,22.564929484106763,kWh,Station_78,0.71,2024,16.0210999337158
+2024-01,2024-01-01,electricity,EV charging session - Hyundai Kona,34.256452908516025,kWh,Station_16,0.71,2024,24.322081565046375
+2024-01,2024-01-01,electricity,EV charging session - Nissan Leaf,16.56106432522506,kWh,Station_327,0.71,2024,11.758355670909793
+2024-01,2024-01-01,electricity,EV charging session - BMW i3,12.927545290947553,kWh,Station_96,0.71,2024,9.178557156572761
+2024-01,2024-01-01,electricity,EV charging session - Nissan Leaf,27.354317884610715,kWh,Station_147,0.71,2024,19.421565698073607
+2024-01,2024-01-01,electricity,EV charging session - BMW i3,24.726937680708804,kWh,Station_2,0.71,2024,17.55612575330325
+2024-01,2024-01-01,electricity,EV charging session - Hyundai Kona,23.824040473705303,kWh,Station_10,0.71,2024,16.915068736330763
+2024-01,2024-01-01,electricity,EV charging session - Tesla Model 3,42.63801819167288,kWh,Station_434,0.71,2024,30.27299291608774
+2024-01,2024-01-01,electricity,EV charging session - BMW i3,48.48248430757049,kWh,Station_125,0.71,2024,34.42256385837504
+2024-01,2024-01-01,electricity,EV charging session - Nissan Leaf,50.27906667357191,kWh,Station_81,0.71,2024,35.69813733823606
+2024-01,2024-01-01,electricity,EV charging session - Hyundai Kona,59.1350316162392,kWh,Station_485,0.71,2024,41.98587244752983
+2024-01,2024-01-01,electricity,EV charging session - BMW i3,49.19642958971384,kWh,Station_140,0.71,2024,34.92946500869682
+2024-01,2024-01-01,electricity,EV charging session - Tesla Model 3,68.44712632026376,kWh,Station_326,0.71,2024,48.59745968738727
+2024-01,2024-01-02,electricity,EV charging session - Tesla Model 3,27.60438468247694,kWh,Station_150,0.71,2024,19.599113124558627
+2024-01,2024-01-02,electricity,EV charging session - Chevy Bolt,40.178003499947216,kWh,Station_288,0.71,2024,28.52638248496252
+2024-01,2024-01-02,electricity,EV charging session - Chevy Bolt,43.487751224792326,kWh,Station_361,0.71,2024,30.87630336960255
+2024-01,2024-01-02,electricity,EV charging session - Nissan Leaf,10.338517723856468,kWh,Station_340,0.71,2024,7.340347583938092
+2024-01,2024-01-02,electricity,EV charging session - BMW i3,31.68448458657448,kWh,Station_129,0.71,2024,22.49598405646788
+2024-01,2024-01-02,electricity,EV charging session - BMW i3,56.59325685914933,kWh,Station_438,0.71,2024,40.18121236999602
+2024-01,2024-01-02,electricity,EV charging session - Chevy Bolt,19.473800595427143,kWh,Station_239,0.71,2024,13.82639842275327
+2024-01,2024-01-02,electricity,EV charging session - BMW i3,38.28919933554271,kWh,Station_58,0.71,2024,27.185331528235324
+2024-01,2024-01-02,electricity,EV charging session - BMW i3,16.136238725396332,kWh,Station_198,0.71,2024,11.456729495031395
+2024-01,2024-01-02,electricity,EV charging session - Tesla Model 3,60.06708508895625,kWh,Station_211,0.71,2024,42.647630413158936
+2024-01,2024-01-02,electricity,EV charging session - Chevy Bolt,57.72437946101146,kWh,Station_402,0.71,2024,40.98430941731814
+2024-01,2024-01-02,electricity,EV charging session - Hyundai Kona,37.37451606078376,kWh,Station_390,0.71,2024,26.53590640315647
+2024-01,2024-01-02,electricity,EV charging session - Chevy Bolt,39.940563619980615,kWh,Station_45,0.71,2024,28.357800170186234
+2024-01,2024-01-02,electricity,EV charging session - Hyundai Kona,73.38661952275571,kWh,Station_97,0.71,2024,52.10449986115655
+2024-01,2024-01-02,electricity,EV charging session - Tesla Model 3,61.52075986084904,kWh,Station_279,0.71,2024,43.67973950120282
+2024-01,2024-01-02,electricity,EV charging session - Nissan Leaf,68.17785003637414,kWh,Station_23,0.71,2024,48.40627352582563
+2024-01,2024-01-02,electricity,EV charging session - BMW i3,67.51805822343026,kWh,Station_410,0.71,2024,47.93782133863548
+2024-01,2024-01-02,electricity,EV charging session - Tesla Model 3,39.398742356080696,kWh,Station_461,0.71,2024,27.973107072817292
+2024-01,2024-01-02,electricity,EV charging session - BMW i3,12.049319706245154,kWh,Station_391,0.71,2024,8.555016991434059
+2024-01,2024-01-02,electricity,EV charging session - Nissan Leaf,77.0536063752363,kWh,Station_335,0.71,2024,54.70806052641777
+2024-01,2024-01-02,electricity,EV charging session - Tesla Model 3,46.80719594482398,kWh,Station_27,0.71,2024,33.23310912082503
+2024-01,2024-01-02,electricity,EV charging session - Nissan Leaf,67.47546614008147,kWh,Station_282,0.71,2024,47.90758095945784
+2024-01,2024-01-02,electricity,EV charging session - Hyundai Kona,30.710934027103814,kWh,Station_97,0.71,2024,21.804763159243706
+2024-01,2024-01-03,electricity,EV charging session - BMW i3,8.713190575944605,kWh,Station_36,0.71,2024,6.186365308920669
+2024-01,2024-01-03,electricity,EV charging session - BMW i3,9.06588081544948,kWh,Station_109,0.71,2024,6.436775378969131
+2024-01,2024-01-03,electricity,EV charging session - BMW i3,58.73397361690925,kWh,Station_55,0.71,2024,41.701121268005565
+2024-01,2024-01-03,electricity,EV charging session - BMW i3,65.98624912728606,kWh,Station_192,0.71,2024,46.850236880373096
+2024-01,2024-01-03,electricity,EV charging session - Hyundai Kona,74.99970643372605,kWh,Station_219,0.71,2024,53.24979156794549
+2024-01,2024-01-03,electricity,EV charging session - Chevy Bolt,17.769436409407696,kWh,Station_185,0.71,2024,12.616299850679464
+2024-01,2024-01-03,electricity,EV charging session - Tesla Model 3,50.26893407436542,kWh,Station_69,0.71,2024,35.690943192799445
+2024-01,2024-01-03,electricity,EV charging session - BMW i3,76.45046498743068,kWh,Station_317,0.71,2024,54.27983014107578
+2024-01,2024-01-03,electricity,EV charging session - Nissan Leaf,77.86372676031044,kWh,Station_130,0.71,2024,55.28324599982041
+2024-01,2024-01-03,electricity,EV charging session - BMW i3,21.89299267514347,kWh,Station_55,0.71,2024,15.544024799351863
+2024-01,2024-01-03,electricity,EV charging session - Nissan Leaf,71.28000416235402,kWh,Station_378,0.71,2024,50.60880295527135
+2024-01,2024-01-03,electricity,EV charging session - Nissan Leaf,21.82768817738645,kWh,Station_97,0.71,2024,15.497658605944379
+2024-01,2024-01-03,electricity,EV charging session - BMW i3,62.723162291274086,kWh,Station_336,0.71,2024,44.5334452268046
+2024-01,2024-01-03,electricity,EV charging session - Hyundai Kona,46.1951370011332,kWh,Station_87,0.71,2024,32.79854727080457
+2024-01,2024-01-03,electricity,EV charging session - Nissan Leaf,29.34565985727085,kWh,Station_294,0.71,2024,20.835418498662303
+2024-01,2024-01-03,electricity,EV charging session - Nissan Leaf,76.93342189972203,kWh,Station_119,0.71,2024,54.62272954880264
+2024-01,2024-01-03,electricity,EV charging session - BMW i3,59.25460166411963,kWh,Station_208,0.71,2024,42.070767181524936
+2024-01,2024-01-03,electricity,EV charging session - Nissan Leaf,37.06292777850246,kWh,Station_334,0.71,2024,26.314678722736748
+2024-01,2024-01-03,electricity,EV charging session - Nissan Leaf,67.69516175123809,kWh,Station_413,0.71,2024,48.06356484337904
+2024-01,2024-01-03,electricity,EV charging session - BMW i3,16.41401693253662,kWh,Station_154,0.71,2024,11.653952022100999
+2024-01,2024-01-03,electricity,EV charging session - BMW i3,67.00568214318923,kWh,Station_35,0.71,2024,47.57403432166436
+2024-01,2024-01-03,electricity,EV charging session - Tesla Model 3,70.61729259484447,kWh,Station_79,0.71,2024,50.138277742339575
+2024-01,2024-01-03,electricity,EV charging session - Hyundai Kona,61.13047583037784,kWh,Station_67,0.71,2024,43.402637839568264
+2024-01,2024-01-04,electricity,EV charging session - Hyundai Kona,22.88203842151127,kWh,Station_343,0.71,2024,16.246247279273003
+2024-01,2024-01-04,electricity,EV charging session - Nissan Leaf,12.894887186031896,kWh,Station_413,0.71,2024,9.155369902082645
+2024-01,2024-01-04,electricity,EV charging session - Hyundai Kona,69.16916705566726,kWh,Station_34,0.71,2024,49.11010860952375
+2024-01,2024-01-04,electricity,EV charging session - Tesla Model 3,49.2788373994772,kWh,Station_169,0.71,2024,34.98797455362881
+2024-01,2024-01-04,electricity,EV charging session - BMW i3,31.218889683829406,kWh,Station_169,0.71,2024,22.16541167551888
+2024-01,2024-01-04,electricity,EV charging session - BMW i3,30.651699818598622,kWh,Station_151,0.71,2024,21.762706871205022
+2024-01,2024-01-04,electricity,EV charging session - BMW i3,59.9864767329939,kWh,Station_71,0.71,2024,42.59039848042567
+2024-01,2024-01-04,electricity,EV charging session - Hyundai Kona,51.67374779364138,kWh,Station_3,0.71,2024,36.68836093348538
+2024-01,2024-01-04,electricity,EV charging session - Tesla Model 3,35.9072426531086,kWh,Station_314,0.71,2024,25.494142283707102
+2024-01,2024-01-04,electricity,EV charging session - Hyundai Kona,41.60783353260332,kWh,Station_32,0.71,2024,29.54156180814836
+2024-01,2024-01-04,electricity,EV charging session - Hyundai Kona,32.83295683246542,kWh,Station_287,0.71,2024,23.311399351050447
+2024-01,2024-01-04,electricity,EV charging session - Tesla Model 3,57.92445004054599,kWh,Station_82,0.71,2024,41.12635952878765
+2024-01,2024-01-04,electricity,EV charging session - Tesla Model 3,21.65616411567424,kWh,Station_43,0.71,2024,15.37587652212871
+2024-01,2024-01-04,electricity,EV charging session - Tesla Model 3,41.01058174547109,kWh,Station_391,0.71,2024,29.117513039284475
+2024-01,2024-01-04,electricity,EV charging session - Tesla Model 3,79.81869447094793,kWh,Station_105,0.71,2024,56.671273074373026
+2024-01,2024-01-04,electricity,EV charging session - BMW i3,33.07294950547435,kWh,Station_1,0.71,2024,23.481794148886785
+2024-01,2024-01-04,electricity,EV charging session - Chevy Bolt,27.84315247164263,kWh,Station_61,0.71,2024,19.768638254866264
+2024-01,2024-01-04,electricity,EV charging session - Chevy Bolt,28.440773917754164,kWh,Station_270,0.71,2024,20.192949481605456
+2024-01,2024-01-04,electricity,EV charging session - Tesla Model 3,68.57302471319414,kWh,Station_180,0.71,2024,48.68684754636784
+2024-01,2024-01-04,electricity,EV charging session - Chevy Bolt,65.431016913359,kWh,Station_224,0.71,2024,46.45602200848489
+2024-01,2024-01-04,electricity,EV charging session - Chevy Bolt,71.61568949106118,kWh,Station_6,0.71,2024,50.84713953865343
+2024-01,2024-01-04,electricity,EV charging session - Tesla Model 3,7.930901450146639,kWh,Station_103,0.71,2024,5.630940029604113
+2024-01,2024-01-05,electricity,EV charging session - Hyundai Kona,55.72920335411825,kWh,Station_71,0.71,2024,39.56773438142395
+2024-01,2024-01-05,electricity,EV charging session - Nissan Leaf,31.046574961450595,kWh,Station_90,0.71,2024,22.043068222629923
+2024-01,2024-01-05,electricity,EV charging session - Nissan Leaf,15.91756323749268,kWh,Station_226,0.71,2024,11.301469898619802
+2024-01,2024-01-05,electricity,EV charging session - Tesla Model 3,50.90348235510272,kWh,Station_158,0.71,2024,36.14147247212293
+2024-01,2024-01-05,electricity,EV charging session - BMW i3,71.47764853216556,kWh,Station_228,0.71,2024,50.749130457837545
+2024-01,2024-01-05,electricity,EV charging session - Tesla Model 3,74.15366015953305,kWh,Station_405,0.71,2024,52.64909871326846
+2024-01,2024-01-05,electricity,EV charging session - BMW i3,46.77551047348464,kWh,Station_126,0.71,2024,33.21061243617409
+2024-01,2024-01-05,electricity,EV charging session - Nissan Leaf,8.469643800499997,kWh,Station_444,0.71,2024,6.013447098354997
+2024-01,2024-01-05,electricity,EV charging session - Tesla Model 3,61.697438669843606,kWh,Station_209,0.71,2024,43.80518145558896
+2024-01,2024-01-05,electricity,EV charging session - Hyundai Kona,41.264155052372864,kWh,Station_97,0.71,2024,29.29755008718473
+2024-01,2024-01-05,electricity,EV charging session - Chevy Bolt,6.503953233800639,kWh,Station_74,0.71,2024,4.617806795998454
+2024-01,2024-01-05,electricity,EV charging session - BMW i3,65.89318362199285,kWh,Station_115,0.71,2024,46.78416037161492
+2024-01,2024-01-05,electricity,EV charging session - Chevy Bolt,13.262909019022482,kWh,Station_191,0.71,2024,9.416665403505961
+2024-01,2024-01-05,electricity,EV charging session - Tesla Model 3,27.42595097070096,kWh,Station_170,0.71,2024,19.47242518919768
+2024-01,2024-01-05,electricity,EV charging session - Chevy Bolt,7.358446629421065,kWh,Station_307,0.71,2024,5.224497106888956
+2024-01,2024-01-05,electricity,EV charging session - Hyundai Kona,36.13726899530781,kWh,Station_448,0.71,2024,25.657460986668543
+2024-01,2024-01-05,electricity,EV charging session - Chevy Bolt,29.16952953646135,kWh,Station_204,0.71,2024,20.71036597088756
+2024-01,2024-01-05,electricity,EV charging session - Tesla Model 3,43.4453789766191,kWh,Station_56,0.71,2024,30.846219073399556
+2024-01,2024-01-05,electricity,EV charging session - Hyundai Kona,26.8691096120868,kWh,Station_208,0.71,2024,19.077067824581626
+2024-01,2024-01-05,electricity,EV charging session - Nissan Leaf,17.933479173039434,kWh,Station_41,0.71,2024,12.732770212857996
+2024-01,2024-01-05,electricity,EV charging session - Chevy Bolt,60.47162634897462,kWh,Station_32,0.71,2024,42.934854707771976
+2024-01,2024-01-05,electricity,EV charging session - Tesla Model 3,17.704737472368393,kWh,Station_15,0.71,2024,12.570363605381559
+2024-01,2024-01-05,electricity,EV charging session - Nissan Leaf,47.71409590115245,kWh,Station_62,0.71,2024,33.87700808981823
+2024-01,2024-01-06,electricity,EV charging session - Nissan Leaf,71.18526462073517,kWh,Station_155,0.71,2024,50.54153788072197
+2024-01,2024-01-06,electricity,EV charging session - BMW i3,39.64439031543013,kWh,Station_284,0.71,2024,28.147517123955392
+2024-01,2024-01-06,electricity,EV charging session - Hyundai Kona,24.84871287490711,kWh,Station_209,0.71,2024,17.642586141184047
+2024-01,2024-01-06,electricity,EV charging session - Chevy Bolt,7.515940355911836,kWh,Station_320,0.71,2024,5.336317652697403
+2024-01,2024-01-06,electricity,EV charging session - Tesla Model 3,64.41904928508166,kWh,Station_494,0.71,2024,45.73752499240797
+2024-01,2024-01-06,electricity,EV charging session - BMW i3,6.189015903017523,kWh,Station_187,0.71,2024,4.3942012911424415
+2024-01,2024-01-06,electricity,EV charging session - Hyundai Kona,37.787903717013286,kWh,Station_498,0.71,2024,26.82941163907943
+2024-01,2024-01-06,electricity,EV charging session - BMW i3,9.15123419135714,kWh,Station_442,0.71,2024,6.497376275863569
+2024-01,2024-01-06,electricity,EV charging session - Hyundai Kona,15.660564019843829,kWh,Station_130,0.71,2024,11.119000454089118
+2024-01,2024-01-06,electricity,EV charging session - Hyundai Kona,35.55367093393553,kWh,Station_127,0.71,2024,25.243106363094224
+2024-01,2024-01-06,electricity,EV charging session - Chevy Bolt,47.52745876259207,kWh,Station_292,0.71,2024,33.744495721440366
+2024-01,2024-01-06,electricity,EV charging session - Hyundai Kona,36.616568616352566,kWh,Station_114,0.71,2024,25.997763717610322
+2024-01,2024-01-06,electricity,EV charging session - BMW i3,65.48719595789339,kWh,Station_199,0.71,2024,46.49590913010431
+2024-01,2024-01-06,electricity,EV charging session - Hyundai Kona,33.88719708294054,kWh,Station_13,0.71,2024,24.05990992888778
+2024-01,2024-01-06,electricity,EV charging session - Chevy Bolt,47.29002739188249,kWh,Station_271,0.71,2024,33.57591944823657
+2024-01,2024-01-06,electricity,EV charging session - Chevy Bolt,48.48756787108178,kWh,Station_89,0.71,2024,34.42617318846806
+2024-01,2024-01-06,electricity,EV charging session - BMW i3,15.010165946159637,kWh,Station_215,0.71,2024,10.657217821773342
+2024-01,2024-01-06,electricity,EV charging session - Nissan Leaf,30.06513890238722,kWh,Station_444,0.71,2024,21.346248620694922
+2024-01,2024-01-06,electricity,EV charging session - Nissan Leaf,74.10645011572457,kWh,Station_278,0.71,2024,52.61557958216444
+2024-01,2024-01-06,electricity,EV charging session - Hyundai Kona,66.15159678916712,kWh,Station_447,0.71,2024,46.96763372030865
+2024-01,2024-01-06,electricity,EV charging session - Tesla Model 3,47.37743937319623,kWh,Station_474,0.71,2024,33.63798195496932
+2024-01,2024-01-06,electricity,EV charging session - Hyundai Kona,45.99296137212069,kWh,Station_481,0.71,2024,32.65500257420569
+2024-01,2024-01-06,electricity,EV charging session - BMW i3,48.28787199679972,kWh,Station_203,0.71,2024,34.2843891177278
+2024-01,2024-01-06,electricity,EV charging session - BMW i3,78.69341922441535,kWh,Station_74,0.71,2024,55.8723276493349
+2024-01,2024-01-07,electricity,EV charging session - BMW i3,68.03002486170053,kWh,Station_25,0.71,2024,48.30131765180737
+2024-01,2024-01-07,electricity,EV charging session - BMW i3,40.24838259933458,kWh,Station_101,0.71,2024,28.576351645527552
+2024-01,2024-01-07,electricity,EV charging session - BMW i3,74.28073484499863,kWh,Station_176,0.71,2024,52.73932173994903
+2024-01,2024-01-07,electricity,EV charging session - Nissan Leaf,74.94807969154884,kWh,Station_117,0.71,2024,53.213136580999674
+2024-01,2024-01-07,electricity,EV charging session - BMW i3,52.884130298910776,kWh,Station_166,0.71,2024,37.54773251222665
+2024-01,2024-01-07,electricity,EV charging session - Tesla Model 3,34.96988837156509,kWh,Station_41,0.71,2024,24.828620743811214
+2024-01,2024-01-07,electricity,EV charging session - Tesla Model 3,55.91756316726556,kWh,Station_429,0.71,2024,39.70146984875855
+2024-01,2024-01-07,electricity,EV charging session - Tesla Model 3,76.59801205371735,kWh,Station_344,0.71,2024,54.38458855813932
+2024-01,2024-01-07,electricity,EV charging session - Tesla Model 3,20.25597516487363,kWh,Station_424,0.71,2024,14.381742367060276
+2024-01,2024-01-07,electricity,EV charging session - Chevy Bolt,56.06879094629386,kWh,Station_366,0.71,2024,39.80884157186864
+2024-01,2024-01-07,electricity,EV charging session - Tesla Model 3,65.04979561439833,kWh,Station_120,0.71,2024,46.18535488622282
+2024-01,2024-01-07,electricity,EV charging session - Hyundai Kona,23.57128153810389,kWh,Station_145,0.71,2024,16.73560989205376
+2024-01,2024-01-07,electricity,EV charging session - Chevy Bolt,41.08911136063269,kWh,Station_229,0.71,2024,29.17326906604921
+2024-01,2024-01-07,electricity,EV charging session - Chevy Bolt,48.99847458311938,kWh,Station_313,0.71,2024,34.78891695401476
+2024-01,2024-01-07,electricity,EV charging session - Tesla Model 3,10.2776080929522,kWh,Station_130,0.71,2024,7.297101745996061
+2024-01,2024-01-07,electricity,EV charging session - Hyundai Kona,45.57396766460627,kWh,Station_352,0.71,2024,32.35751704187045
+2024-01,2024-01-07,electricity,EV charging session - Tesla Model 3,69.1055463943984,kWh,Station_377,0.71,2024,49.064937940022865
+2024-01,2024-01-07,electricity,EV charging session - Chevy Bolt,37.76450274178449,kWh,Station_318,0.71,2024,26.812796946666985
+2024-01,2024-01-07,electricity,EV charging session - Nissan Leaf,14.495687027174723,kWh,Station_472,0.71,2024,10.291937789294053
+2024-01,2024-01-07,electricity,EV charging session - BMW i3,54.64087910335184,kWh,Station_137,0.71,2024,38.79502416337981
+2024-01,2024-01-07,electricity,EV charging session - Chevy Bolt,67.89119052685948,kWh,Station_324,0.71,2024,48.202745274070224
+2024-01,2024-01-08,electricity,EV charging session - Tesla Model 3,22.742594390832505,kWh,Station_337,0.71,2024,16.147242017491077
+2024-01,2024-01-08,electricity,EV charging session - BMW i3,56.01783153828373,kWh,Station_273,0.71,2024,39.77266039218144
+2024-01,2024-01-08,electricity,EV charging session - Tesla Model 3,127.75747441174424,kWh,Station_117,0.71,2024,90.7078068323384
+2024-01,2024-01-08,electricity,EV charging session - Tesla Model 3,13.87716708884735,kWh,Station_306,0.71,2024,9.85278863308162
+2024-01,2024-01-08,electricity,EV charging session - BMW i3,47.82436784944839,kWh,Station_94,0.71,2024,33.95530117310836
+2024-01,2024-01-08,electricity,EV charging session - BMW i3,71.14274635725945,kWh,Station_168,0.71,2024,50.51134991365421
+2024-01,2024-01-08,electricity,EV charging session - Nissan Leaf,6.08863208957066,kWh,Station_442,0.71,2024,4.322928783595168
+2024-01,2024-01-08,electricity,EV charging session - Chevy Bolt,33.098691426112154,kWh,Station_203,0.71,2024,23.500070912539627
+2024-01,2024-01-08,electricity,EV charging session - Tesla Model 3,78.83314651875263,kWh,Station_341,0.71,2024,55.971534028314366
+2024-01,2024-01-08,electricity,EV charging session - Hyundai Kona,63.23651609867501,kWh,Station_149,0.71,2024,44.89792643005926
+2024-01,2024-01-08,electricity,EV charging session - Tesla Model 3,50.16138087841768,kWh,Station_402,0.71,2024,35.61458042367655
+2024-01,2024-01-08,electricity,EV charging session - Tesla Model 3,21.82050636814289,kWh,Station_183,0.71,2024,15.492559521381452
+2024-01,2024-01-08,electricity,EV charging session - Chevy Bolt,61.00032235899777,kWh,Station_413,0.71,2024,43.310228874888416
+2024-01,2024-01-08,electricity,EV charging session - Tesla Model 3,47.3146093849059,kWh,Station_152,0.71,2024,33.59337266328319
+2024-01,2024-01-08,electricity,EV charging session - Nissan Leaf,33.78434419301355,kWh,Station_74,0.71,2024,23.986884377039623
+2024-01,2024-01-08,electricity,EV charging session - Nissan Leaf,47.84104322110981,kWh,Station_365,0.71,2024,33.96714068698796
+2024-01,2024-01-08,electricity,EV charging session - BMW i3,10.640152157210183,kWh,Station_401,0.71,2024,7.554508031619229
+2024-01,2024-01-08,electricity,EV charging session - Hyundai Kona,72.2378188219246,kWh,Station_274,0.71,2024,51.288851363566465
+2024-01,2024-01-08,electricity,EV charging session - Tesla Model 3,36.15792621947456,kWh,Station_42,0.71,2024,25.672127615826938
+2024-01,2024-01-08,electricity,EV charging session - Tesla Model 3,63.62653233247981,kWh,Station_496,0.71,2024,45.174837956060664
+2024-01,2024-01-08,electricity,EV charging session - Chevy Bolt,8.349591228417406,kWh,Station_212,0.71,2024,5.928209772176358
+2024-01,2024-01-08,electricity,EV charging session - Nissan Leaf,65.83154346501938,kWh,Station_101,0.71,2024,46.74039586016376
+2024-01,2024-01-08,electricity,EV charging session - Hyundai Kona,55.18877391493572,kWh,Station_45,0.71,2024,39.18402947960436
+2024-01,2024-01-09,electricity,EV charging session - BMW i3,55.97943470013186,kWh,Station_82,0.71,2024,39.74539863709362
+2024-01,2024-01-09,electricity,EV charging session - Nissan Leaf,38.50773758511891,kWh,Station_17,0.71,2024,27.340493685434424
+2024-01,2024-01-09,electricity,EV charging session - BMW i3,13.105812024979125,kWh,Station_73,0.71,2024,9.305126537735179
+2024-01,2024-01-09,electricity,EV charging session - Chevy Bolt,7.81642400450342,kWh,Station_14,0.71,2024,5.549661043197428
+2024-01,2024-01-09,electricity,EV charging session - Chevy Bolt,52.50980894268295,kWh,Station_433,0.71,2024,37.28196434930489
+2024-01,2024-01-09,electricity,EV charging session - Tesla Model 3,12.128018048871455,kWh,Station_157,0.71,2024,8.610892814698733
+2024-01,2024-01-09,electricity,EV charging session - Hyundai Kona,28.98835178470727,kWh,Station_223,0.71,2024,20.58172976714216
+2024-01,2024-01-09,electricity,EV charging session - BMW i3,13.485195325551771,kWh,Station_132,0.71,2024,9.574488681141757
+2024-01,2024-01-09,electricity,EV charging session - Nissan Leaf,80.72941928487083,kWh,Station_338,0.71,2024,57.31788769225829
+2024-01,2024-01-09,electricity,EV charging session - Chevy Bolt,53.58667286183268,kWh,Station_404,0.71,2024,38.0465377319012
+2024-01,2024-01-09,electricity,EV charging session - Tesla Model 3,72.82858509991425,kWh,Station_376,0.71,2024,51.708295420939116
+2024-01,2024-01-09,electricity,EV charging session - Tesla Model 3,64.23213303009759,kWh,Station_376,0.71,2024,45.604814451369286
+2024-01,2024-01-09,electricity,EV charging session - BMW i3,17.854873424356434,kWh,Station_47,0.71,2024,12.676960131293068
+2024-01,2024-01-09,electricity,EV charging session - Chevy Bolt,63.85425613845187,kWh,Station_107,0.71,2024,45.33652185830083
+2024-01,2024-01-09,electricity,EV charging session - Hyundai Kona,70.99471727287802,kWh,Station_108,0.71,2024,50.40624926374339
+2024-01,2024-01-09,electricity,EV charging session - Chevy Bolt,62.24807114091579,kWh,Station_265,0.71,2024,44.19613051005021
+2024-01,2024-01-09,electricity,EV charging session - BMW i3,78.64289917152071,kWh,Station_205,0.71,2024,55.8364584117797
+2024-01,2024-01-09,electricity,EV charging session - BMW i3,6.961875674256488,kWh,Station_79,0.71,2024,4.942931728722106
+2024-01,2024-01-09,electricity,EV charging session - Chevy Bolt,75.18617180833594,kWh,Station_155,0.71,2024,53.382181983918514
+2024-01,2024-01-09,electricity,EV charging session - BMW i3,1.7545202338044217,kWh,Station_271,0.71,2024,1.2457093660011394
+2024-01,2024-01-09,electricity,EV charging session - Chevy Bolt,73.61433544405698,kWh,Station_476,0.71,2024,52.26617816528045
+2024-01,2024-01-09,electricity,EV charging session - Nissan Leaf,6.377874090357831,kWh,Station_485,0.71,2024,4.528290604154059
+2024-01,2024-01-09,electricity,EV charging session - Chevy Bolt,51.16182197500394,kWh,Station_247,0.71,2024,36.32489360225279
+2024-01,2024-01-09,electricity,EV charging session - Chevy Bolt,28.22969163134975,kWh,Station_19,0.71,2024,20.04308105825832
+2024-01,2024-01-10,electricity,EV charging session - BMW i3,67.9228322505551,kWh,Station_346,0.71,2024,48.22521089789412
+2024-01,2024-01-10,electricity,EV charging session - BMW i3,15.273666673214588,kWh,Station_436,0.71,2024,10.844303337982357
+2024-01,2024-01-10,electricity,EV charging session - Tesla Model 3,50.643736597993126,kWh,Station_26,0.71,2024,35.95705298457512
+2024-01,2024-01-10,electricity,EV charging session - Tesla Model 3,52.05474164868848,kWh,Station_217,0.71,2024,36.958866570568816
+2024-01,2024-01-10,electricity,EV charging session - Nissan Leaf,57.89799819019454,kWh,Station_154,0.71,2024,41.10757871503812
+2024-01,2024-01-10,electricity,EV charging session - Tesla Model 3,30.900798344474765,kWh,Station_154,0.71,2024,21.93956682457708
+2024-01,2024-01-10,electricity,EV charging session - Chevy Bolt,35.348377133007446,kWh,Station_174,0.71,2024,25.097347764435284
+2024-01,2024-01-10,electricity,EV charging session - BMW i3,11.92593792090742,kWh,Station_92,0.71,2024,8.467415923844268
+2024-01,2024-01-10,electricity,EV charging session - Tesla Model 3,55.46412783572684,kWh,Station_433,0.71,2024,39.379530763366056
+2024-01,2024-01-10,electricity,EV charging session - Tesla Model 3,44.15948700741327,kWh,Station_338,0.71,2024,31.353235775263418
+2024-01,2024-01-10,electricity,EV charging session - Nissan Leaf,65.24475504703462,kWh,Station_480,0.71,2024,46.32377608339458
+2024-01,2024-01-10,electricity,EV charging session - Nissan Leaf,20.46478094414017,kWh,Station_181,0.71,2024,14.52999447033952
+2024-01,2024-01-10,electricity,EV charging session - Chevy Bolt,49.186728304534114,kWh,Station_131,0.71,2024,34.92257709621922
+2024-01,2024-01-10,electricity,EV charging session - BMW i3,32.64266713861244,kWh,Station_450,0.71,2024,23.17629366841483
+2024-01,2024-01-10,electricity,EV charging session - Nissan Leaf,66.62370004100543,kWh,Station_481,0.71,2024,47.30282702911386
+2024-01,2024-01-10,electricity,EV charging session - Tesla Model 3,33.365508790480845,kWh,Station_298,0.71,2024,23.689511241241398
+2024-01,2024-01-10,electricity,EV charging session - BMW i3,68.82528250979368,kWh,Station_275,0.71,2024,48.86595058195351
+2024-01,2024-01-10,electricity,EV charging session - BMW i3,65.89172326762375,kWh,Station_273,0.71,2024,46.78312352001286
+2024-01,2024-01-10,electricity,EV charging session - Nissan Leaf,12.669821074783703,kWh,Station_417,0.71,2024,8.995572963096429
+2024-01,2024-01-10,electricity,EV charging session - Tesla Model 3,25.35411411775736,kWh,Station_76,0.71,2024,18.001421023607723
+2024-01,2024-01-10,electricity,EV charging session - BMW i3,37.928111661586094,kWh,Station_177,0.71,2024,26.928959279726126
+2024-01,2024-01-10,electricity,EV charging session - Hyundai Kona,31.877190174337137,kWh,Station_319,0.71,2024,22.632805023779365
+2024-01,2024-01-11,electricity,EV charging session - Chevy Bolt,29.582840438091417,kWh,Station_131,0.71,2024,21.003816711044905
+2024-01,2024-01-11,electricity,EV charging session - Tesla Model 3,37.50977747998428,kWh,Station_363,0.71,2024,26.631942010788837
+2024-01,2024-01-11,electricity,EV charging session - Tesla Model 3,7.849721866582429,kWh,Station_49,0.71,2024,5.573302525273524
+2024-01,2024-01-11,electricity,EV charging session - Chevy Bolt,66.52076448264908,kWh,Station_55,0.71,2024,47.229742782680844
+2024-01,2024-01-11,electricity,EV charging session - Chevy Bolt,29.84062267463912,kWh,Station_355,0.71,2024,21.186842098993775
+2024-01,2024-01-11,electricity,EV charging session - BMW i3,59.781219876480165,kWh,Station_200,0.71,2024,42.444666112300915
+2024-01,2024-01-11,electricity,EV charging session - Tesla Model 3,76.3581979165499,kWh,Station_308,0.71,2024,54.21432052075043
+2024-01,2024-01-11,electricity,EV charging session - BMW i3,60.41010374511423,kWh,Station_356,0.71,2024,42.8911736590311
+2024-01,2024-01-11,electricity,EV charging session - Chevy Bolt,44.78548903983442,kWh,Station_373,0.71,2024,31.797697218282433
+2024-01,2024-01-11,electricity,EV charging session - Tesla Model 3,22.22767365216008,kWh,Station_118,0.71,2024,15.781648293033657
+2024-01,2024-01-11,electricity,EV charging session - BMW i3,22.275712407676338,kWh,Station_263,0.71,2024,15.815755809450199
+2024-01,2024-01-11,electricity,EV charging session - BMW i3,29.01396645530415,kWh,Station_46,0.71,2024,20.599916183265947
+2024-01,2024-01-11,electricity,EV charging session - Chevy Bolt,61.1175287370132,kWh,Station_302,0.71,2024,43.39344540327937
+2024-01,2024-01-11,electricity,EV charging session - Tesla Model 3,65.55092159002764,kWh,Station_356,0.71,2024,46.541154328919625
+2024-01,2024-01-11,electricity,EV charging session - Chevy Bolt,76.57976765251057,kWh,Station_400,0.71,2024,54.3716350332825
+2024-01,2024-01-11,electricity,EV charging session - Tesla Model 3,37.09360176408391,kWh,Station_408,0.71,2024,26.33645725249957
+2024-01,2024-01-11,electricity,EV charging session - Hyundai Kona,56.35798687093989,kWh,Station_189,0.71,2024,40.01417067836732
+2024-01,2024-01-11,electricity,EV charging session - Nissan Leaf,6.35451648199704,kWh,Station_310,0.71,2024,4.511706702217898
+2024-01,2024-01-11,electricity,EV charging session - Nissan Leaf,60.5227294924313,kWh,Station_318,0.71,2024,42.971137939626225
+2024-01,2024-01-11,electricity,EV charging session - Nissan Leaf,49.62151165856079,kWh,Station_129,0.71,2024,35.23127327757816
+2024-01,2024-01-11,electricity,EV charging session - Chevy Bolt,54.126087254300025,kWh,Station_49,0.71,2024,38.42952195055302
+2024-01,2024-01-11,electricity,EV charging session - Hyundai Kona,13.088994842173186,kWh,Station_25,0.71,2024,9.293186337942961
+2024-01,2024-01-11,electricity,EV charging session - Tesla Model 3,7.424244899456774,kWh,Station_266,0.71,2024,5.271213878614309
+2024-01,2024-01-12,electricity,EV charging session - BMW i3,47.08633600039671,kWh,Station_118,0.71,2024,33.43129856028167
+2024-01,2024-01-12,electricity,EV charging session - BMW i3,56.82135247009669,kWh,Station_144,0.71,2024,40.34316025376865
+2024-01,2024-01-12,electricity,EV charging session - Tesla Model 3,36.53187940069507,kWh,Station_442,0.71,2024,25.9376343744935
+2024-01,2024-01-12,electricity,EV charging session - Hyundai Kona,58.151062888392886,kWh,Station_200,0.71,2024,41.287254650758946
+2024-01,2024-01-12,electricity,EV charging session - BMW i3,63.59427153371392,kWh,Station_157,0.71,2024,45.15193278893688
+2024-01,2024-01-12,electricity,EV charging session - Chevy Bolt,55.415049767383415,kWh,Station_487,0.71,2024,39.344685334842225
+2024-01,2024-01-12,electricity,EV charging session - Tesla Model 3,12.919879701960571,kWh,Station_348,0.71,2024,9.173114588392005
+2024-01,2024-01-12,electricity,EV charging session - Tesla Model 3,70.24471717977453,kWh,Station_134,0.71,2024,49.87374919763991
+2024-01,2024-01-12,electricity,EV charging session - BMW i3,47.904097938603606,kWh,Station_400,0.71,2024,34.01190953640856
+2024-01,2024-01-12,electricity,EV charging session - Chevy Bolt,59.14827213488981,kWh,Station_148,0.71,2024,41.99527321577176
+2024-01,2024-01-12,electricity,EV charging session - Chevy Bolt,6.462698570789017,kWh,Station_336,0.71,2024,4.588515985260202
+2024-01,2024-01-12,electricity,EV charging session - Hyundai Kona,79.0022597060318,kWh,Station_71,0.71,2024,56.09160439128257
+2024-01,2024-01-12,electricity,EV charging session - Chevy Bolt,19.9168777203513,kWh,Station_233,0.71,2024,14.140983181449423
+2024-01,2024-01-12,electricity,EV charging session - Chevy Bolt,73.22951284506478,kWh,Station_334,0.71,2024,51.992954119995986
+2024-01,2024-01-12,electricity,EV charging session - Chevy Bolt,15.058971703234262,kWh,Station_299,0.71,2024,10.691869909296326
+2024-01,2024-01-12,electricity,EV charging session - Nissan Leaf,12.132557803938544,kWh,Station_154,0.71,2024,8.614116040796366
+2024-01,2024-01-12,electricity,EV charging session - Hyundai Kona,30.53308100745638,kWh,Station_90,0.71,2024,21.67848751529403
+2024-01,2024-01-12,electricity,EV charging session - Tesla Model 3,20.3535460696326,kWh,Station_334,0.71,2024,14.451017709439146
+2024-01,2024-01-12,electricity,EV charging session - BMW i3,6.479430984738162,kWh,Station_199,0.71,2024,4.600395999164094
+2024-01,2024-01-12,electricity,EV charging session - Tesla Model 3,14.018823992805098,kWh,Station_161,0.71,2024,9.953365034891618
+2024-01,2024-01-12,electricity,EV charging session - Hyundai Kona,61.83012083767203,kWh,Station_26,0.71,2024,43.89938579474714
+2024-01,2024-01-12,electricity,EV charging session - BMW i3,51.62169093377357,kWh,Station_121,0.71,2024,36.651400562979234
+2024-01,2024-01-12,electricity,EV charging session - Hyundai Kona,13.319017315610488,kWh,Station_301,0.71,2024,9.456502294083446
+2024-01,2024-01-13,electricity,EV charging session - Chevy Bolt,37.6423038507068,kWh,Station_212,0.71,2024,26.72603573400183
+2024-01,2024-01-13,electricity,EV charging session - BMW i3,70.62045542020036,kWh,Station_63,0.71,2024,50.14052334834225
+2024-01,2024-01-13,electricity,EV charging session - Chevy Bolt,74.49108355632316,kWh,Station_451,0.71,2024,52.88866932498944
+2024-01,2024-01-13,electricity,EV charging session - Tesla Model 3,32.52486104511656,kWh,Station_436,0.71,2024,23.092651342032756
+2024-01,2024-01-13,electricity,EV charging session - Tesla Model 3,78.39905610034737,kWh,Station_68,0.71,2024,55.66332983124663
+2024-01,2024-01-13,electricity,EV charging session - BMW i3,65.32285347166376,kWh,Station_253,0.71,2024,46.37922596488127
+2024-01,2024-01-13,electricity,EV charging session - BMW i3,30.63992013217628,kWh,Station_410,0.71,2024,21.754343293845157
+2024-01,2024-01-13,electricity,EV charging session - Hyundai Kona,78.15878931012135,kWh,Station_459,0.71,2024,55.49274041018616
+2024-01,2024-01-13,electricity,EV charging session - Hyundai Kona,5.3378360735216495,kWh,Station_2,0.71,2024,3.789863612200371
+2024-01,2024-01-13,electricity,EV charging session - Chevy Bolt,29.318815538897795,kWh,Station_398,0.71,2024,20.816359032617434
+2024-01,2024-01-13,electricity,EV charging session - BMW i3,23.99396127242872,kWh,Station_108,0.71,2024,17.035712503424392
+2024-01,2024-01-13,electricity,EV charging session - Tesla Model 3,5.69951995446004,kWh,Station_286,0.71,2024,4.046659167666628
+2024-01,2024-01-13,electricity,EV charging session - Hyundai Kona,54.52901286506665,kWh,Station_49,0.71,2024,38.71559913419732
+2024-01,2024-01-13,electricity,EV charging session - Hyundai Kona,56.324648784145005,kWh,Station_140,0.71,2024,39.99050063674295
+2024-01,2024-01-13,electricity,EV charging session - Hyundai Kona,65.2254522844251,kWh,Station_44,0.71,2024,46.31007112194182
+2024-01,2024-01-13,electricity,EV charging session - Chevy Bolt,23.54038391979749,kWh,Station_417,0.71,2024,16.713672583056216
+2024-01,2024-01-13,electricity,EV charging session - BMW i3,18.549702417680702,kWh,Station_269,0.71,2024,13.170288716553298
+2024-01,2024-01-13,electricity,EV charging session - Tesla Model 3,20.763187642544253,kWh,Station_78,0.71,2024,14.74186322620642
+2024-01,2024-01-13,electricity,EV charging session - BMW i3,46.45478115373152,kWh,Station_216,0.71,2024,32.98289461914938
+2024-01,2024-01-13,electricity,EV charging session - Hyundai Kona,49.74934189978176,kWh,Station_382,0.71,2024,35.32203274884505
+2024-01,2024-01-13,electricity,EV charging session - Hyundai Kona,66.17491556109752,kWh,Station_98,0.71,2024,46.98419004837924
+2024-01,2024-01-13,electricity,EV charging session - Chevy Bolt,49.83823893887459,kWh,Station_282,0.71,2024,35.38514964660096
+2024-01,2024-01-14,electricity,EV charging session - Nissan Leaf,50.65984701352952,kWh,Station_149,0.71,2024,35.96849137960596
+2024-01,2024-01-14,electricity,EV charging session - Tesla Model 3,6.885479431723564,kWh,Station_412,0.71,2024,4.88869039652373
+2024-01,2024-01-14,electricity,EV charging session - Nissan Leaf,64.76361325790924,kWh,Station_304,0.71,2024,45.98216541311556
+2024-01,2024-01-14,electricity,EV charging session - Nissan Leaf,55.420912210556,kWh,Station_484,0.71,2024,39.34884766949476
+2024-01,2024-01-14,electricity,EV charging session - Chevy Bolt,37.77161458127733,kWh,Station_424,0.71,2024,26.817846352706905
+2024-01,2024-01-14,electricity,EV charging session - Nissan Leaf,44.06555274761643,kWh,Station_66,0.71,2024,31.286542450807662
+2024-01,2024-01-14,electricity,EV charging session - Nissan Leaf,76.70996422567768,kWh,Station_234,0.71,2024,54.46407460023115
+2024-01,2024-01-14,electricity,EV charging session - Chevy Bolt,6.521023617093562,kWh,Station_457,0.71,2024,4.6299267681364284
+2024-01,2024-01-14,electricity,EV charging session - Nissan Leaf,23.019693837419855,kWh,Station_87,0.71,2024,16.343982624568095
+2024-01,2024-01-14,electricity,EV charging session - Nissan Leaf,62.3191755518106,kWh,Station_79,0.71,2024,44.24661464178553
+2024-01,2024-01-14,electricity,EV charging session - Nissan Leaf,64.52243106916856,kWh,Station_205,0.71,2024,45.810926059109676
+2024-01,2024-01-14,electricity,EV charging session - Tesla Model 3,52.99672888359278,kWh,Station_279,0.71,2024,37.627677507350874
+2024-01,2024-01-14,electricity,EV charging session - Tesla Model 3,74.73938753754207,kWh,Station_337,0.71,2024,53.06496515165487
+2024-01,2024-01-14,electricity,EV charging session - Tesla Model 3,17.890527690443513,kWh,Station_254,0.71,2024,12.702274660214893
+2024-01,2024-01-14,electricity,EV charging session - Chevy Bolt,18.848843442027324,kWh,Station_304,0.71,2024,13.382678843839399
+2024-01,2024-01-14,electricity,EV charging session - Hyundai Kona,58.37615445163145,kWh,Station_380,0.71,2024,41.44706966065833
+2024-01,2024-01-14,electricity,EV charging session - Nissan Leaf,57.819430587681474,kWh,Station_130,0.71,2024,41.051795717253846
+2024-01,2024-01-14,electricity,EV charging session - Nissan Leaf,13.3246110441358,kWh,Station_84,0.71,2024,9.460473841336418
+2024-01,2024-01-14,electricity,EV charging session - Chevy Bolt,14.503455142567915,kWh,Station_276,0.71,2024,10.29745315122322
+2024-01,2024-01-14,electricity,EV charging session - Nissan Leaf,26.34468459019388,kWh,Station_187,0.71,2024,18.704726059037654
+2024-01,2024-01-14,electricity,EV charging session - Tesla Model 3,50.596951312425645,kWh,Station_46,0.71,2024,35.923835431822205
+2024-01,2024-01-14,electricity,EV charging session - BMW i3,103.81260559148436,kWh,Station_183,0.71,2024,73.70694996995388
+2024-01,2024-01-14,electricity,EV charging session - Nissan Leaf,70.39888221837178,kWh,Station_268,0.71,2024,49.98320637504396
+2024-01,2024-01-15,electricity,EV charging session - Tesla Model 3,77.17272373807074,kWh,Station_296,0.71,2024,54.79263385403023
+2024-01,2024-01-15,electricity,EV charging session - BMW i3,62.19283345936647,kWh,Station_322,0.71,2024,44.156911756150194
+2024-01,2024-01-15,electricity,EV charging session - Hyundai Kona,71.91146876524706,kWh,Station_100,0.71,2024,51.057142823325414
+2024-01,2024-01-15,electricity,EV charging session - BMW i3,79.97807283663732,kWh,Station_78,0.71,2024,56.7844317140125
+2024-01,2024-01-15,electricity,EV charging session - Tesla Model 3,5.775919735452496,kWh,Station_272,0.71,2024,4.100903012171272
+2024-01,2024-01-15,electricity,EV charging session - BMW i3,53.81020176075347,kWh,Station_339,0.71,2024,38.20524325013496
+2024-01,2024-01-15,electricity,EV charging session - Chevy Bolt,38.66237698854864,kWh,Station_162,0.71,2024,27.45028766186953
+2024-01,2024-01-15,electricity,EV charging session - BMW i3,56.69330149715174,kWh,Station_44,0.71,2024,40.25224406297773
+2024-01,2024-01-15,electricity,EV charging session - Nissan Leaf,40.161421851143096,kWh,Station_238,0.71,2024,28.514609514311598
+2024-01,2024-01-15,electricity,EV charging session - Nissan Leaf,42.51736091943514,kWh,Station_134,0.71,2024,30.18732625279895
+2024-01,2024-01-15,electricity,EV charging session - Chevy Bolt,29.29844560325747,kWh,Station_461,0.71,2024,20.8018963783128
+2024-01,2024-01-15,electricity,EV charging session - Tesla Model 3,67.22515101988213,kWh,Station_192,0.71,2024,47.729857224116316
+2024-01,2024-01-15,electricity,EV charging session - Hyundai Kona,76.71844669022504,kWh,Station_278,0.71,2024,54.47009715005977
+2024-01,2024-01-15,electricity,EV charging session - Nissan Leaf,60.96907588597162,kWh,Station_18,0.71,2024,43.28804387903985
+2024-01,2024-01-15,electricity,EV charging session - Nissan Leaf,48.32460775397477,kWh,Station_12,0.71,2024,34.310471505322084
+2024-01,2024-01-15,electricity,EV charging session - Tesla Model 3,65.54082473190631,kWh,Station_180,0.71,2024,46.53398555965348
+2024-01,2024-01-15,electricity,EV charging session - BMW i3,68.74906948767578,kWh,Station_123,0.71,2024,48.811839336249804
+2024-01,2024-01-15,electricity,EV charging session - Nissan Leaf,67.43740257394747,kWh,Station_246,0.71,2024,47.8805558275027
+2024-01,2024-01-15,electricity,EV charging session - Chevy Bolt,10.450657832354688,kWh,Station_222,0.71,2024,7.419967060971828
+2024-01,2024-01-15,electricity,EV charging session - BMW i3,30.80566200277668,kWh,Station_373,0.71,2024,21.87202002197144
+2024-01,2024-01-15,electricity,EV charging session - Hyundai Kona,62.09565922628094,kWh,Station_51,0.71,2024,44.08791805065946
+2024-01,2024-01-15,electricity,EV charging session - Tesla Model 3,28.864060959229157,kWh,Station_488,0.71,2024,20.4934832810527
+2024-01,2024-01-15,electricity,EV charging session - Hyundai Kona,33.370542026215475,kWh,Station_71,0.71,2024,23.693084838612986
+2024-01,2024-01-16,electricity,EV charging session - BMW i3,73.09045077014305,kWh,Station_480,0.71,2024,51.894220046801564
+2024-01,2024-01-16,electricity,EV charging session - BMW i3,26.992344080966543,kWh,Station_48,0.71,2024,19.164564297486244
+2024-01,2024-01-16,electricity,EV charging session - BMW i3,6.9381938340043,kWh,Station_19,0.71,2024,4.926117622143053
+2024-01,2024-01-16,electricity,EV charging session - Hyundai Kona,42.29018026674148,kWh,Station_262,0.71,2024,30.02602798938645
+2024-01,2024-01-16,electricity,EV charging session - BMW i3,30.036118378192803,kWh,Station_84,0.71,2024,21.32564404851689
+2024-01,2024-01-16,electricity,EV charging session - Hyundai Kona,10.386093782293678,kWh,Station_155,0.71,2024,7.3741265854285105
+2024-01,2024-01-16,electricity,EV charging session - BMW i3,45.71947918248383,kWh,Station_53,0.71,2024,32.46083021956352
+2024-01,2024-01-16,electricity,EV charging session - Chevy Bolt,24.59962969556764,kWh,Station_107,0.71,2024,17.46573708385302
+2024-01,2024-01-16,electricity,EV charging session - BMW i3,23.1470476755872,kWh,Station_357,0.71,2024,16.43440384966691
+2024-01,2024-01-16,electricity,EV charging session - Hyundai Kona,52.71641215020086,kWh,Station_304,0.71,2024,37.42865262664261
+2024-01,2024-01-16,electricity,EV charging session - BMW i3,68.25299905062542,kWh,Station_443,0.71,2024,48.45962932594404
+2024-01,2024-01-16,electricity,EV charging session - Nissan Leaf,56.42022999086558,kWh,Station_69,0.71,2024,40.05836329351456
+2024-01,2024-01-16,electricity,EV charging session - Chevy Bolt,52.90446366869147,kWh,Station_11,0.71,2024,37.56216920477094
+2024-01,2024-01-16,electricity,EV charging session - Tesla Model 3,28.1635456086215,kWh,Station_143,0.71,2024,19.996117382121266
+2024-01,2024-01-16,electricity,EV charging session - Chevy Bolt,1.356731546885289,kWh,Station_192,0.71,2024,0.9632793982885551
+2024-01,2024-01-16,electricity,EV charging session - BMW i3,8.93042648458991,kWh,Station_387,0.71,2024,6.340602804058836
+2024-01,2024-01-16,electricity,EV charging session - Nissan Leaf,55.78297746472087,kWh,Station_378,0.71,2024,39.60591399995182
+2024-01,2024-01-16,electricity,EV charging session - Nissan Leaf,16.67359945711931,kWh,Station_69,0.71,2024,11.83825561455471
+2024-01,2024-01-16,electricity,EV charging session - Hyundai Kona,13.280712325754468,kWh,Station_23,0.71,2024,9.429305751285671
+2024-01,2024-01-16,electricity,EV charging session - Nissan Leaf,7.668660934509698,kWh,Station_181,0.71,2024,5.444749263501885
+2024-01,2024-01-16,electricity,EV charging session - Tesla Model 3,64.94285706525936,kWh,Station_9,0.71,2024,46.10942851633414
+2024-01,2024-01-16,electricity,EV charging session - BMW i3,70.06077676219795,kWh,Station_271,0.71,2024,49.74315150116054
+2024-01,2024-01-17,electricity,EV charging session - Tesla Model 3,46.55965371578422,kWh,Station_93,0.71,2024,33.0573541382068
+2024-01,2024-01-17,electricity,EV charging session - Nissan Leaf,54.88401335852117,kWh,Station_454,0.71,2024,38.96764948455003
+2024-01,2024-01-17,electricity,EV charging session - Nissan Leaf,13.726133739305284,kWh,Station_17,0.71,2024,9.745554954906751
+2024-01,2024-01-17,electricity,EV charging session - Tesla Model 3,74.2197558575455,kWh,Station_154,0.71,2024,52.6960266588573
+2024-01,2024-01-17,electricity,EV charging session - Nissan Leaf,20.581387676280656,kWh,Station_405,0.71,2024,14.612785250159265
+2024-01,2024-01-17,electricity,EV charging session - Tesla Model 3,36.047577386304056,kWh,Station_328,0.71,2024,25.593779944275877
+2024-01,2024-01-17,electricity,EV charging session - Hyundai Kona,31.73575031358406,kWh,Station_149,0.71,2024,22.53238272264468
+2024-01,2024-01-17,electricity,EV charging session - Hyundai Kona,64.5382469650896,kWh,Station_377,0.71,2024,45.82215534521361
+2024-01,2024-01-17,electricity,EV charging session - Tesla Model 3,41.5686202547537,kWh,Station_267,0.71,2024,29.513720380875125
+2024-01,2024-01-17,electricity,EV charging session - Hyundai Kona,34.375669740166174,kWh,Station_422,0.71,2024,24.406725515517984
+2024-01,2024-01-17,electricity,EV charging session - Hyundai Kona,12.118093232455848,kWh,Station_328,0.71,2024,8.603846195043651
+2024-01,2024-01-17,electricity,EV charging session - Hyundai Kona,48.27254828512783,kWh,Station_106,0.71,2024,34.27350928244076
+2024-01,2024-01-17,electricity,EV charging session - Chevy Bolt,26.4021039498391,kWh,Station_472,0.71,2024,18.74549380438576
+2024-01,2024-01-17,electricity,EV charging session - BMW i3,54.62699762686274,kWh,Station_381,0.71,2024,38.78516831507254
+2024-01,2024-01-17,electricity,EV charging session - Nissan Leaf,69.44996147928137,kWh,Station_35,0.71,2024,49.30947265028977
+2024-01,2024-01-17,electricity,EV charging session - Chevy Bolt,66.18914418092677,kWh,Station_119,0.71,2024,46.994292368458005
+2024-01,2024-01-17,electricity,EV charging session - Hyundai Kona,13.66384250802366,kWh,Station_14,0.71,2024,9.701328180696798
+2024-01,2024-01-17,electricity,EV charging session - Tesla Model 3,31.810223412630616,kWh,Station_14,0.71,2024,22.585258622967736
+2024-01,2024-01-17,electricity,EV charging session - Hyundai Kona,79.46231190835228,kWh,Station_266,0.71,2024,56.41824145493011
+2024-01,2024-01-17,electricity,EV charging session - BMW i3,26.615202038752912,kWh,Station_140,0.71,2024,18.89679344751457
+2024-01,2024-01-17,electricity,EV charging session - Tesla Model 3,64.40334432867209,kWh,Station_364,0.71,2024,45.72637447335718
+2024-01,2024-01-17,electricity,EV charging session - BMW i3,41.58671280364108,kWh,Station_119,0.71,2024,29.526566090585163
+2024-01,2024-01-18,electricity,EV charging session - Hyundai Kona,76.4481598100646,kWh,Station_238,0.71,2024,54.27819346514586
+2024-01,2024-01-18,electricity,EV charging session - BMW i3,19.89879895108544,kWh,Station_34,0.71,2024,14.128147255270662
+2024-01,2024-01-18,electricity,EV charging session - Nissan Leaf,25.1008625389698,kWh,Station_169,0.71,2024,17.821612402668556
+2024-01,2024-01-18,electricity,EV charging session - Nissan Leaf,27.04710323077237,kWh,Station_10,0.71,2024,19.203443293848384
+2024-01,2024-01-18,electricity,EV charging session - Hyundai Kona,30.184684241437047,kWh,Station_122,0.71,2024,21.4311258114203
+2024-01,2024-01-18,electricity,EV charging session - BMW i3,15.342120681093242,kWh,Station_401,0.71,2024,10.8929056835762
+2024-01,2024-01-18,electricity,EV charging session - Tesla Model 3,45.34396447469323,kWh,Station_145,0.71,2024,32.194214777032194
+2024-01,2024-01-18,electricity,EV charging session - Hyundai Kona,60.26038300407493,kWh,Station_451,0.71,2024,42.784871932893196
+2024-01,2024-01-18,electricity,EV charging session - Nissan Leaf,5.650181738384828,kWh,Station_446,0.71,2024,4.011629034253228
+2024-01,2024-01-18,electricity,EV charging session - Nissan Leaf,32.491515817951985,kWh,Station_223,0.71,2024,23.068976230745907
+2024-01,2024-01-18,electricity,EV charging session - Hyundai Kona,61.46067458832575,kWh,Station_371,0.71,2024,43.63707895771128
+2024-01,2024-01-18,electricity,EV charging session - BMW i3,41.57891512365271,kWh,Station_257,0.71,2024,29.521029737793423
+2024-01,2024-01-18,electricity,EV charging session - Nissan Leaf,41.60286682113125,kWh,Station_268,0.71,2024,29.538035443003185
+2024-01,2024-01-18,electricity,EV charging session - BMW i3,29.697898464844947,kWh,Station_359,0.71,2024,21.08550791003991
+2024-01,2024-01-18,electricity,EV charging session - Nissan Leaf,72.71574852972469,kWh,Station_4,0.71,2024,51.62818145610453
+2024-01,2024-01-18,electricity,EV charging session - Nissan Leaf,61.92710360384021,kWh,Station_426,0.71,2024,43.96824355872655
+2024-01,2024-01-18,electricity,EV charging session - Chevy Bolt,12.666812834895836,kWh,Station_397,0.71,2024,8.993437112776043
+2024-01,2024-01-18,electricity,EV charging session - Nissan Leaf,78.95506101572013,kWh,Station_354,0.71,2024,56.058093321161294
+2024-01,2024-01-18,electricity,EV charging session - Tesla Model 3,64.98220570964298,kWh,Station_106,0.71,2024,46.13736605384651
+2024-01,2024-01-18,electricity,EV charging session - Hyundai Kona,37.28701875736325,kWh,Station_85,0.71,2024,26.473783317727907
+2024-01,2024-01-18,electricity,EV charging session - Hyundai Kona,72.09484050132289,kWh,Station_214,0.71,2024,51.18733675593925
+2024-01,2024-01-18,electricity,EV charging session - BMW i3,65.75133335346975,kWh,Station_121,0.71,2024,46.68344668096352
+2024-01,2024-01-18,electricity,EV charging session - Nissan Leaf,42.86561113214803,kWh,Station_132,0.71,2024,30.4345839038251
+2024-01,2024-01-18,electricity,EV charging session - Tesla Model 3,33.39817875530706,kWh,Station_338,0.71,2024,23.712706916268008
+2024-01,2024-01-19,electricity,EV charging session - BMW i3,46.5117702649118,kWh,Station_197,0.71,2024,33.02335688808738
+2024-01,2024-01-19,electricity,EV charging session - Chevy Bolt,74.54048485931233,kWh,Station_19,0.71,2024,52.92374425011175
+2024-01,2024-01-19,electricity,EV charging session - BMW i3,53.83827205577136,kWh,Station_130,0.71,2024,38.22517315959767
+2024-01,2024-01-19,electricity,EV charging session - BMW i3,42.46618717006869,kWh,Station_12,0.71,2024,30.15099289074877
+2024-01,2024-01-19,electricity,EV charging session - Chevy Bolt,76.49931986653537,kWh,Station_330,0.71,2024,54.314517105240114
+2024-01,2024-01-19,electricity,EV charging session - BMW i3,5.614874084822165,kWh,Station_354,0.71,2024,3.986560600223737
+2024-01,2024-01-19,electricity,EV charging session - Tesla Model 3,26.46822315749027,kWh,Station_262,0.71,2024,18.792438441818092
+2024-01,2024-01-19,electricity,EV charging session - Tesla Model 3,6.8738855284034415,kWh,Station_392,0.71,2024,4.880458725166443
+2024-01,2024-01-19,electricity,EV charging session - Hyundai Kona,21.580915527008145,kWh,Station_125,0.71,2024,15.322450024175781
+2024-01,2024-01-19,electricity,EV charging session - Chevy Bolt,7.569584209512826,kWh,Station_307,0.71,2024,5.374404788754106
+2024-01,2024-01-19,electricity,EV charging session - Chevy Bolt,49.5455465707554,kWh,Station_267,0.71,2024,35.177338065236334
+2024-01,2024-01-19,electricity,EV charging session - Hyundai Kona,72.83010773877143,kWh,Station_447,0.71,2024,51.70937649452772
+2024-01,2024-01-19,electricity,EV charging session - BMW i3,71.12558827151543,kWh,Station_441,0.71,2024,50.49916767277595
+2024-01,2024-01-19,electricity,EV charging session - Chevy Bolt,36.2444170838149,kWh,Station_383,0.71,2024,25.73353612950858
+2024-01,2024-01-19,electricity,EV charging session - Tesla Model 3,53.39924325525044,kWh,Station_140,0.71,2024,37.91346271122781
+2024-01,2024-01-19,electricity,EV charging session - Tesla Model 3,5.746444809429853,kWh,Station_329,0.71,2024,4.079975814695196
+2024-01,2024-01-19,electricity,EV charging session - Nissan Leaf,9.737039612310449,kWh,Station_2,0.71,2024,6.913298124740418
+2024-01,2024-01-19,electricity,EV charging session - Chevy Bolt,39.46218311483076,kWh,Station_8,0.71,2024,28.018150011529837
+2024-01,2024-01-19,electricity,EV charging session - BMW i3,63.83060874636528,kWh,Station_250,0.71,2024,45.319732209919344
+2024-01,2024-01-19,electricity,EV charging session - Hyundai Kona,72.94802476319454,kWh,Station_139,0.71,2024,51.79309758186812
+2024-01,2024-01-19,electricity,EV charging session - Hyundai Kona,21.097847217832147,kWh,Station_124,0.71,2024,14.979471524660823
+2024-01,2024-01-19,electricity,EV charging session - BMW i3,58.7914423257815,kWh,Station_309,0.71,2024,41.74192405130486
+2024-01,2024-01-19,electricity,EV charging session - Nissan Leaf,65.18392768549774,kWh,Station_228,0.71,2024,46.28058865670339
+2024-01,2024-01-20,electricity,EV charging session - Hyundai Kona,72.54995630814713,kWh,Station_10,0.71,2024,51.51046897878446
+2024-01,2024-01-20,electricity,EV charging session - Chevy Bolt,57.55690005797869,kWh,Station_469,0.71,2024,40.86539904116486
+2024-01,2024-01-20,electricity,EV charging session - Nissan Leaf,67.41433642306683,kWh,Station_212,0.71,2024,47.86417886037744
+2024-01,2024-01-20,electricity,EV charging session - Chevy Bolt,21.030519654584147,kWh,Station_112,0.71,2024,14.931668954754743
+2024-01,2024-01-20,electricity,EV charging session - Tesla Model 3,16.47214029543078,kWh,Station_8,0.71,2024,11.695219609755853
+2024-01,2024-01-20,electricity,EV charging session - Nissan Leaf,78.30687812670662,kWh,Station_292,0.71,2024,55.5978834699617
+2024-01,2024-01-20,electricity,EV charging session - Hyundai Kona,38.59965910016511,kWh,Station_477,0.71,2024,27.405757961117228
+2024-01,2024-01-20,electricity,EV charging session - Nissan Leaf,26.566509231569366,kWh,Station_362,0.71,2024,18.862221554414248
+2024-01,2024-01-20,electricity,EV charging session - Nissan Leaf,23.02231536206597,kWh,Station_460,0.71,2024,16.34584390706684
+2024-01,2024-01-20,electricity,EV charging session - Nissan Leaf,62.04960065177048,kWh,Station_253,0.71,2024,44.05521646275704
+2024-01,2024-01-20,electricity,EV charging session - Nissan Leaf,58.09105214274015,kWh,Station_14,0.71,2024,41.24464702134551
+2024-01,2024-01-20,electricity,EV charging session - Chevy Bolt,63.29716818793051,kWh,Station_240,0.71,2024,44.94098941343066
+2024-01,2024-01-20,electricity,EV charging session - Tesla Model 3,21.002230102472843,kWh,Station_438,0.71,2024,14.911583372755718
+2024-01,2024-01-20,electricity,EV charging session - BMW i3,36.3229254401527,kWh,Station_242,0.71,2024,25.78927706250842
+2024-01,2024-01-20,electricity,EV charging session - Nissan Leaf,65.45087828663634,kWh,Station_469,0.71,2024,46.4701235835118
+2024-01,2024-01-20,electricity,EV charging session - Hyundai Kona,46.92333914698138,kWh,Station_342,0.71,2024,33.31557079435677
+2024-01,2024-01-20,electricity,EV charging session - Nissan Leaf,45.355066305111706,kWh,Station_149,0.71,2024,32.20209707662931
+2024-01,2024-01-20,electricity,EV charging session - Hyundai Kona,44.72944867558798,kWh,Station_236,0.71,2024,31.757908559667467
+2024-01,2024-01-20,electricity,EV charging session - Chevy Bolt,57.859669994397166,kWh,Station_306,0.71,2024,41.080365696021985
+2024-01,2024-01-20,electricity,EV charging session - Hyundai Kona,25.892596490424456,kWh,Station_478,0.71,2024,18.383743508201363
+2024-01,2024-01-20,electricity,EV charging session - BMW i3,65.89861180142826,kWh,Station_167,0.71,2024,46.788014379014065
+2024-01,2024-01-20,electricity,EV charging session - Tesla Model 3,34.80201788379793,kWh,Station_20,0.71,2024,24.709432697496528
+2024-01,2024-01-20,electricity,EV charging session - Hyundai Kona,18.869451407961307,kWh,Station_216,0.71,2024,13.397310499652528
+2024-01,2024-01-20,electricity,EV charging session - Hyundai Kona,77.34671417127635,kWh,Station_343,0.71,2024,54.9161670616062
+2024-01,2024-01-21,electricity,EV charging session - Tesla Model 3,31.73110320047439,kWh,Station_135,0.71,2024,22.529083272336816
+2024-01,2024-01-21,electricity,EV charging session - BMW i3,41.27067550637497,kWh,Station_393,0.71,2024,29.302179609526227
+2024-01,2024-01-21,electricity,EV charging session - Nissan Leaf,41.95057477332522,kWh,Station_129,0.71,2024,29.784908089060906
+2024-01,2024-01-21,electricity,EV charging session - Hyundai Kona,46.412062022825936,kWh,Station_410,0.71,2024,32.95256403620641
+2024-01,2024-01-21,electricity,EV charging session - Tesla Model 3,21.409576368254196,kWh,Station_422,0.71,2024,15.200799221460478
+2024-01,2024-01-21,electricity,EV charging session - Chevy Bolt,54.99600399457137,kWh,Station_294,0.71,2024,39.04716283614567
+2024-01,2024-01-21,electricity,EV charging session - Tesla Model 3,7.739028453603041,kWh,Station_246,0.71,2024,5.494710202058158
+2024-01,2024-01-21,electricity,EV charging session - Chevy Bolt,11.48343148800489,kWh,Station_189,0.71,2024,8.153236356483472
+2024-01,2024-01-21,electricity,EV charging session - BMW i3,39.469966222866766,kWh,Station_44,0.71,2024,28.023676018235403
+2024-01,2024-01-21,electricity,EV charging session - Nissan Leaf,27.61163115157696,kWh,Station_86,0.71,2024,19.604258117619644
+2024-01,2024-01-21,electricity,EV charging session - Tesla Model 3,15.254170728009932,kWh,Station_44,0.71,2024,10.83046121688705
+2024-01,2024-01-21,electricity,EV charging session - Hyundai Kona,45.06853330402873,kWh,Station_330,0.71,2024,31.9986586458604
+2024-01,2024-01-21,electricity,EV charging session - BMW i3,10.155212817693824,kWh,Station_375,0.71,2024,7.210201100562615
+2024-01,2024-01-21,electricity,EV charging session - Tesla Model 3,54.99770543084315,kWh,Station_446,0.71,2024,39.04837085589863
+2024-01,2024-01-21,electricity,EV charging session - Hyundai Kona,64.87047474097292,kWh,Station_378,0.71,2024,46.058037066090776
+2024-01,2024-01-21,electricity,EV charging session - Tesla Model 3,25.13233553126914,kWh,Station_390,0.71,2024,17.84395822720109
+2024-01,2024-01-21,electricity,EV charging session - Chevy Bolt,14.462719261155256,kWh,Station_145,0.71,2024,10.26853067542023
+2024-01,2024-01-21,electricity,EV charging session - Tesla Model 3,79.41814361458415,kWh,Station_51,0.71,2024,56.38688196635474
+2024-01,2024-01-21,electricity,EV charging session - Tesla Model 3,44.41845305466813,kWh,Station_242,0.71,2024,31.53710166881437
+2024-01,2024-01-21,electricity,EV charging session - Tesla Model 3,74.02042766018057,kWh,Station_294,0.71,2024,52.55450363872821
+2024-01,2024-01-21,electricity,EV charging session - BMW i3,36.50542214391232,kWh,Station_408,0.71,2024,25.918849722177747
+2024-01,2024-01-21,electricity,EV charging session - Tesla Model 3,39.0670867855152,kWh,Station_51,0.71,2024,27.737631617715792
+2024-01,2024-01-21,electricity,EV charging session - Hyundai Kona,63.79396886506549,kWh,Station_266,0.71,2024,45.29371789419649
+2024-01,2024-01-21,electricity,EV charging session - Chevy Bolt,67.45124177150385,kWh,Station_120,0.71,2024,47.890381657767726
+2024-01,2024-01-22,electricity,EV charging session - Chevy Bolt,56.888515995947614,kWh,Station_200,0.71,2024,40.390846357122804
+2024-01,2024-01-22,electricity,EV charging session - Tesla Model 3,21.819378736342376,kWh,Station_405,0.71,2024,15.491758902803086
+2024-01,2024-01-22,electricity,EV charging session - BMW i3,47.01289216755188,kWh,Station_248,0.71,2024,33.379153438961836
+2024-01,2024-01-22,electricity,EV charging session - BMW i3,73.61974524719619,kWh,Station_70,0.71,2024,52.27001912550929
+2024-01,2024-01-22,electricity,EV charging session - Tesla Model 3,41.943586371262185,kWh,Station_57,0.71,2024,29.77994632359615
+2024-01,2024-01-22,electricity,EV charging session - Chevy Bolt,37.1629261473043,kWh,Station_382,0.71,2024,26.38567756458605
+2024-01,2024-01-22,electricity,EV charging session - BMW i3,34.66100210237426,kWh,Station_39,0.71,2024,24.609311492685723
+2024-01,2024-01-22,electricity,EV charging session - BMW i3,8.891155819549416,kWh,Station_289,0.71,2024,6.312720631880085
+2024-01,2024-01-22,electricity,EV charging session - BMW i3,29.379323254386147,kWh,Station_443,0.71,2024,20.859319510614164
+2024-01,2024-01-22,electricity,EV charging session - Chevy Bolt,6.538370226754212,kWh,Station_18,0.71,2024,4.64224286099549
+2024-01,2024-01-22,electricity,EV charging session - Nissan Leaf,70.38996843882086,kWh,Station_440,0.71,2024,49.976877591562804
+2024-01,2024-01-22,electricity,EV charging session - Hyundai Kona,16.080974332847084,kWh,Station_220,0.71,2024,11.417491776321429
+2024-01,2024-01-22,electricity,EV charging session - Hyundai Kona,7.557567403210105,kWh,Station_313,0.71,2024,5.365872856279174
+2024-01,2024-01-22,electricity,EV charging session - Chevy Bolt,15.807797227472452,kWh,Station_244,0.71,2024,11.223536031505441
+2024-01,2024-01-22,electricity,EV charging session - BMW i3,60.12372287224216,kWh,Station_352,0.71,2024,42.68784323929193
+2024-01,2024-01-22,electricity,EV charging session - Tesla Model 3,67.93942571536539,kWh,Station_460,0.71,2024,48.23699225790942
+2024-01,2024-01-22,electricity,EV charging session - BMW i3,70.04034616527528,kWh,Station_304,0.71,2024,49.72864577734545
+2024-01,2024-01-22,electricity,EV charging session - Chevy Bolt,68.55546011969274,kWh,Station_298,0.71,2024,48.674376684981844
+2024-01,2024-01-22,electricity,EV charging session - Hyundai Kona,36.56579373074047,kWh,Station_283,0.71,2024,25.96171354882573
+2024-01,2024-01-22,electricity,EV charging session - BMW i3,20.45364201596675,kWh,Station_74,0.71,2024,14.522085831336392
+2024-01,2024-01-22,electricity,EV charging session - Hyundai Kona,9.716946683936513,kWh,Station_110,0.71,2024,6.899032145594924
+2024-01,2024-01-22,electricity,EV charging session - Tesla Model 3,61.68434321639767,kWh,Station_180,0.71,2024,43.795883683642344
+2024-01,2024-01-23,electricity,EV charging session - Hyundai Kona,28.578878080059383,kWh,Station_426,0.71,2024,20.29100343684216
+2024-01,2024-01-23,electricity,EV charging session - Hyundai Kona,21.13404477845307,kWh,Station_32,0.71,2024,15.00517179270168
+2024-01,2024-01-23,electricity,EV charging session - Nissan Leaf,46.76604426109744,kWh,Station_234,0.71,2024,33.20389142537918
+2024-01,2024-01-23,electricity,EV charging session - Nissan Leaf,17.759774553770676,kWh,Station_282,0.71,2024,12.609439933177178
+2024-01,2024-01-23,electricity,EV charging session - Nissan Leaf,79.39006382394219,kWh,Station_25,0.71,2024,56.36694531499895
+2024-01,2024-01-23,electricity,EV charging session - Hyundai Kona,21.069157575738828,kWh,Station_331,0.71,2024,14.959101878774566
+2024-01,2024-01-23,electricity,EV charging session - Chevy Bolt,19.402523927112213,kWh,Station_279,0.71,2024,13.77579198824967
+2024-01,2024-01-23,electricity,EV charging session - Chevy Bolt,44.87005617634201,kWh,Station_57,0.71,2024,31.857739885202825
+2024-01,2024-01-23,electricity,EV charging session - Chevy Bolt,46.21171801338653,kWh,Station_180,0.71,2024,32.81031978950443
+2024-01,2024-01-23,electricity,EV charging session - BMW i3,57.03840397041998,kWh,Station_382,0.71,2024,40.497266818998185
+2024-01,2024-01-23,electricity,EV charging session - Tesla Model 3,32.93955896020962,kWh,Station_343,0.71,2024,23.387086861748827
+2024-01,2024-01-23,electricity,EV charging session - Nissan Leaf,63.023554629150055,kWh,Station_477,0.71,2024,44.746723786696535
+2024-01,2024-01-23,electricity,EV charging session - Nissan Leaf,33.013974817380586,kWh,Station_287,0.71,2024,23.439922120340213
+2024-01,2024-01-23,electricity,EV charging session - BMW i3,56.61749580017371,kWh,Station_64,0.71,2024,40.19842201812333
+2024-01,2024-01-23,electricity,EV charging session - Tesla Model 3,53.17397382318082,kWh,Station_455,0.71,2024,37.75352141445838
+2024-01,2024-01-23,electricity,EV charging session - Hyundai Kona,51.87067063305462,kWh,Station_232,0.71,2024,36.82817614946878
+2024-01,2024-01-23,electricity,EV charging session - Hyundai Kona,64.30797977990255,kWh,Station_289,0.71,2024,45.658665643730814
+2024-01,2024-01-23,electricity,EV charging session - Nissan Leaf,4.288320356345183,kWh,Station_213,0.71,2024,3.04470745300508
+2024-01,2024-01-23,electricity,EV charging session - Tesla Model 3,56.72762317734674,kWh,Station_258,0.71,2024,40.27661245591619
+2024-01,2024-01-23,electricity,EV charging session - Nissan Leaf,44.90995546867643,kWh,Station_18,0.71,2024,31.886068382760264
+2024-01,2024-01-23,electricity,EV charging session - Chevy Bolt,13.876557599494063,kWh,Station_175,0.71,2024,9.852355895640784
+2024-01,2024-01-23,electricity,EV charging session - Nissan Leaf,39.37124122897048,kWh,Station_417,0.71,2024,27.953581272569043
+2024-01,2024-01-24,electricity,EV charging session - Nissan Leaf,11.75852247006084,kWh,Station_229,0.71,2024,8.348550953743196
+2024-01,2024-01-24,electricity,EV charging session - Hyundai Kona,49.8977884122396,kWh,Station_226,0.71,2024,35.42742977269011
+2024-01,2024-01-24,electricity,EV charging session - Hyundai Kona,64.60983161155823,kWh,Station_84,0.71,2024,45.87298044420634
+2024-01,2024-01-24,electricity,EV charging session - Hyundai Kona,12.594888574055725,kWh,Station_291,0.71,2024,8.942370887579564
+2024-01,2024-01-24,electricity,EV charging session - Chevy Bolt,65.5974266945568,kWh,Station_435,0.71,2024,46.574172953135324
+2024-01,2024-01-24,electricity,EV charging session - Hyundai Kona,8.11244782892836,kWh,Station_370,0.71,2024,5.759837958539135
+2024-01,2024-01-24,electricity,EV charging session - Tesla Model 3,48.9611152601949,kWh,Station_246,0.71,2024,34.76239183473838
+2024-01,2024-01-24,electricity,EV charging session - BMW i3,34.38288065090023,kWh,Station_402,0.71,2024,24.411845262139163
+2024-01,2024-01-24,electricity,EV charging session - Tesla Model 3,52.55689588098792,kWh,Station_110,0.71,2024,37.315396075501425
+2024-01,2024-01-24,electricity,EV charging session - Tesla Model 3,37.23027566973339,kWh,Station_254,0.71,2024,26.433495725510703
+2024-01,2024-01-24,electricity,EV charging session - Hyundai Kona,54.78487940320012,kWh,Station_88,0.71,2024,38.89726437627208
+2024-01,2024-01-24,electricity,EV charging session - BMW i3,37.42669941100735,kWh,Station_72,0.71,2024,26.572956581815216
+2024-01,2024-01-24,electricity,EV charging session - BMW i3,28.079314202327826,kWh,Station_381,0.71,2024,19.936313083652756
+2024-01,2024-01-24,electricity,EV charging session - BMW i3,79.78776885692933,kWh,Station_30,0.71,2024,56.64931588841982
+2024-01,2024-01-24,electricity,EV charging session - Chevy Bolt,75.62248861139022,kWh,Station_172,0.71,2024,53.691966914087054
+2024-01,2024-01-24,electricity,EV charging session - Hyundai Kona,48.57848684629363,kWh,Station_309,0.71,2024,34.49072566086848
+2024-01,2024-01-24,electricity,EV charging session - BMW i3,60.63745352964948,kWh,Station_394,0.71,2024,43.05259200605113
+2024-01,2024-01-24,electricity,EV charging session - Chevy Bolt,66.85109294209524,kWh,Station_343,0.71,2024,47.464275988887614
+2024-01,2024-01-24,electricity,EV charging session - Nissan Leaf,32.34799932603372,kWh,Station_436,0.71,2024,22.967079521483942
+2024-01,2024-01-24,electricity,EV charging session - Chevy Bolt,67.70594563751288,kWh,Station_139,0.71,2024,48.071221402634144
+2024-01,2024-01-24,electricity,EV charging session - Chevy Bolt,8.383690895109462,kWh,Station_194,0.71,2024,5.952420535527717
+2024-01,2024-01-24,electricity,EV charging session - Hyundai Kona,60.939817877399975,kWh,Station_186,0.71,2024,43.26727069295398
+2024-01,2024-01-25,electricity,EV charging session - BMW i3,7.603711413792093,kWh,Station_161,0.71,2024,5.398635103792386
+2024-01,2024-01-25,electricity,EV charging session - Nissan Leaf,70.536636587169,kWh,Station_431,0.71,2024,50.08101197688999
+2024-01,2024-01-25,electricity,EV charging session - BMW i3,73.31591786048328,kWh,Station_13,0.71,2024,52.05430168094313
+2024-01,2024-01-25,electricity,EV charging session - BMW i3,62.86785794966232,kWh,Station_296,0.71,2024,44.63617914426025
+2024-01,2024-01-25,electricity,EV charging session - Hyundai Kona,14.355208491625932,kWh,Station_89,0.71,2024,10.192198029054412
+2024-01,2024-01-25,electricity,EV charging session - Tesla Model 3,74.7896950755514,kWh,Station_324,0.71,2024,53.1006835036415
+2024-01,2024-01-25,electricity,EV charging session - Tesla Model 3,41.98075323406805,kWh,Station_42,0.71,2024,29.806334796188313
+2024-01,2024-01-25,electricity,EV charging session - Chevy Bolt,66.82312116249,kWh,Station_403,0.71,2024,47.44441602536789
+2024-01,2024-01-25,electricity,EV charging session - Hyundai Kona,47.18840893514874,kWh,Station_210,0.71,2024,33.50377034395561
+2024-01,2024-01-25,electricity,EV charging session - BMW i3,46.29599734888577,kWh,Station_229,0.71,2024,32.8701581177089
+2024-01,2024-01-25,electricity,EV charging session - Tesla Model 3,37.10851773104313,kWh,Station_350,0.71,2024,26.34704758904062
+2024-01,2024-01-25,electricity,EV charging session - BMW i3,71.97510217973728,kWh,Station_275,0.71,2024,51.10232254761346
+2024-01,2024-01-25,electricity,EV charging session - Tesla Model 3,45.134038075505366,kWh,Station_279,0.71,2024,32.045167033608806
+2024-01,2024-01-25,electricity,EV charging session - Tesla Model 3,23.92092196826273,kWh,Station_251,0.71,2024,16.983854597466536
+2024-01,2024-01-25,electricity,EV charging session - Hyundai Kona,40.63092350376829,kWh,Station_310,0.71,2024,28.847955687675483
+2024-01,2024-01-25,electricity,EV charging session - Nissan Leaf,75.40700953728192,kWh,Station_208,0.71,2024,53.53897677147016
+2024-01,2024-01-25,electricity,EV charging session - Hyundai Kona,36.490277883670345,kWh,Station_140,0.71,2024,25.908097297405945
+2024-01,2024-01-25,electricity,EV charging session - Hyundai Kona,67.56014288077881,kWh,Station_280,0.71,2024,47.96770144535296
+2024-01,2024-01-25,electricity,EV charging session - Hyundai Kona,52.57470179430345,kWh,Station_34,0.71,2024,37.32803827395545
+2024-01,2024-01-25,electricity,EV charging session - Hyundai Kona,28.279857147188363,kWh,Station_309,0.71,2024,20.078698574503736
+2024-01,2024-01-25,electricity,EV charging session - Hyundai Kona,28.86912479595657,kWh,Station_392,0.71,2024,20.497078605129165
+2024-01,2024-01-26,electricity,EV charging session - Chevy Bolt,13.116998507416143,kWh,Station_18,0.71,2024,9.313068940265461
+2024-01,2024-01-26,electricity,EV charging session - BMW i3,21.4227595329351,kWh,Station_57,0.71,2024,15.21015926838392
+2024-01,2024-01-26,electricity,EV charging session - Hyundai Kona,45.11780647869832,kWh,Station_112,0.71,2024,32.033642599875805
+2024-01,2024-01-26,electricity,EV charging session - BMW i3,26.29222408241131,kWh,Station_5,0.71,2024,18.66747909851203
+2024-01,2024-01-26,electricity,EV charging session - Chevy Bolt,51.63684234428119,kWh,Station_410,0.71,2024,36.662158064439645
+2024-01,2024-01-26,electricity,EV charging session - Chevy Bolt,44.81719081526413,kWh,Station_414,0.71,2024,31.82020547883753
+2024-01,2024-01-26,electricity,EV charging session - BMW i3,19.362005744810176,kWh,Station_182,0.71,2024,13.747024078815224
+2024-01,2024-01-26,electricity,EV charging session - Tesla Model 3,55.39579143864877,kWh,Station_13,0.71,2024,39.33101192144063
+2024-01,2024-01-26,electricity,EV charging session - Nissan Leaf,22.016443610220865,kWh,Station_339,0.71,2024,15.631674963256813
+2024-01,2024-01-26,electricity,EV charging session - Tesla Model 3,67.38186056016852,kWh,Station_285,0.71,2024,47.84112099771965
+2024-01,2024-01-26,electricity,EV charging session - Tesla Model 3,68.23834404896303,kWh,Station_259,0.71,2024,48.44922427476375
+2024-01,2024-01-26,electricity,EV charging session - Tesla Model 3,67.13334039157891,kWh,Station_90,0.71,2024,47.66467167802102
+2024-01,2024-01-26,electricity,EV charging session - Hyundai Kona,42.91893733882982,kWh,Station_104,0.71,2024,30.47244551056917
+2024-01,2024-01-26,electricity,EV charging session - Tesla Model 3,35.327332248586075,kWh,Station_186,0.71,2024,25.082405896496113
+2024-01,2024-01-26,electricity,EV charging session - Chevy Bolt,74.51050318325304,kWh,Station_250,0.71,2024,52.90245726010965
+2024-01,2024-01-26,electricity,EV charging session - Nissan Leaf,49.73870005239731,kWh,Station_76,0.71,2024,35.31447703720209
+2024-01,2024-01-26,electricity,EV charging session - BMW i3,23.52224181213657,kWh,Station_386,0.71,2024,16.700791686616963
+2024-01,2024-01-26,electricity,EV charging session - BMW i3,44.95337165292389,kWh,Station_459,0.71,2024,31.91689387357596
+2024-01,2024-01-26,electricity,EV charging session - Hyundai Kona,66.70523645325736,kWh,Station_108,0.71,2024,47.36071788181272
+2024-01,2024-01-26,electricity,EV charging session - Nissan Leaf,44.06215479055562,kWh,Station_156,0.71,2024,31.284129901294488
+2024-01,2024-01-26,electricity,EV charging session - BMW i3,14.0255330182289,kWh,Station_82,0.71,2024,9.958128442942519
+2024-01,2024-01-26,electricity,EV charging session - BMW i3,21.76458667261335,kWh,Station_77,0.71,2024,15.452856537555478
+2024-01,2024-01-27,electricity,EV charging session - Nissan Leaf,16.554623964548597,kWh,Station_485,0.71,2024,11.753783014829503
+2024-01,2024-01-27,electricity,EV charging session - Nissan Leaf,15.474096088332848,kWh,Station_470,0.71,2024,10.986608222716322
+2024-01,2024-01-27,electricity,EV charging session - BMW i3,43.51234710063929,kWh,Station_460,0.71,2024,30.893766441453895
+2024-01,2024-01-27,electricity,EV charging session - Nissan Leaf,38.5981394103895,kWh,Station_258,0.71,2024,27.404678981376545
+2024-01,2024-01-27,electricity,EV charging session - BMW i3,45.07891731764474,kWh,Station_127,0.71,2024,32.00603129552776
+2024-01,2024-01-27,electricity,EV charging session - BMW i3,58.77314551651613,kWh,Station_485,0.71,2024,41.72893331672645
+2024-01,2024-01-27,electricity,EV charging session - Hyundai Kona,65.539397780162,kWh,Station_391,0.71,2024,46.53297242391502
+2024-01,2024-01-27,electricity,EV charging session - Tesla Model 3,79.21399696256503,kWh,Station_282,0.71,2024,56.24193784342117
+2024-01,2024-01-27,electricity,EV charging session - BMW i3,62.91943734898983,kWh,Station_474,0.71,2024,44.672800517782775
+2024-01,2024-01-27,electricity,EV charging session - Chevy Bolt,18.39971040043272,kWh,Station_88,0.71,2024,13.063794384307231
+2024-01,2024-01-27,electricity,EV charging session - Tesla Model 3,47.49230024226053,kWh,Station_204,0.71,2024,33.71953317200497
+2024-01,2024-01-27,electricity,EV charging session - Tesla Model 3,21.47142841095029,kWh,Station_16,0.71,2024,15.244714171774705
+2024-01,2024-01-27,electricity,EV charging session - Tesla Model 3,21.86794779138668,kWh,Station_151,0.71,2024,15.526242931884543
+2024-01,2024-01-27,electricity,EV charging session - Hyundai Kona,78.23764802345093,kWh,Station_424,0.71,2024,55.54873009665016
+2024-01,2024-01-27,electricity,EV charging session - BMW i3,79.75044564145941,kWh,Station_254,0.71,2024,56.622816405436176
+2024-01,2024-01-27,electricity,EV charging session - Hyundai Kona,66.89909636313753,kWh,Station_188,0.71,2024,47.498358417827646
+2024-01,2024-01-27,electricity,EV charging session - BMW i3,68.06928828300951,kWh,Station_329,0.71,2024,48.32919468093675
+2024-01,2024-01-27,electricity,EV charging session - Hyundai Kona,40.05179662487088,kWh,Station_32,0.71,2024,28.436775603658326
+2024-01,2024-01-27,electricity,EV charging session - Hyundai Kona,77.6778219726915,kWh,Station_271,0.71,2024,55.151253600610964
+2024-01,2024-01-27,electricity,EV charging session - Chevy Bolt,38.36041212940863,kWh,Station_485,0.71,2024,27.235892611880125
+2024-01,2024-01-27,electricity,EV charging session - Hyundai Kona,6.337534264521747,kWh,Station_397,0.71,2024,4.499649327810441
+2024-01,2024-01-27,electricity,EV charging session - Nissan Leaf,6.978771350415376,kWh,Station_5,0.71,2024,4.954927658794917
+2024-01,2024-01-27,electricity,EV charging session - Chevy Bolt,30.549130796547445,kWh,Station_459,0.71,2024,21.689882865548686
+2024-01,2024-01-27,electricity,EV charging session - Hyundai Kona,62.42036136933443,kWh,Station_330,0.71,2024,44.31845657222744
+2024-01,2024-01-28,electricity,EV charging session - Tesla Model 3,34.79315986001264,kWh,Station_308,0.71,2024,24.703143500608977
+2024-01,2024-01-28,electricity,EV charging session - Nissan Leaf,58.45788451376784,kWh,Station_333,0.71,2024,41.505098004775164
+2024-01,2024-01-28,electricity,EV charging session - Nissan Leaf,50.16265770416625,kWh,Station_169,0.71,2024,35.615486969958035
+2024-01,2024-01-28,electricity,EV charging session - Nissan Leaf,76.06503880500838,kWh,Station_181,0.71,2024,54.00617755155595
+2024-01,2024-01-28,electricity,EV charging session - Chevy Bolt,51.21630472206044,kWh,Station_366,0.71,2024,36.36357635266291
+2024-01,2024-01-28,electricity,EV charging session - Hyundai Kona,39.67713381108,kWh,Station_178,0.71,2024,28.170765005866798
+2024-01,2024-01-28,electricity,EV charging session - Hyundai Kona,68.2690209195155,kWh,Station_143,0.71,2024,48.471004852856
+2024-01,2024-01-28,electricity,EV charging session - Tesla Model 3,30.550011561630846,kWh,Station_362,0.71,2024,21.6905082087579
+2024-01,2024-01-28,electricity,EV charging session - Tesla Model 3,44.75866737764865,kWh,Station_248,0.71,2024,31.778653838130538
+2024-01,2024-01-28,electricity,EV charging session - Nissan Leaf,59.15730847009105,kWh,Station_127,0.71,2024,42.00168901376465
+2024-01,2024-01-28,electricity,EV charging session - Tesla Model 3,57.14555997083127,kWh,Station_263,0.71,2024,40.5733475792902
+2024-01,2024-01-28,electricity,EV charging session - Hyundai Kona,23.83688010187143,kWh,Station_412,0.71,2024,16.924184872328713
+2024-01,2024-01-28,electricity,EV charging session - Nissan Leaf,29.349595038889557,kWh,Station_416,0.71,2024,20.838212477611584
+2024-01,2024-01-28,electricity,EV charging session - Tesla Model 3,47.060925633313786,kWh,Station_355,0.71,2024,33.41325719965279
+2024-01,2024-01-28,electricity,EV charging session - Chevy Bolt,27.1701708128166,kWh,Station_255,0.71,2024,19.290821277099784
+2024-01,2024-01-28,electricity,EV charging session - Chevy Bolt,48.94232025145676,kWh,Station_143,0.71,2024,34.7490473785343
+2024-01,2024-01-28,electricity,EV charging session - Tesla Model 3,19.146538928197334,kWh,Station_240,0.71,2024,13.594042639020106
+2024-01,2024-01-28,electricity,EV charging session - Hyundai Kona,58.19728526882489,kWh,Station_228,0.71,2024,41.320072540865674
+2024-01,2024-01-28,electricity,EV charging session - Tesla Model 3,65.20093720294392,kWh,Station_341,0.71,2024,46.29266541409018
+2024-01,2024-01-28,electricity,EV charging session - Nissan Leaf,51.14211521001526,kWh,Station_198,0.71,2024,36.31090179911084
+2024-01,2024-01-28,electricity,EV charging session - Tesla Model 3,69.71594630744188,kWh,Station_65,0.71,2024,49.49832187828373
+2024-01,2024-01-28,electricity,EV charging session - Chevy Bolt,41.97718283907795,kWh,Station_388,0.71,2024,29.803799815745343
+2024-01,2024-01-28,electricity,EV charging session - Tesla Model 3,69.42235104080157,kWh,Station_11,0.71,2024,49.28986923896911
+2024-01,2024-01-29,electricity,EV charging session - Hyundai Kona,78.98357945200523,kWh,Station_108,0.71,2024,56.07834141092371
+2024-01,2024-01-29,electricity,EV charging session - BMW i3,8.527929006106092,kWh,Station_26,0.71,2024,6.054829594335325
+2024-01,2024-01-29,electricity,EV charging session - Tesla Model 3,54.860003290031365,kWh,Station_445,0.71,2024,38.95060233592227
+2024-01,2024-01-29,electricity,EV charging session - Hyundai Kona,48.50288659256919,kWh,Station_421,0.71,2024,34.43704948072412
+2024-01,2024-01-29,electricity,EV charging session - Hyundai Kona,52.53257448488719,kWh,Station_151,0.71,2024,37.2981278842699
+2024-01,2024-01-29,electricity,EV charging session - Chevy Bolt,45.47118879513778,kWh,Station_221,0.71,2024,32.28454404454782
+2024-01,2024-01-29,electricity,EV charging session - Hyundai Kona,34.6802647525039,kWh,Station_341,0.71,2024,24.62298797427777
+2024-01,2024-01-29,electricity,EV charging session - Hyundai Kona,5.356309335174382,kWh,Station_496,0.71,2024,3.802979627973811
+2024-01,2024-01-29,electricity,EV charging session - Hyundai Kona,27.28221643798108,kWh,Station_237,0.71,2024,19.370373670966565
+2024-01,2024-01-29,electricity,EV charging session - Hyundai Kona,11.514718098963709,kWh,Station_237,0.71,2024,8.175449850264233
+2024-01,2024-01-29,electricity,EV charging session - Nissan Leaf,9.44816711008226,kWh,Station_497,0.71,2024,6.708198648158404
+2024-01,2024-01-29,electricity,EV charging session - Nissan Leaf,53.104493654248735,kWh,Station_219,0.71,2024,37.7041904945166
+2024-01,2024-01-29,electricity,EV charging session - Chevy Bolt,28.788056755331933,kWh,Station_487,0.71,2024,20.43952029628567
+2024-01,2024-01-29,electricity,EV charging session - Tesla Model 3,51.20692408624951,kWh,Station_424,0.71,2024,36.35691610123715
+2024-01,2024-01-29,electricity,EV charging session - Hyundai Kona,7.275443511373867,kWh,Station_461,0.71,2024,5.165564893075445
+2024-01,2024-01-29,electricity,EV charging session - Tesla Model 3,74.34970162186968,kWh,Station_123,0.71,2024,52.788288151527475
+2024-01,2024-01-29,electricity,EV charging session - Chevy Bolt,79.96222628140413,kWh,Station_144,0.71,2024,56.77318065979693
+2024-01,2024-01-29,electricity,EV charging session - Hyundai Kona,57.23283445266599,kWh,Station_478,0.71,2024,40.63531246139285
+2024-01,2024-01-29,electricity,EV charging session - Hyundai Kona,39.223093374363,kWh,Station_189,0.71,2024,27.84839629579773
+2024-01,2024-01-29,electricity,EV charging session - BMW i3,10.420110802780291,kWh,Station_255,0.71,2024,7.398278669974006
+2024-01,2024-01-29,electricity,EV charging session - Tesla Model 3,47.19744469005413,kWh,Station_68,0.71,2024,33.51018572993843
+2024-01,2024-01-29,electricity,EV charging session - Tesla Model 3,64.450811584597,kWh,Station_104,0.71,2024,45.76007622506387
+2024-01,2024-01-29,electricity,EV charging session - Nissan Leaf,37.84729729719263,kWh,Station_336,0.71,2024,26.871581081006767
+2024-01,2024-01-30,electricity,EV charging session - Nissan Leaf,79.26318452230387,kWh,Station_309,0.71,2024,56.276861010835745
+2024-01,2024-01-30,electricity,EV charging session - Nissan Leaf,38.61710108945668,kWh,Station_362,0.71,2024,27.418141773514243
+2024-01,2024-01-30,electricity,EV charging session - Nissan Leaf,24.401133035107133,kWh,Station_409,0.71,2024,17.324804454926063
+2024-01,2024-01-30,electricity,EV charging session - Chevy Bolt,26.179783257937025,kWh,Station_300,0.71,2024,18.587646113135285
+2024-01,2024-01-30,electricity,EV charging session - Nissan Leaf,28.68467333811884,kWh,Station_90,0.71,2024,20.366118070064378
+2024-01,2024-01-30,electricity,EV charging session - BMW i3,34.72671289756062,kWh,Station_357,0.71,2024,24.655966157268036
+2024-01,2024-01-30,electricity,EV charging session - Tesla Model 3,56.65756369693637,kWh,Station_256,0.71,2024,40.22687022482482
+2024-01,2024-01-30,electricity,EV charging session - BMW i3,5.583797770172537,kWh,Station_496,0.71,2024,3.964496416822501
+2024-01,2024-01-30,electricity,EV charging session - Hyundai Kona,9.669665590124442,kWh,Station_353,0.71,2024,6.865462568988353
+2024-01,2024-01-30,electricity,EV charging session - Chevy Bolt,42.74479256756108,kWh,Station_220,0.71,2024,30.348802722968365
+2024-01,2024-01-30,electricity,EV charging session - Tesla Model 3,58.281853729008496,kWh,Station_9,0.71,2024,41.38011614759603
+2024-01,2024-01-30,electricity,EV charging session - Tesla Model 3,47.88862466678341,kWh,Station_12,0.71,2024,34.00092351341622
+2024-01,2024-01-30,electricity,EV charging session - Hyundai Kona,10.55815619752912,kWh,Station_325,0.71,2024,7.4962909002456755
+2024-01,2024-01-30,electricity,EV charging session - Hyundai Kona,12.12848439962642,kWh,Station_438,0.71,2024,8.611223923734757
+2024-01,2024-01-30,electricity,EV charging session - Nissan Leaf,45.9092521544369,kWh,Station_244,0.71,2024,32.5955690296502
+2024-01,2024-01-30,electricity,EV charging session - Chevy Bolt,8.115370261050328,kWh,Station_182,0.71,2024,5.761912885345733
+2024-01,2024-01-30,electricity,EV charging session - Chevy Bolt,9.623141257761764,kWh,Station_284,0.71,2024,6.8324302930108525
+2024-01,2024-01-30,electricity,EV charging session - BMW i3,27.8542104539734,kWh,Station_312,0.71,2024,19.776489422321113
+2024-01,2024-01-30,electricity,EV charging session - Nissan Leaf,23.2226343840928,kWh,Station_99,0.71,2024,16.488070412705888
+2024-01,2024-01-30,electricity,EV charging session - Nissan Leaf,21.308572550577523,kWh,Station_197,0.71,2024,15.12908651091004
+2024-01,2024-01-30,electricity,EV charging session - Nissan Leaf,77.45749045486116,kWh,Station_482,0.71,2024,54.99481822295142
+2024-01,2024-01-30,electricity,EV charging session - Nissan Leaf,32.25299063735733,kWh,Station_366,0.71,2024,22.8996233525237
+2024-01,2024-01-31,electricity,EV charging session - Chevy Bolt,17.929285125178676,kWh,Station_226,0.71,2024,12.72979243887686
+2024-01,2024-01-31,electricity,EV charging session - Chevy Bolt,77.29578007017075,kWh,Station_333,0.71,2024,54.88000384982123
+2024-01,2024-01-31,electricity,EV charging session - Nissan Leaf,26.493008140946493,kWh,Station_103,0.71,2024,18.81003578007201
+2024-01,2024-01-31,electricity,EV charging session - BMW i3,55.30273056094204,kWh,Station_106,0.71,2024,39.26493869826884
+2024-01,2024-01-31,electricity,EV charging session - Tesla Model 3,10.192259430922377,kWh,Station_365,0.71,2024,7.236504195954887
+2024-01,2024-01-31,electricity,EV charging session - Tesla Model 3,62.63400990213397,kWh,Station_368,0.71,2024,44.470147030515115
+2024-01,2024-01-31,electricity,EV charging session - BMW i3,36.22941276064402,kWh,Station_58,0.71,2024,25.72288306005725
+2024-01,2024-01-31,electricity,EV charging session - Nissan Leaf,12.350406115320627,kWh,Station_78,0.71,2024,8.768788341877645
+2024-01,2024-01-31,electricity,EV charging session - Chevy Bolt,28.248510232660248,kWh,Station_75,0.71,2024,20.056442265188775
+2024-01,2024-01-31,electricity,EV charging session - Tesla Model 3,53.18988765045248,kWh,Station_42,0.71,2024,37.764820231821254
+2024-01,2024-01-31,electricity,EV charging session - Hyundai Kona,63.97196694472084,kWh,Station_422,0.71,2024,45.42009653075179
+2024-01,2024-01-31,electricity,EV charging session - Hyundai Kona,48.66355521084799,kWh,Station_324,0.71,2024,34.55112419970207
+2024-01,2024-01-31,electricity,EV charging session - BMW i3,51.16176878981536,kWh,Station_181,0.71,2024,36.324855840768905
+2024-01,2024-01-31,electricity,EV charging session - Nissan Leaf,68.24465321163233,kWh,Station_33,0.71,2024,48.45370378025895
+2024-01,2024-01-31,electricity,EV charging session - Tesla Model 3,70.3848328268497,kWh,Station_71,0.71,2024,49.97323130706329
+2024-01,2024-01-31,electricity,EV charging session - Nissan Leaf,56.55292752021,kWh,Station_56,0.71,2024,40.15257853934909
+2024-01,2024-01-31,electricity,EV charging session - Tesla Model 3,16.827771594461893,kWh,Station_105,0.71,2024,11.947717832067944
+2024-01,2024-01-31,electricity,EV charging session - BMW i3,76.46827351726323,kWh,Station_200,0.71,2024,54.29247419725689
+2024-01,2024-01-31,electricity,EV charging session - BMW i3,6.0651617128073525,kWh,Station_101,0.71,2024,4.30626481609322
+2024-01,2024-01-31,electricity,EV charging session - Hyundai Kona,10.137709442892056,kWh,Station_256,0.71,2024,7.197773704453359
+2024-01,2024-01-31,electricity,EV charging session - Nissan Leaf,62.5376105258264,kWh,Station_307,0.71,2024,44.401703473336745
+2024-01,2024-01-31,electricity,EV charging session - Nissan Leaf,16.497212038654055,kWh,Station_171,0.71,2024,11.713020547444378
+2024-01,2024-01-31,electricity,EV charging session - Hyundai Kona,9.127828166953716,kWh,Station_377,0.71,2024,6.480757998537138
+2024-02,2024-02-01,electricity,EV charging session - Chevy Bolt,43.99985930276914,kWh,Station_143,0.71,2024,31.239900104966086
+2024-02,2024-02-01,electricity,EV charging session - Chevy Bolt,41.76664809903056,kWh,Station_166,0.71,2024,29.654320150311698
+2024-02,2024-02-01,electricity,EV charging session - Chevy Bolt,6.695332951941997,kWh,Station_399,0.71,2024,4.753686395878818
+2024-02,2024-02-01,electricity,EV charging session - Chevy Bolt,69.4391779041177,kWh,Station_261,0.71,2024,49.30181631192357
+2024-02,2024-02-01,electricity,EV charging session - Tesla Model 3,38.711207157580986,kWh,Station_221,0.71,2024,27.4849570818825
+2024-02,2024-02-01,electricity,EV charging session - Chevy Bolt,57.97765788877307,kWh,Station_83,0.71,2024,41.16413710102888
+2024-02,2024-02-01,electricity,EV charging session - BMW i3,74.107522176834,kWh,Station_182,0.71,2024,52.61634074555214
+2024-02,2024-02-01,electricity,EV charging session - BMW i3,40.319061981322655,kWh,Station_307,0.71,2024,28.62653400673908
+2024-02,2024-02-01,electricity,EV charging session - Tesla Model 3,47.19807479360746,kWh,Station_10,0.71,2024,33.510633103461295
+2024-02,2024-02-01,electricity,EV charging session - Chevy Bolt,22.515635144477624,kWh,Station_396,0.71,2024,15.986100952579113
+2024-02,2024-02-01,electricity,EV charging session - Chevy Bolt,68.26093768441355,kWh,Station_4,0.71,2024,48.465265755933615
+2024-02,2024-02-01,electricity,EV charging session - Chevy Bolt,73.5059703623024,kWh,Station_351,0.71,2024,52.18923895723471
+2024-02,2024-02-01,electricity,EV charging session - Hyundai Kona,73.86936259559798,kWh,Station_402,0.71,2024,52.44724744287456
+2024-02,2024-02-01,electricity,EV charging session - Nissan Leaf,64.37713244013099,kWh,Station_336,0.71,2024,45.707764032493
+2024-02,2024-02-01,electricity,EV charging session - Hyundai Kona,12.010095267833266,kWh,Station_488,0.71,2024,8.527167640161618
+2024-02,2024-02-01,electricity,EV charging session - Nissan Leaf,36.226212409732376,kWh,Station_292,0.71,2024,25.720610810909985
+2024-02,2024-02-01,electricity,EV charging session - Chevy Bolt,28.84698737447133,kWh,Station_281,0.71,2024,20.48136103587464
+2024-02,2024-02-01,electricity,EV charging session - Chevy Bolt,76.58011323732995,kWh,Station_215,0.71,2024,54.37188039850427
+2024-02,2024-02-01,electricity,EV charging session - Hyundai Kona,74.13419248313946,kWh,Station_460,0.71,2024,52.63527666302901
+2024-02,2024-02-01,electricity,EV charging session - Hyundai Kona,73.80921664182601,kWh,Station_98,0.71,2024,52.404543815696464
+2024-02,2024-02-01,electricity,EV charging session - Nissan Leaf,35.02666957024688,kWh,Station_420,0.71,2024,24.868935394875283
+2024-02,2024-02-01,electricity,EV charging session - Nissan Leaf,35.89954921191294,kWh,Station_451,0.71,2024,25.488679940458187
+2024-02,2024-02-01,electricity,EV charging session - Hyundai Kona,48.330182762063146,kWh,Station_9,0.71,2024,34.31442976106483
+2024-02,2024-02-02,electricity,EV charging session - Hyundai Kona,53.71493232990424,kWh,Station_61,0.71,2024,38.137601954232004
+2024-02,2024-02-02,electricity,EV charging session - Tesla Model 3,15.5583755009174,kWh,Station_309,0.71,2024,11.046446605651353
+2024-02,2024-02-02,electricity,EV charging session - Hyundai Kona,40.736704801536966,kWh,Station_146,0.71,2024,28.923060409091246
+2024-02,2024-02-02,electricity,EV charging session - Tesla Model 3,11.579770802296697,kWh,Station_427,0.71,2024,8.221637269630655
+2024-02,2024-02-02,electricity,EV charging session - BMW i3,39.67667007009968,kWh,Station_419,0.71,2024,28.170435749770775
+2024-02,2024-02-02,electricity,EV charging session - Nissan Leaf,5.755335112421237,kWh,Station_63,0.71,2024,4.086287929819078
+2024-02,2024-02-02,electricity,EV charging session - Nissan Leaf,54.48656320200461,kWh,Station_121,0.71,2024,38.68545987342327
+2024-02,2024-02-02,electricity,EV charging session - Tesla Model 3,20.51871405095877,kWh,Station_226,0.71,2024,14.568286976180726
+2024-02,2024-02-02,electricity,EV charging session - Nissan Leaf,13.587964735173609,kWh,Station_105,0.71,2024,9.647454961973262
+2024-02,2024-02-02,electricity,EV charging session - Hyundai Kona,19.97640696261344,kWh,Station_462,0.71,2024,14.18324894345554
+2024-02,2024-02-02,electricity,EV charging session - Chevy Bolt,73.37136541275711,kWh,Station_260,0.71,2024,52.09366944305755
+2024-02,2024-02-02,electricity,EV charging session - Tesla Model 3,75.62261390550266,kWh,Station_349,0.71,2024,53.692055872906884
+2024-02,2024-02-02,electricity,EV charging session - Nissan Leaf,15.567795776598764,kWh,Station_425,0.71,2024,11.053135001385122
+2024-02,2024-02-02,electricity,EV charging session - Tesla Model 3,36.63162352131471,kWh,Station_255,0.71,2024,26.008452700133443
+2024-02,2024-02-02,electricity,EV charging session - Tesla Model 3,6.307290912653444,kWh,Station_429,0.71,2024,4.478176547983946
+2024-02,2024-02-02,electricity,EV charging session - Chevy Bolt,52.183521493408925,kWh,Station_434,0.71,2024,37.050300260320334
+2024-02,2024-02-02,electricity,EV charging session - Tesla Model 3,17.218744475121433,kWh,Station_28,0.71,2024,12.225308577336216
+2024-02,2024-02-02,electricity,EV charging session - Nissan Leaf,48.14596961410625,kWh,Station_170,0.71,2024,34.183638426015435
+2024-02,2024-02-02,electricity,EV charging session - BMW i3,25.12116466546159,kWh,Station_336,0.71,2024,17.836026912477728
+2024-02,2024-02-02,electricity,EV charging session - Tesla Model 3,67.90283934003946,kWh,Station_76,0.71,2024,48.211015931428015
+2024-02,2024-02-02,electricity,EV charging session - Tesla Model 3,43.254517140810776,kWh,Station_116,0.71,2024,30.71070716997565
+2024-02,2024-02-02,electricity,EV charging session - Chevy Bolt,62.61550758556181,kWh,Station_69,0.71,2024,44.45701038574888
+2024-02,2024-02-02,electricity,EV charging session - Hyundai Kona,43.825900117321794,kWh,Station_354,0.71,2024,31.116389083298472
+2024-02,2024-02-03,electricity,EV charging session - BMW i3,31.187028992431237,kWh,Station_234,0.71,2024,22.142790584626177
+2024-02,2024-02-03,electricity,EV charging session - Nissan Leaf,74.82644569097782,kWh,Station_1,0.71,2024,53.12677644059425
+2024-02,2024-02-03,electricity,EV charging session - Nissan Leaf,78.89524910756762,kWh,Station_352,0.71,2024,56.01562686637301
+2024-02,2024-02-03,electricity,EV charging session - Hyundai Kona,10.241885891596077,kWh,Station_218,0.71,2024,7.271738983033214
+2024-02,2024-02-03,electricity,EV charging session - Nissan Leaf,5.144893571862889,kWh,Station_273,0.71,2024,3.652874436022651
+2024-02,2024-02-03,electricity,EV charging session - Chevy Bolt,59.922814416459936,kWh,Station_368,0.71,2024,42.545198235686556
+2024-02,2024-02-03,electricity,EV charging session - Chevy Bolt,8.353019856414647,kWh,Station_251,0.71,2024,5.930644098054399
+2024-02,2024-02-03,electricity,EV charging session - Chevy Bolt,40.76283311435537,kWh,Station_347,0.71,2024,28.94161151119231
+2024-02,2024-02-03,electricity,EV charging session - Chevy Bolt,18.89056337329201,kWh,Station_344,0.71,2024,13.412299995037326
+2024-02,2024-02-03,electricity,EV charging session - BMW i3,42.79819075847415,kWh,Station_419,0.71,2024,30.386715438516646
+2024-02,2024-02-03,electricity,EV charging session - Hyundai Kona,12.814363147239058,kWh,Station_174,0.71,2024,9.09819783453973
+2024-02,2024-02-03,electricity,EV charging session - Nissan Leaf,8.918418777562092,kWh,Station_170,0.71,2024,6.332077332069085
+2024-02,2024-02-03,electricity,EV charging session - Nissan Leaf,0.1211432950427712,kWh,Station_246,0.71,2024,0.08601173948036756
+2024-02,2024-02-03,electricity,EV charging session - Chevy Bolt,10.9113557932088,kWh,Station_423,0.71,2024,7.747062613178248
+2024-02,2024-02-03,electricity,EV charging session - Chevy Bolt,7.8588683891368705,kWh,Station_90,0.71,2024,5.579796556287178
+2024-02,2024-02-03,electricity,EV charging session - Tesla Model 3,70.17135459506048,kWh,Station_49,0.71,2024,49.82166176249294
+2024-02,2024-02-03,electricity,EV charging session - Hyundai Kona,15.187432130994928,kWh,Station_446,0.71,2024,10.783076813006398
+2024-02,2024-02-03,electricity,EV charging session - BMW i3,77.8613161281733,kWh,Station_294,0.71,2024,55.28153445100304
+2024-02,2024-02-03,electricity,EV charging session - Nissan Leaf,37.189293647002586,kWh,Station_407,0.71,2024,26.404398489371836
+2024-02,2024-02-03,electricity,EV charging session - Tesla Model 3,25.71192392672169,kWh,Station_150,0.71,2024,18.255465987972396
+2024-02,2024-02-03,electricity,EV charging session - Tesla Model 3,9.086246707562893,kWh,Station_132,0.71,2024,6.451235162369653
+2024-02,2024-02-03,electricity,EV charging session - Nissan Leaf,27.00471085893386,kWh,Station_433,0.71,2024,19.17334470984304
+2024-02,2024-02-03,electricity,EV charging session - BMW i3,6.661747206218264,kWh,Station_59,0.71,2024,4.729840516414967
+2024-02,2024-02-04,electricity,EV charging session - Tesla Model 3,53.648424429654725,kWh,Station_457,0.71,2024,38.09038134505485
+2024-02,2024-02-04,electricity,EV charging session - Tesla Model 3,40.65621778280107,kWh,Station_324,0.71,2024,28.865914625788758
+2024-02,2024-02-04,electricity,EV charging session - Hyundai Kona,71.16250433532748,kWh,Station_199,0.71,2024,50.52537807808251
+2024-02,2024-02-04,electricity,EV charging session - BMW i3,16.111111317085957,kWh,Station_215,0.71,2024,11.438889035131028
+2024-02,2024-02-04,electricity,EV charging session - Tesla Model 3,58.91061762118734,kWh,Station_386,0.71,2024,41.82653851104301
+2024-02,2024-02-04,electricity,EV charging session - BMW i3,8.75167001874184,kWh,Station_49,0.71,2024,6.213685713306707
+2024-02,2024-02-04,electricity,EV charging session - Nissan Leaf,31.888072339650037,kWh,Station_472,0.71,2024,22.640531361151524
+2024-02,2024-02-04,electricity,EV charging session - Chevy Bolt,64.04377270020223,kWh,Station_232,0.71,2024,45.471078617143576
+2024-02,2024-02-04,electricity,EV charging session - Tesla Model 3,56.0452902589365,kWh,Station_247,0.71,2024,39.79215608384491
+2024-02,2024-02-04,electricity,EV charging session - Hyundai Kona,10.317872226345198,kWh,Station_382,0.71,2024,7.32568928070509
+2024-02,2024-02-04,electricity,EV charging session - Nissan Leaf,72.79850067918807,kWh,Station_479,0.71,2024,51.686935482223525
+2024-02,2024-02-04,electricity,EV charging session - BMW i3,67.88757428323595,kWh,Station_239,0.71,2024,48.20017774109752
+2024-02,2024-02-04,electricity,EV charging session - Nissan Leaf,41.24835865229704,kWh,Station_415,0.71,2024,29.2863346431309
+2024-02,2024-02-04,electricity,EV charging session - Tesla Model 3,35.024111186545994,kWh,Station_367,0.71,2024,24.867118942447654
+2024-02,2024-02-04,electricity,EV charging session - BMW i3,54.91320565679101,kWh,Station_168,0.71,2024,38.98837601632161
+2024-02,2024-02-04,electricity,EV charging session - Chevy Bolt,51.02335300165405,kWh,Station_48,0.71,2024,36.22658063117437
+2024-02,2024-02-04,electricity,EV charging session - Nissan Leaf,62.63359253447133,kWh,Station_51,0.71,2024,44.46985069947464
+2024-02,2024-02-04,electricity,EV charging session - Hyundai Kona,42.222770261485735,kWh,Station_98,0.71,2024,29.978166885654872
+2024-02,2024-02-04,electricity,EV charging session - BMW i3,60.08034819074353,kWh,Station_439,0.71,2024,42.6570472154279
+2024-02,2024-02-04,electricity,EV charging session - Nissan Leaf,47.20021555132315,kWh,Station_216,0.71,2024,33.51215304143943
+2024-02,2024-02-04,electricity,EV charging session - Nissan Leaf,58.55989952016146,kWh,Station_177,0.71,2024,41.57752865931463
+2024-02,2024-02-04,electricity,EV charging session - Chevy Bolt,18.529060697578466,kWh,Station_380,0.71,2024,13.15563309528071
+2024-02,2024-02-04,electricity,EV charging session - Chevy Bolt,20.026313858630445,kWh,Station_474,0.71,2024,14.218682839627615
+2024-02,2024-02-05,electricity,EV charging session - Hyundai Kona,61.12076151907815,kWh,Station_80,0.71,2024,43.395740678545486
+2024-02,2024-02-05,electricity,EV charging session - Hyundai Kona,47.99575165649026,kWh,Station_185,0.71,2024,34.076983676108085
+2024-02,2024-02-05,electricity,EV charging session - Tesla Model 3,60.70480470905676,kWh,Station_367,0.71,2024,43.100411343430295
+2024-02,2024-02-05,electricity,EV charging session - Tesla Model 3,35.84392988591518,kWh,Station_461,0.71,2024,25.449190218999778
+2024-02,2024-02-05,electricity,EV charging session - Hyundai Kona,77.26132089921293,kWh,Station_399,0.71,2024,54.85553783844118
+2024-02,2024-02-05,electricity,EV charging session - Hyundai Kona,44.87557340248862,kWh,Station_27,0.71,2024,31.861657115766917
+2024-02,2024-02-05,electricity,EV charging session - BMW i3,61.56734925121615,kWh,Station_452,0.71,2024,43.71281796836347
+2024-02,2024-02-05,electricity,EV charging session - Chevy Bolt,24.797064059890324,kWh,Station_464,0.71,2024,17.60591548252213
+2024-02,2024-02-05,electricity,EV charging session - Tesla Model 3,73.07614589143651,kWh,Station_448,0.71,2024,51.88406358291992
+2024-02,2024-02-05,electricity,EV charging session - Chevy Bolt,6.535781252164842,kWh,Station_478,0.71,2024,4.640404689037037
+2024-02,2024-02-05,electricity,EV charging session - Chevy Bolt,22.572882450288343,kWh,Station_492,0.71,2024,16.026746539704725
+2024-02,2024-02-05,electricity,EV charging session - Hyundai Kona,56.51645587863174,kWh,Station_414,0.71,2024,40.12668367382853
+2024-02,2024-02-05,electricity,EV charging session - Nissan Leaf,76.44990710737748,kWh,Station_195,0.71,2024,54.27943404623801
+2024-02,2024-02-05,electricity,EV charging session - BMW i3,51.492346382026085,kWh,Station_214,0.71,2024,36.55956593123852
+2024-02,2024-02-05,electricity,EV charging session - BMW i3,55.78259572680235,kWh,Station_369,0.71,2024,39.60564296602966
+2024-02,2024-02-05,electricity,EV charging session - Chevy Bolt,67.77665979862479,kWh,Station_342,0.71,2024,48.1214284570236
+2024-02,2024-02-05,electricity,EV charging session - BMW i3,37.05562159282365,kWh,Station_114,0.71,2024,26.309491330904788
+2024-02,2024-02-05,electricity,EV charging session - Tesla Model 3,40.271295219742754,kWh,Station_242,0.71,2024,28.592619606017355
+2024-02,2024-02-05,electricity,EV charging session - Chevy Bolt,44.76974192287614,kWh,Station_124,0.71,2024,31.78651676524206
+2024-02,2024-02-05,electricity,EV charging session - Tesla Model 3,38.2137648106408,kWh,Station_305,0.71,2024,27.131773015554963
+2024-02,2024-02-05,electricity,EV charging session - Nissan Leaf,65.12042574597822,kWh,Station_76,0.71,2024,46.235502279644535
+2024-02,2024-02-05,electricity,EV charging session - Chevy Bolt,64.0000211656222,kWh,Station_311,0.71,2024,45.44001502759176
+2024-02,2024-02-05,electricity,EV charging session - Nissan Leaf,5.01388964715821,kWh,Station_469,0.71,2024,3.5598616494823294
+2024-02,2024-02-06,electricity,EV charging session - Chevy Bolt,49.9789258332708,kWh,Station_312,0.71,2024,35.48503734162227
+2024-02,2024-02-06,electricity,EV charging session - BMW i3,74.93688348332599,kWh,Station_351,0.71,2024,53.20518727316145
+2024-02,2024-02-06,electricity,EV charging session - Hyundai Kona,40.257196883863706,kWh,Station_44,0.71,2024,28.58260978754323
+2024-02,2024-02-06,electricity,EV charging session - Nissan Leaf,51.20288962549678,kWh,Station_415,0.71,2024,36.35405163410271
+2024-02,2024-02-06,electricity,EV charging session - BMW i3,54.884964513779416,kWh,Station_186,0.71,2024,38.968324804783386
+2024-02,2024-02-06,electricity,EV charging session - Chevy Bolt,50.61599542846814,kWh,Station_343,0.71,2024,35.937356754212374
+2024-02,2024-02-06,electricity,EV charging session - BMW i3,55.655332785147046,kWh,Station_246,0.71,2024,39.5152862774544
+2024-02,2024-02-06,electricity,EV charging session - Tesla Model 3,48.75767260331637,kWh,Station_437,0.71,2024,34.61794754835462
+2024-02,2024-02-06,electricity,EV charging session - BMW i3,72.95818104852783,kWh,Station_84,0.71,2024,51.80030854445476
+2024-02,2024-02-06,electricity,EV charging session - Tesla Model 3,58.11274413766781,kWh,Station_207,0.71,2024,41.260048337744145
+2024-02,2024-02-06,electricity,EV charging session - BMW i3,56.52037667500273,kWh,Station_151,0.71,2024,40.12946743925194
+2024-02,2024-02-06,electricity,EV charging session - Nissan Leaf,28.780491407276823,kWh,Station_16,0.71,2024,20.434148899166544
+2024-02,2024-02-06,electricity,EV charging session - Hyundai Kona,9.04773210705438,kWh,Station_165,0.71,2024,6.423889796008609
+2024-02,2024-02-06,electricity,EV charging session - Chevy Bolt,51.08539266561558,kWh,Station_405,0.71,2024,36.27062879258706
+2024-02,2024-02-06,electricity,EV charging session - BMW i3,36.26259614170952,kWh,Station_463,0.71,2024,25.74644326061376
+2024-02,2024-02-06,electricity,EV charging session - Hyundai Kona,77.45420995738992,kWh,Station_145,0.71,2024,54.99248906974684
+2024-02,2024-02-06,electricity,EV charging session - Chevy Bolt,68.21934425725472,kWh,Station_498,0.71,2024,48.435734422650846
+2024-02,2024-02-06,electricity,EV charging session - Chevy Bolt,57.67538255763964,kWh,Station_37,0.71,2024,40.94952161592414
+2024-02,2024-02-06,electricity,EV charging session - Tesla Model 3,20.17078858180017,kWh,Station_333,0.71,2024,14.321259893078121
+2024-02,2024-02-06,electricity,EV charging session - Nissan Leaf,78.16770975170616,kWh,Station_403,0.71,2024,55.499073923711364
+2024-02,2024-02-06,electricity,EV charging session - Nissan Leaf,76.95348907902107,kWh,Station_414,0.71,2024,54.636977246104955
+2024-02,2024-02-06,electricity,EV charging session - Hyundai Kona,62.74942109140281,kWh,Station_45,0.71,2024,44.552088974895995
+2024-02,2024-02-07,electricity,EV charging session - Nissan Leaf,47.63041181980813,kWh,Station_402,0.71,2024,33.81759239206377
+2024-02,2024-02-07,electricity,EV charging session - BMW i3,51.737131530843484,kWh,Station_206,0.71,2024,36.73336338689887
+2024-02,2024-02-07,electricity,EV charging session - Nissan Leaf,41.88651470928026,kWh,Station_62,0.71,2024,29.739425443588985
+2024-02,2024-02-07,electricity,EV charging session - Hyundai Kona,71.95569072472664,kWh,Station_420,0.71,2024,51.08854041455591
+2024-02,2024-02-07,electricity,EV charging session - Nissan Leaf,39.93276466234457,kWh,Station_356,0.71,2024,28.352262910264642
+2024-02,2024-02-07,electricity,EV charging session - BMW i3,30.576281983940227,kWh,Station_468,0.71,2024,21.70916020859756
+2024-02,2024-02-07,electricity,EV charging session - Tesla Model 3,73.60654260034698,kWh,Station_308,0.71,2024,52.260645246246355
+2024-02,2024-02-07,electricity,EV charging session - Hyundai Kona,14.10985781803456,kWh,Station_19,0.71,2024,10.017999050804537
+2024-02,2024-02-07,electricity,EV charging session - Tesla Model 3,38.957609713355055,kWh,Station_365,0.71,2024,27.659902896482087
+2024-02,2024-02-07,electricity,EV charging session - Tesla Model 3,60.71815399652918,kWh,Station_300,0.71,2024,43.10988933753572
+2024-02,2024-02-07,electricity,EV charging session - Tesla Model 3,79.2780822184147,kWh,Station_7,0.71,2024,56.28743837507443
+2024-02,2024-02-07,electricity,EV charging session - Chevy Bolt,30.27520935029439,kWh,Station_249,0.71,2024,21.495398638709016
+2024-02,2024-02-07,electricity,EV charging session - Tesla Model 3,50.92256838738107,kWh,Station_117,0.71,2024,36.15502355504056
+2024-02,2024-02-07,electricity,EV charging session - Hyundai Kona,58.92443565485458,kWh,Station_68,0.71,2024,41.836349314946744
+2024-02,2024-02-07,electricity,EV charging session - BMW i3,6.268235994227531,kWh,Station_34,0.71,2024,4.450447555901547
+2024-02,2024-02-07,electricity,EV charging session - BMW i3,13.089183211513587,kWh,Station_194,0.71,2024,9.293320080174647
+2024-02,2024-02-07,electricity,EV charging session - Nissan Leaf,31.102261453118967,kWh,Station_325,0.71,2024,22.082605631714465
+2024-02,2024-02-07,electricity,EV charging session - Chevy Bolt,27.694411449808683,kWh,Station_266,0.71,2024,19.663032129364165
+2024-02,2024-02-07,electricity,EV charging session - Tesla Model 3,50.51448558506964,kWh,Station_480,0.71,2024,35.865284765399444
+2024-02,2024-02-07,electricity,EV charging session - Nissan Leaf,20.84637781774533,kWh,Station_42,0.71,2024,14.800928250599185
+2024-02,2024-02-07,electricity,EV charging session - BMW i3,45.61965970987572,kWh,Station_297,0.71,2024,32.38995839401176
+2024-02,2024-02-07,electricity,EV charging session - Chevy Bolt,39.6867657804195,kWh,Station_461,0.71,2024,28.177603704097844
+2024-02,2024-02-08,electricity,EV charging session - Chevy Bolt,6.818019426679227,kWh,Station_231,0.71,2024,4.840793792942251
+2024-02,2024-02-08,electricity,EV charging session - Tesla Model 3,55.17152825512059,kWh,Station_453,0.71,2024,39.171785061135616
+2024-02,2024-02-08,electricity,EV charging session - BMW i3,152.23875799921288,kWh,Station_378,0.71,2024,108.08951817944114
+2024-02,2024-02-08,electricity,EV charging session - Hyundai Kona,60.28854286251064,kWh,Station_394,0.71,2024,42.80486543238255
+2024-02,2024-02-08,electricity,EV charging session - Chevy Bolt,16.376371083048106,kWh,Station_10,0.71,2024,11.627223468964155
+2024-02,2024-02-08,electricity,EV charging session - Tesla Model 3,37.610115032737085,kWh,Station_358,0.71,2024,26.70318167324333
+2024-02,2024-02-08,electricity,EV charging session - Hyundai Kona,38.00957724097448,kWh,Station_475,0.71,2024,26.98679984109188
+2024-02,2024-02-08,electricity,EV charging session - BMW i3,51.89127939896392,kWh,Station_444,0.71,2024,36.84280837326438
+2024-02,2024-02-08,electricity,EV charging session - Chevy Bolt,9.889982502961283,kWh,Station_128,0.71,2024,7.021887577102511
+2024-02,2024-02-08,electricity,EV charging session - Hyundai Kona,73.62743176033132,kWh,Station_179,0.71,2024,52.27547654983523
+2024-02,2024-02-08,electricity,EV charging session - Hyundai Kona,10.336644191193582,kWh,Station_405,0.71,2024,7.339017375747442
+2024-02,2024-02-08,electricity,EV charging session - Hyundai Kona,69.10595990230438,kWh,Station_392,0.71,2024,49.065231530636105
+2024-02,2024-02-08,electricity,EV charging session - Chevy Bolt,18.30737391871987,kWh,Station_193,0.71,2024,12.998235482291106
+2024-02,2024-02-08,electricity,EV charging session - Chevy Bolt,41.74488149336455,kWh,Station_92,0.71,2024,29.63886586028883
+2024-02,2024-02-08,electricity,EV charging session - BMW i3,39.152310092112536,kWh,Station_231,0.71,2024,27.7981401653999
+2024-02,2024-02-08,electricity,EV charging session - Tesla Model 3,37.1185672622842,kWh,Station_78,0.71,2024,26.354182756221782
+2024-02,2024-02-08,electricity,EV charging session - Hyundai Kona,35.34544122101473,kWh,Station_85,0.71,2024,25.09526326692046
+2024-02,2024-02-08,electricity,EV charging session - Nissan Leaf,18.034377951520995,kWh,Station_30,0.71,2024,12.804408345579905
+2024-02,2024-02-08,electricity,EV charging session - Nissan Leaf,45.6603131979625,kWh,Station_49,0.71,2024,32.41882237055337
+2024-02,2024-02-08,electricity,EV charging session - Chevy Bolt,37.97418005443737,kWh,Station_265,0.71,2024,26.96166783865053
+2024-02,2024-02-08,electricity,EV charging session - Hyundai Kona,45.393753939065256,kWh,Station_145,0.71,2024,32.22956529673633
+2024-02,2024-02-08,electricity,EV charging session - Tesla Model 3,29.98141610704047,kWh,Station_69,0.71,2024,21.286805435998733
+2024-02,2024-02-09,electricity,EV charging session - Tesla Model 3,6.006718634009571,kWh,Station_58,0.71,2024,4.264770230146795
+2024-02,2024-02-09,electricity,EV charging session - Tesla Model 3,6.623592694043594,kWh,Station_185,0.71,2024,4.702750812770951
+2024-02,2024-02-09,electricity,EV charging session - Tesla Model 3,11.431328818332826,kWh,Station_62,0.71,2024,8.116243461016307
+2024-02,2024-02-09,electricity,EV charging session - Tesla Model 3,78.93551157563188,kWh,Station_479,0.71,2024,56.04421321869863
+2024-02,2024-02-09,electricity,EV charging session - Nissan Leaf,58.74152298342496,kWh,Station_308,0.71,2024,41.70648131823172
+2024-02,2024-02-09,electricity,EV charging session - Hyundai Kona,68.8333119385666,kWh,Station_445,0.71,2024,48.87165147638228
+2024-02,2024-02-09,electricity,EV charging session - Chevy Bolt,59.21757555858335,kWh,Station_296,0.71,2024,42.04447864659418
+2024-02,2024-02-09,electricity,EV charging session - Chevy Bolt,40.85727641136661,kWh,Station_166,0.71,2024,29.008666252070295
+2024-02,2024-02-09,electricity,EV charging session - Chevy Bolt,56.06964024826272,kWh,Station_171,0.71,2024,39.80944457626653
+2024-02,2024-02-09,electricity,EV charging session - Chevy Bolt,78.23675255331868,kWh,Station_63,0.71,2024,55.54809431285626
+2024-02,2024-02-09,electricity,EV charging session - Nissan Leaf,17.47337751568118,kWh,Station_147,0.71,2024,12.406098036133637
+2024-02,2024-02-09,electricity,EV charging session - BMW i3,26.22106760279984,kWh,Station_484,0.71,2024,18.616957997987885
+2024-02,2024-02-09,electricity,EV charging session - Hyundai Kona,70.09733350116187,kWh,Station_306,0.71,2024,49.769106785824924
+2024-02,2024-02-09,electricity,EV charging session - Tesla Model 3,55.40858450740993,kWh,Station_161,0.71,2024,39.340095000261044
+2024-02,2024-02-09,electricity,EV charging session - BMW i3,33.47231506142258,kWh,Station_141,0.71,2024,23.765343693610028
+2024-02,2024-02-09,electricity,EV charging session - Chevy Bolt,53.57520170906194,kWh,Station_334,0.71,2024,38.03839321343398
+2024-02,2024-02-09,electricity,EV charging session - BMW i3,11.28842885033608,kWh,Station_97,0.71,2024,8.014784483738616
+2024-02,2024-02-09,electricity,EV charging session - Hyundai Kona,6.269100759870733,kWh,Station_446,0.71,2024,4.4510615395082205
+2024-02,2024-02-09,electricity,EV charging session - Tesla Model 3,42.95272026706106,kWh,Station_221,0.71,2024,30.496431389613353
+2024-02,2024-02-09,electricity,EV charging session - Tesla Model 3,43.24493715557364,kWh,Station_43,0.71,2024,30.703905380457282
+2024-02,2024-02-09,electricity,EV charging session - Hyundai Kona,12.442167206200743,kWh,Station_433,0.71,2024,8.833938716402526
+2024-02,2024-02-09,electricity,EV charging session - Hyundai Kona,29.18339676386404,kWh,Station_292,0.71,2024,20.720211702343466
+2024-02,2024-02-09,electricity,EV charging session - Chevy Bolt,74.18267082528274,kWh,Station_378,0.71,2024,52.66969628595074
+2024-02,2024-02-09,electricity,EV charging session - Tesla Model 3,72.08924276832295,kWh,Station_108,0.71,2024,51.18336236550929
+2024-02,2024-02-10,electricity,EV charging session - BMW i3,25.32972426052728,kWh,Station_266,0.71,2024,17.984104224974367
+2024-02,2024-02-10,electricity,EV charging session - Nissan Leaf,58.50930203255331,kWh,Station_95,0.71,2024,41.541604443112846
+2024-02,2024-02-10,electricity,EV charging session - Nissan Leaf,76.57770216711769,kWh,Station_262,0.71,2024,54.37016853865356
+2024-02,2024-02-10,electricity,EV charging session - Hyundai Kona,32.02408532686721,kWh,Station_313,0.71,2024,22.737100582075715
+2024-02,2024-02-10,electricity,EV charging session - Chevy Bolt,63.43204575363278,kWh,Station_385,0.71,2024,45.03675248507927
+2024-02,2024-02-10,electricity,EV charging session - Nissan Leaf,8.259211353059325,kWh,Station_71,0.71,2024,5.86404006067212
+2024-02,2024-02-10,electricity,EV charging session - Tesla Model 3,65.03081468702587,kWh,Station_442,0.71,2024,46.171878427788364
+2024-02,2024-02-10,electricity,EV charging session - Hyundai Kona,39.18998751353248,kWh,Station_219,0.71,2024,27.82489113460806
+2024-02,2024-02-10,electricity,EV charging session - BMW i3,79.3573768668566,kWh,Station_21,0.71,2024,56.34373757546818
+2024-02,2024-02-10,electricity,EV charging session - Hyundai Kona,76.66382798129307,kWh,Station_92,0.71,2024,54.431317866718075
+2024-02,2024-02-10,electricity,EV charging session - BMW i3,54.31762293384593,kWh,Station_127,0.71,2024,38.56551228303061
+2024-02,2024-02-10,electricity,EV charging session - Hyundai Kona,31.55147285240084,kWh,Station_80,0.71,2024,22.401545725204596
+2024-02,2024-02-10,electricity,EV charging session - Hyundai Kona,45.81366156734756,kWh,Station_312,0.71,2024,32.52769971281676
+2024-02,2024-02-10,electricity,EV charging session - Hyundai Kona,60.38629791395793,kWh,Station_238,0.71,2024,42.87427151891013
+2024-02,2024-02-10,electricity,EV charging session - BMW i3,32.598880789009,kWh,Station_471,0.71,2024,23.14520536019639
+2024-02,2024-02-10,electricity,EV charging session - BMW i3,0.0457718422773702,kWh,Station_372,0.71,2024,0.032498008016932846
+2024-02,2024-02-10,electricity,EV charging session - Hyundai Kona,53.39896875032125,kWh,Station_404,0.71,2024,37.91326781272809
+2024-02,2024-02-10,electricity,EV charging session - Nissan Leaf,73.45257577678328,kWh,Station_486,0.71,2024,52.15132880151612
+2024-02,2024-02-10,electricity,EV charging session - Chevy Bolt,75.52338506958138,kWh,Station_182,0.71,2024,53.62160339940278
+2024-02,2024-02-10,electricity,EV charging session - Chevy Bolt,65.03863434488625,kWh,Station_156,0.71,2024,46.17743038486923
+2024-02,2024-02-10,electricity,EV charging session - BMW i3,63.991170227375775,kWh,Station_5,0.71,2024,45.4337308614368
+2024-02,2024-02-10,electricity,EV charging session - BMW i3,65.93421330641783,kWh,Station_120,0.71,2024,46.81329144755666
+2024-02,2024-02-10,electricity,EV charging session - Nissan Leaf,26.75691987130609,kWh,Station_277,0.71,2024,18.99741310862732
+2024-02,2024-02-11,electricity,EV charging session - Chevy Bolt,8.823831028083502,kWh,Station_18,0.71,2024,6.264920029939286
+2024-02,2024-02-11,electricity,EV charging session - Chevy Bolt,73.78086491491091,kWh,Station_431,0.71,2024,52.38441408958674
+2024-02,2024-02-11,electricity,EV charging session - Hyundai Kona,26.510946858011508,kWh,Station_198,0.71,2024,18.82277226918817
+2024-02,2024-02-11,electricity,EV charging session - BMW i3,77.63851676623986,kWh,Station_57,0.71,2024,55.1233469040303
+2024-02,2024-02-11,electricity,EV charging session - Chevy Bolt,78.13016919490377,kWh,Station_93,0.71,2024,55.47242012838168
+2024-02,2024-02-11,electricity,EV charging session - Nissan Leaf,5.602389790671721,kWh,Station_19,0.71,2024,3.9776967513769215
+2024-02,2024-02-11,electricity,EV charging session - Nissan Leaf,20.09377734133772,kWh,Station_384,0.71,2024,14.26658191234978
+2024-02,2024-02-11,electricity,EV charging session - Chevy Bolt,40.27604440348503,kWh,Station_353,0.71,2024,28.59599152647437
+2024-02,2024-02-11,electricity,EV charging session - BMW i3,53.95698169820941,kWh,Station_193,0.71,2024,38.30945700572868
+2024-02,2024-02-11,electricity,EV charging session - Nissan Leaf,60.61379392452427,kWh,Station_237,0.71,2024,43.035793686412234
+2024-02,2024-02-11,electricity,EV charging session - Hyundai Kona,63.30842211900583,kWh,Station_387,0.71,2024,44.94897970449414
+2024-02,2024-02-11,electricity,EV charging session - Nissan Leaf,38.60563636862258,kWh,Station_426,0.71,2024,27.410001821722027
+2024-02,2024-02-11,electricity,EV charging session - Tesla Model 3,65.60582507754691,kWh,Station_277,0.71,2024,46.580135805058305
+2024-02,2024-02-11,electricity,EV charging session - Tesla Model 3,46.61987332807575,kWh,Station_227,0.71,2024,33.10011006293378
+2024-02,2024-02-11,electricity,EV charging session - BMW i3,49.363214910123695,kWh,Station_233,0.71,2024,35.047882586187825
+2024-02,2024-02-11,electricity,EV charging session - Chevy Bolt,24.87454059878397,kWh,Station_40,0.71,2024,17.660923825136617
+2024-02,2024-02-11,electricity,EV charging session - BMW i3,54.36218573947502,kWh,Station_323,0.71,2024,38.59715187502726
+2024-02,2024-02-11,electricity,EV charging session - BMW i3,6.443672288667047,kWh,Station_153,0.71,2024,4.575007324953603
+2024-02,2024-02-11,electricity,EV charging session - BMW i3,28.215649389656605,kWh,Station_127,0.71,2024,20.03311106665619
+2024-02,2024-02-11,electricity,EV charging session - BMW i3,42.2855347814151,kWh,Station_237,0.71,2024,30.02272969480472
+2024-02,2024-02-11,electricity,EV charging session - Hyundai Kona,76.1733008089697,kWh,Station_486,0.71,2024,54.08304357436848
+2024-02,2024-02-11,electricity,EV charging session - Hyundai Kona,34.99715934379533,kWh,Station_493,0.71,2024,24.847983134094683
+2024-02,2024-02-11,electricity,EV charging session - Nissan Leaf,26.509679689140484,kWh,Station_55,0.71,2024,18.821872579289742
+2024-02,2024-02-11,electricity,EV charging session - Tesla Model 3,34.95512440558501,kWh,Station_468,0.71,2024,24.818138327965357
+2024-02,2024-02-12,electricity,EV charging session - BMW i3,62.0462303749696,kWh,Station_436,0.71,2024,44.05282356622842
+2024-02,2024-02-12,electricity,EV charging session - Nissan Leaf,69.8745479772151,kWh,Station_172,0.71,2024,49.61092906382272
+2024-02,2024-02-12,electricity,EV charging session - Tesla Model 3,10.43167346455136,kWh,Station_109,0.71,2024,7.406488159831465
+2024-02,2024-02-12,electricity,EV charging session - Chevy Bolt,46.53802191715521,kWh,Station_354,0.71,2024,33.0419955611802
+2024-02,2024-02-12,electricity,EV charging session - Hyundai Kona,53.20639354696602,kWh,Station_469,0.71,2024,37.77653941834587
+2024-02,2024-02-12,electricity,EV charging session - Chevy Bolt,26.967931002629683,kWh,Station_439,0.71,2024,19.147231011867074
+2024-02,2024-02-12,electricity,EV charging session - Tesla Model 3,68.51919496631803,kWh,Station_368,0.71,2024,48.64862842608579
+2024-02,2024-02-12,electricity,EV charging session - Hyundai Kona,71.7085068763758,kWh,Station_471,0.71,2024,50.91303988222681
+2024-02,2024-02-12,electricity,EV charging session - Hyundai Kona,79.24854612418856,kWh,Station_198,0.71,2024,56.26646774817388
+2024-02,2024-02-12,electricity,EV charging session - Nissan Leaf,34.14920011576352,kWh,Station_371,0.71,2024,24.2459320821921
+2024-02,2024-02-12,electricity,EV charging session - BMW i3,66.70625110738425,kWh,Station_373,0.71,2024,47.361438286242816
+2024-02,2024-02-12,electricity,EV charging session - Tesla Model 3,30.773548133404887,kWh,Station_461,0.71,2024,21.84921917471747
+2024-02,2024-02-12,electricity,EV charging session - Tesla Model 3,24.155781563888247,kWh,Station_497,0.71,2024,17.150604910360656
+2024-02,2024-02-12,electricity,EV charging session - Chevy Bolt,10.347606688667652,kWh,Station_87,0.71,2024,7.346800748954032
+2024-02,2024-02-12,electricity,EV charging session - Hyundai Kona,26.30453465597864,kWh,Station_201,0.71,2024,18.676219605744834
+2024-02,2024-02-12,electricity,EV charging session - Tesla Model 3,26.730320039666697,kWh,Station_337,0.71,2024,18.978527228163355
+2024-02,2024-02-12,electricity,EV charging session - Hyundai Kona,48.61478557078329,kWh,Station_322,0.71,2024,34.51649775525613
+2024-02,2024-02-12,electricity,EV charging session - Tesla Model 3,1.3302257390094765,kWh,Station_275,0.71,2024,0.9444602746967282
+2024-02,2024-02-12,electricity,EV charging session - Nissan Leaf,44.01595165676219,kWh,Station_211,0.71,2024,31.251325676301153
+2024-02,2024-02-12,electricity,EV charging session - BMW i3,18.433946311771635,kWh,Station_391,0.71,2024,13.08810188135786
+2024-02,2024-02-12,electricity,EV charging session - Tesla Model 3,37.70311871847127,kWh,Station_118,0.71,2024,26.769214290114604
+2024-02,2024-02-12,electricity,EV charging session - Hyundai Kona,56.19836617198485,kWh,Station_191,0.71,2024,39.90083998210924
+2024-02,2024-02-12,electricity,EV charging session - Nissan Leaf,73.27597597314914,kWh,Station_42,0.71,2024,52.02594294093589
+2024-02,2024-02-13,electricity,EV charging session - Tesla Model 3,76.89240009827725,kWh,Station_42,0.71,2024,54.593604069776845
+2024-02,2024-02-13,electricity,EV charging session - Chevy Bolt,23.92505033099207,kWh,Station_315,0.71,2024,16.98678573500437
+2024-02,2024-02-13,electricity,EV charging session - BMW i3,50.48944002879003,kWh,Station_276,0.71,2024,35.84750242044092
+2024-02,2024-02-13,electricity,EV charging session - Tesla Model 3,66.09153402649976,kWh,Station_329,0.71,2024,46.924989158814824
+2024-02,2024-02-13,electricity,EV charging session - Nissan Leaf,6.918423739637612,kWh,Station_17,0.71,2024,4.912080855142705
+2024-02,2024-02-13,electricity,EV charging session - Nissan Leaf,61.03806279047378,kWh,Station_431,0.71,2024,43.337024581236385
+2024-02,2024-02-13,electricity,EV charging session - Nissan Leaf,64.22961963559717,kWh,Station_258,0.71,2024,45.603029941273995
+2024-02,2024-02-13,electricity,EV charging session - Chevy Bolt,44.88676331081039,kWh,Station_63,0.71,2024,31.869601950675374
+2024-02,2024-02-13,electricity,EV charging session - Nissan Leaf,58.94085857253415,kWh,Station_62,0.71,2024,41.848009586499245
+2024-02,2024-02-13,electricity,EV charging session - Chevy Bolt,10.039817806428031,kWh,Station_100,0.71,2024,7.128270642563902
+2024-02,2024-02-13,electricity,EV charging session - Tesla Model 3,17.53493129851908,kWh,Station_19,0.71,2024,12.449801221948546
+2024-02,2024-02-13,electricity,EV charging session - Chevy Bolt,29.758384839143087,kWh,Station_17,0.71,2024,21.12845323579159
+2024-02,2024-02-13,electricity,EV charging session - Chevy Bolt,69.59647495660728,kWh,Station_325,0.71,2024,49.413497219191164
+2024-02,2024-02-13,electricity,EV charging session - BMW i3,49.93390136150811,kWh,Station_423,0.71,2024,35.45306996667076
+2024-02,2024-02-13,electricity,EV charging session - Chevy Bolt,14.49216023800693,kWh,Station_466,0.71,2024,10.28943376898492
+2024-02,2024-02-13,electricity,EV charging session - Chevy Bolt,38.409401627820046,kWh,Station_373,0.71,2024,27.27067515575223
+2024-02,2024-02-13,electricity,EV charging session - Tesla Model 3,8.234584116412151,kWh,Station_246,0.71,2024,5.846554722652627
+2024-02,2024-02-13,electricity,EV charging session - BMW i3,34.86162084385812,kWh,Station_251,0.71,2024,24.751750799139263
+2024-02,2024-02-13,electricity,EV charging session - Hyundai Kona,57.92746599973164,kWh,Station_455,0.71,2024,41.12850085980946
+2024-02,2024-02-13,electricity,EV charging session - Tesla Model 3,49.40924272632639,kWh,Station_81,0.71,2024,35.08056233569174
+2024-02,2024-02-13,electricity,EV charging session - Tesla Model 3,9.98078152795496,kWh,Station_39,0.71,2024,7.086354884848022
+2024-02,2024-02-13,electricity,EV charging session - Hyundai Kona,29.05244637809921,kWh,Station_36,0.71,2024,20.627236928450436
+2024-02,2024-02-13,electricity,EV charging session - Chevy Bolt,42.09423335073603,kWh,Station_424,0.71,2024,29.886905679022583
+2024-02,2024-02-14,electricity,EV charging session - Nissan Leaf,45.76954763488772,kWh,Station_429,0.71,2024,32.49637882077028
+2024-02,2024-02-14,electricity,EV charging session - BMW i3,53.71328701264429,kWh,Station_388,0.71,2024,38.13643377897744
+2024-02,2024-02-14,electricity,EV charging session - Nissan Leaf,66.40550756937826,kWh,Station_486,0.71,2024,47.14791037425856
+2024-02,2024-02-14,electricity,EV charging session - Hyundai Kona,11.456912304995278,kWh,Station_409,0.71,2024,8.134407736546647
+2024-02,2024-02-14,electricity,EV charging session - Tesla Model 3,75.57096449529908,kWh,Station_197,0.71,2024,53.65538479166234
+2024-02,2024-02-14,electricity,EV charging session - Tesla Model 3,44.36125627735559,kWh,Station_158,0.71,2024,31.496491956922466
+2024-02,2024-02-14,electricity,EV charging session - BMW i3,28.253031404856078,kWh,Station_204,0.71,2024,20.059652297447816
+2024-02,2024-02-14,electricity,EV charging session - Tesla Model 3,39.48883106753241,kWh,Station_196,0.71,2024,28.03707005794801
+2024-02,2024-02-14,electricity,EV charging session - Tesla Model 3,25.36585765013293,kWh,Station_216,0.71,2024,18.00975893159438
+2024-02,2024-02-14,electricity,EV charging session - BMW i3,69.21096127147155,kWh,Station_285,0.71,2024,49.139782502744794
+2024-02,2024-02-14,electricity,EV charging session - BMW i3,34.60220459389867,kWh,Station_457,0.71,2024,24.567565261668054
+2024-02,2024-02-14,electricity,EV charging session - Hyundai Kona,40.78700348086861,kWh,Station_196,0.71,2024,28.958772471416715
+2024-02,2024-02-14,electricity,EV charging session - Tesla Model 3,21.871253290777545,kWh,Station_307,0.71,2024,15.528589836452056
+2024-02,2024-02-14,electricity,EV charging session - Tesla Model 3,47.23207084043696,kWh,Station_152,0.71,2024,33.53477029671024
+2024-02,2024-02-14,electricity,EV charging session - Chevy Bolt,18.79049305407434,kWh,Station_325,0.71,2024,13.34125006839278
+2024-02,2024-02-14,electricity,EV charging session - Chevy Bolt,47.28525433337332,kWh,Station_146,0.71,2024,33.57253057669505
+2024-02,2024-02-14,electricity,EV charging session - Chevy Bolt,30.165570663990163,kWh,Station_426,0.71,2024,21.417555171433015
+2024-02,2024-02-14,electricity,EV charging session - Hyundai Kona,34.895113266087755,kWh,Station_57,0.71,2024,24.775530418922305
+2024-02,2024-02-14,electricity,EV charging session - Tesla Model 3,54.96447201998234,kWh,Station_211,0.71,2024,39.02477513418746
+2024-02,2024-02-14,electricity,EV charging session - Hyundai Kona,74.78581939727512,kWh,Station_268,0.71,2024,53.09793177206533
+2024-02,2024-02-14,electricity,EV charging session - Hyundai Kona,34.79054782301729,kWh,Station_210,0.71,2024,24.701288954342274
+2024-02,2024-02-14,electricity,EV charging session - Chevy Bolt,69.13309024823164,kWh,Station_17,0.71,2024,49.08449407624446
+2024-02,2024-02-14,electricity,EV charging session - Nissan Leaf,38.08536376892858,kWh,Station_286,0.71,2024,27.04060827593929
+2024-02,2024-02-15,electricity,EV charging session - Tesla Model 3,27.752745917900945,kWh,Station_344,0.71,2024,19.70444960170967
+2024-02,2024-02-15,electricity,EV charging session - Chevy Bolt,41.65484517329656,kWh,Station_203,0.71,2024,29.574940073040555
+2024-02,2024-02-15,electricity,EV charging session - Nissan Leaf,35.38682540127056,kWh,Station_99,0.71,2024,25.1246460349021
+2024-02,2024-02-15,electricity,EV charging session - Nissan Leaf,68.56767860768713,kWh,Station_279,0.71,2024,48.68305181145786
+2024-02,2024-02-15,electricity,EV charging session - Tesla Model 3,36.46547333950338,kWh,Station_129,0.71,2024,25.890486071047402
+2024-02,2024-02-15,electricity,EV charging session - Nissan Leaf,44.64048952672159,kWh,Station_335,0.71,2024,31.694747563972324
+2024-02,2024-02-15,electricity,EV charging session - Chevy Bolt,40.27163575273819,kWh,Station_288,0.71,2024,28.592861384444113
+2024-02,2024-02-15,electricity,EV charging session - BMW i3,34.43336364069278,kWh,Station_252,0.71,2024,24.447688184891874
+2024-02,2024-02-15,electricity,EV charging session - Hyundai Kona,18.561385925179625,kWh,Station_271,0.71,2024,13.178584006877532
+2024-02,2024-02-15,electricity,EV charging session - Chevy Bolt,59.79776909471581,kWh,Station_412,0.71,2024,42.45641605724823
+2024-02,2024-02-15,electricity,EV charging session - Nissan Leaf,59.7683124702693,kWh,Station_408,0.71,2024,42.4355018538912
+2024-02,2024-02-15,electricity,EV charging session - Nissan Leaf,36.70152016311202,kWh,Station_188,0.71,2024,26.058079315809536
+2024-02,2024-02-15,electricity,EV charging session - Chevy Bolt,10.23177592340076,kWh,Station_419,0.71,2024,7.264560905614538
+2024-02,2024-02-15,electricity,EV charging session - Nissan Leaf,24.23053686415175,kWh,Station_214,0.71,2024,17.20368117354774
+2024-02,2024-02-15,electricity,EV charging session - BMW i3,21.70612432843914,kWh,Station_283,0.71,2024,15.41134827319179
+2024-02,2024-02-15,electricity,EV charging session - Tesla Model 3,57.896271802948434,kWh,Station_211,0.71,2024,41.106352980093384
+2024-02,2024-02-15,electricity,EV charging session - BMW i3,35.17106494410814,kWh,Station_365,0.71,2024,24.971456110316776
+2024-02,2024-02-15,electricity,EV charging session - Nissan Leaf,15.729551165353076,kWh,Station_76,0.71,2024,11.167981327400684
+2024-02,2024-02-15,electricity,EV charging session - Hyundai Kona,34.077999734831565,kWh,Station_148,0.71,2024,24.195379811730408
+2024-02,2024-02-15,electricity,EV charging session - Tesla Model 3,26.050244075726223,kWh,Station_321,0.71,2024,18.495673293765616
+2024-02,2024-02-15,electricity,EV charging session - Tesla Model 3,21.847908232183183,kWh,Station_213,0.71,2024,15.512014844850059
+2024-02,2024-02-15,electricity,EV charging session - Chevy Bolt,15.42551087839598,kWh,Station_433,0.71,2024,10.952112723661145
+2024-02,2024-02-16,electricity,EV charging session - Chevy Bolt,13.650698039870646,kWh,Station_109,0.71,2024,9.691995608308158
+2024-02,2024-02-16,electricity,EV charging session - Hyundai Kona,24.775659394661684,kWh,Station_129,0.71,2024,17.590718170209794
+2024-02,2024-02-16,electricity,EV charging session - Tesla Model 3,67.45812734205117,kWh,Station_10,0.71,2024,47.89527041285633
+2024-02,2024-02-16,electricity,EV charging session - Hyundai Kona,12.043247362327255,kWh,Station_47,0.71,2024,8.55070562725235
+2024-02,2024-02-16,electricity,EV charging session - Chevy Bolt,61.23146590227786,kWh,Station_379,0.71,2024,43.474340790617276
+2024-02,2024-02-16,electricity,EV charging session - Chevy Bolt,23.193290217345247,kWh,Station_315,0.71,2024,16.467236054315123
+2024-02,2024-02-16,electricity,EV charging session - Tesla Model 3,48.38617697981442,kWh,Station_96,0.71,2024,34.35418565566824
+2024-02,2024-02-16,electricity,EV charging session - BMW i3,29.6808062667524,kWh,Station_446,0.71,2024,21.073372449394203
+2024-02,2024-02-16,electricity,EV charging session - Nissan Leaf,25.08836904191854,kWh,Station_103,0.71,2024,17.81274201976216
+2024-02,2024-02-16,electricity,EV charging session - Chevy Bolt,56.1150925022779,kWh,Station_342,0.71,2024,39.84171567661731
+2024-02,2024-02-16,electricity,EV charging session - BMW i3,15.898734225246953,kWh,Station_146,0.71,2024,11.288101299925335
+2024-02,2024-02-16,electricity,EV charging session - BMW i3,41.15701390960357,kWh,Station_368,0.71,2024,29.221479875818535
+2024-02,2024-02-16,electricity,EV charging session - Hyundai Kona,41.90586399017345,kWh,Station_430,0.71,2024,29.753163433023147
+2024-02,2024-02-16,electricity,EV charging session - Hyundai Kona,8.335789160236999,kWh,Station_416,0.71,2024,5.918410303768269
+2024-02,2024-02-16,electricity,EV charging session - Nissan Leaf,90.23550358200892,kWh,Station_27,0.71,2024,64.06720754322633
+2024-02,2024-02-16,electricity,EV charging session - Nissan Leaf,18.1024722667836,kWh,Station_220,0.71,2024,12.852755309416356
+2024-02,2024-02-16,electricity,EV charging session - Tesla Model 3,59.19854015458014,kWh,Station_18,0.71,2024,42.03096350975189
+2024-02,2024-02-16,electricity,EV charging session - Chevy Bolt,15.774763064545793,kWh,Station_433,0.71,2024,11.200081775827512
+2024-02,2024-02-16,electricity,EV charging session - Hyundai Kona,75.09027362309024,kWh,Station_477,0.71,2024,53.314094272394065
+2024-02,2024-02-16,electricity,EV charging session - Chevy Bolt,23.915003796268465,kWh,Station_82,0.71,2024,16.97965269535061
+2024-02,2024-02-16,electricity,EV charging session - BMW i3,13.819971244902632,kWh,Station_428,0.71,2024,9.812179583880868
+2024-02,2024-02-16,electricity,EV charging session - Hyundai Kona,79.97267190690829,kWh,Station_72,0.71,2024,56.780597053904884
+2024-02,2024-02-17,electricity,EV charging session - BMW i3,5.163807087916792,kWh,Station_310,0.71,2024,3.6663030324209225
+2024-02,2024-02-17,electricity,EV charging session - Nissan Leaf,55.095255841104894,kWh,Station_479,0.71,2024,39.117631647184474
+2024-02,2024-02-17,electricity,EV charging session - Nissan Leaf,38.188211099692175,kWh,Station_254,0.71,2024,27.113629880781442
+2024-02,2024-02-17,electricity,EV charging session - Tesla Model 3,41.13168722967361,kWh,Station_162,0.71,2024,29.20349793306826
+2024-02,2024-02-17,electricity,EV charging session - Hyundai Kona,55.199838402705424,kWh,Station_327,0.71,2024,39.19188526592085
+2024-02,2024-02-17,electricity,EV charging session - BMW i3,72.31121635965684,kWh,Station_420,0.71,2024,51.34096361535635
+2024-02,2024-02-17,electricity,EV charging session - Chevy Bolt,37.49380570218128,kWh,Station_402,0.71,2024,26.620602048548704
+2024-02,2024-02-17,electricity,EV charging session - Nissan Leaf,55.374954290710285,kWh,Station_38,0.71,2024,39.3162175464043
+2024-02,2024-02-17,electricity,EV charging session - Nissan Leaf,33.467398984964014,kWh,Station_443,0.71,2024,23.76185327932445
+2024-02,2024-02-17,electricity,EV charging session - Chevy Bolt,53.35952018455622,kWh,Station_393,0.71,2024,37.88525933103491
+2024-02,2024-02-17,electricity,EV charging session - BMW i3,76.03768937793197,kWh,Station_201,0.71,2024,53.9867594583317
+2024-02,2024-02-17,electricity,EV charging session - BMW i3,9.79334907118558,kWh,Station_494,0.71,2024,6.953277840541761
+2024-02,2024-02-17,electricity,EV charging session - Hyundai Kona,45.45344885211073,kWh,Station_200,0.71,2024,32.27194868499862
+2024-02,2024-02-17,electricity,EV charging session - Hyundai Kona,31.728682285908047,kWh,Station_255,0.71,2024,22.52736442299471
+2024-02,2024-02-17,electricity,EV charging session - Tesla Model 3,76.16478844210974,kWh,Station_179,0.71,2024,54.07699979389791
+2024-02,2024-02-17,electricity,EV charging session - Nissan Leaf,59.16864335631949,kWh,Station_35,0.71,2024,42.009736782986835
+2024-02,2024-02-17,electricity,EV charging session - Hyundai Kona,15.10403338179977,kWh,Station_82,0.71,2024,10.723863701077835
+2024-02,2024-02-17,electricity,EV charging session - BMW i3,66.24653780691024,kWh,Station_389,0.71,2024,47.03504184290627
+2024-02,2024-02-17,electricity,EV charging session - Chevy Bolt,30.726160737544745,kWh,Station_398,0.71,2024,21.815574123656766
+2024-02,2024-02-17,electricity,EV charging session - BMW i3,77.69304556526747,kWh,Station_220,0.71,2024,55.1620623513399
+2024-02,2024-02-17,electricity,EV charging session - Nissan Leaf,77.12500791368723,kWh,Station_158,0.71,2024,54.75875561871793
+2024-02,2024-02-17,electricity,EV charging session - BMW i3,8.28243853987389,kWh,Station_4,0.71,2024,5.880531363310462
+2024-02,2024-02-17,electricity,EV charging session - Tesla Model 3,50.5305305671186,kWh,Station_167,0.71,2024,35.87667670265421
+2024-02,2024-02-17,electricity,EV charging session - Nissan Leaf,64.9305064614647,kWh,Station_468,0.71,2024,46.10065958763994
+2024-02,2024-02-18,electricity,EV charging session - Tesla Model 3,55.62849667174399,kWh,Station_409,0.71,2024,39.49623263693823
+2024-02,2024-02-18,electricity,EV charging session - Nissan Leaf,41.99326219500855,kWh,Station_412,0.71,2024,29.815216158456067
+2024-02,2024-02-18,electricity,EV charging session - Chevy Bolt,38.69718656721909,kWh,Station_204,0.71,2024,27.475002462725552
+2024-02,2024-02-18,electricity,EV charging session - Tesla Model 3,62.26265635402747,kWh,Station_194,0.71,2024,44.2064860113595
+2024-02,2024-02-18,electricity,EV charging session - Tesla Model 3,35.84413909327468,kWh,Station_235,0.71,2024,25.449338756225018
+2024-02,2024-02-18,electricity,EV charging session - Nissan Leaf,55.46883682152323,kWh,Station_206,0.71,2024,39.38287414328149
+2024-02,2024-02-18,electricity,EV charging session - Hyundai Kona,19.721540010730703,kWh,Station_150,0.71,2024,14.002293407618799
+2024-02,2024-02-18,electricity,EV charging session - Tesla Model 3,68.45025675480477,kWh,Station_159,0.71,2024,48.599682295911386
+2024-02,2024-02-18,electricity,EV charging session - Tesla Model 3,79.94974411198142,kWh,Station_279,0.71,2024,56.764318319506806
+2024-02,2024-02-18,electricity,EV charging session - Chevy Bolt,60.46898672586866,kWh,Station_304,0.71,2024,42.93298057536675
+2024-02,2024-02-18,electricity,EV charging session - BMW i3,35.38265952853404,kWh,Station_404,0.71,2024,25.12168826525917
+2024-02,2024-02-18,electricity,EV charging session - Nissan Leaf,37.688027665454456,kWh,Station_381,0.71,2024,26.758499642472664
+2024-02,2024-02-18,electricity,EV charging session - Nissan Leaf,20.79343928787075,kWh,Station_166,0.71,2024,14.763341894388232
+2024-02,2024-02-18,electricity,EV charging session - Hyundai Kona,53.36289470151473,kWh,Station_311,0.71,2024,37.88765523807546
+2024-02,2024-02-18,electricity,EV charging session - Hyundai Kona,24.267335453342245,kWh,Station_68,0.71,2024,17.229808171872993
+2024-02,2024-02-18,electricity,EV charging session - Nissan Leaf,68.20904345854468,kWh,Station_463,0.71,2024,48.42842085556672
+2024-02,2024-02-18,electricity,EV charging session - Hyundai Kona,27.706067785342437,kWh,Station_88,0.71,2024,19.67130812759313
+2024-02,2024-02-18,electricity,EV charging session - Chevy Bolt,76.68731222622425,kWh,Station_217,0.71,2024,54.44799168061922
+2024-02,2024-02-18,electricity,EV charging session - Nissan Leaf,45.36457787633022,kWh,Station_1,0.71,2024,32.208850292194455
+2024-02,2024-02-18,electricity,EV charging session - Hyundai Kona,27.498043111589936,kWh,Station_135,0.71,2024,19.523610609228854
+2024-02,2024-02-18,electricity,EV charging session - Nissan Leaf,74.70693087698855,kWh,Station_185,0.71,2024,53.041920922661866
+2024-02,2024-02-18,electricity,EV charging session - BMW i3,37.52045250571513,kWh,Station_351,0.71,2024,26.63952127905774
+2024-02,2024-02-18,electricity,EV charging session - Tesla Model 3,24.04346935025211,kWh,Station_140,0.71,2024,17.070863238678996
+2024-02,2024-02-19,electricity,EV charging session - Nissan Leaf,9.51652733339272,kWh,Station_106,0.71,2024,6.756734406708831
+2024-02,2024-02-19,electricity,EV charging session - Tesla Model 3,39.88426993608347,kWh,Station_133,0.71,2024,28.317831654619262
+2024-02,2024-02-19,electricity,EV charging session - Hyundai Kona,5.755524649492359,kWh,Station_108,0.71,2024,4.086422501139575
+2024-02,2024-02-19,electricity,EV charging session - Tesla Model 3,13.003539499532652,kWh,Station_178,0.71,2024,9.232513044668183
+2024-02,2024-02-19,electricity,EV charging session - Nissan Leaf,21.35157383578864,kWh,Station_298,0.71,2024,15.159617423409932
+2024-02,2024-02-19,electricity,EV charging session - BMW i3,48.84665066850152,kWh,Station_358,0.71,2024,34.68112197463608
+2024-02,2024-02-19,electricity,EV charging session - Hyundai Kona,9.206012694775316,kWh,Station_380,0.71,2024,6.5362690132904735
+2024-02,2024-02-19,electricity,EV charging session - Nissan Leaf,19.93670718240265,kWh,Station_396,0.71,2024,14.15506209950588
+2024-02,2024-02-19,electricity,EV charging session - Chevy Bolt,76.18778788307228,kWh,Station_146,0.71,2024,54.09332939698131
+2024-02,2024-02-19,electricity,EV charging session - Tesla Model 3,72.94073165721504,kWh,Station_450,0.71,2024,51.787919476622676
+2024-02,2024-02-19,electricity,EV charging session - Chevy Bolt,24.54169744898367,kWh,Station_74,0.71,2024,17.424605188778404
+2024-02,2024-02-19,electricity,EV charging session - Nissan Leaf,7.446816605478516,kWh,Station_463,0.71,2024,5.287239789889746
+2024-02,2024-02-19,electricity,EV charging session - BMW i3,17.199039032159078,kWh,Station_478,0.71,2024,12.211317712832944
+2024-02,2024-02-19,electricity,EV charging session - Tesla Model 3,72.27855411576432,kWh,Station_122,0.71,2024,51.317773422192666
+2024-02,2024-02-19,electricity,EV charging session - Hyundai Kona,18.01705100546142,kWh,Station_17,0.71,2024,12.792106213877606
+2024-02,2024-02-19,electricity,EV charging session - Nissan Leaf,59.126629342112274,kWh,Station_196,0.71,2024,41.979906832899715
+2024-02,2024-02-19,electricity,EV charging session - Hyundai Kona,35.86668099087705,kWh,Station_327,0.71,2024,25.465343503522703
+2024-02,2024-02-19,electricity,EV charging session - Tesla Model 3,5.20011260069647,kWh,Station_318,0.71,2024,3.6920799464944936
+2024-02,2024-02-19,electricity,EV charging session - Nissan Leaf,28.77227402735012,kWh,Station_297,0.71,2024,20.428314559418585
+2024-02,2024-02-19,electricity,EV charging session - Hyundai Kona,61.90801716904538,kWh,Station_479,0.71,2024,43.954692190022215
+2024-02,2024-02-19,electricity,EV charging session - BMW i3,35.017606522824096,kWh,Station_499,0.71,2024,24.86250063120511
+2024-02,2024-02-19,electricity,EV charging session - Nissan Leaf,14.804488742545598,kWh,Station_252,0.71,2024,10.511187007207374
+2024-02,2024-02-20,electricity,EV charging session - Nissan Leaf,65.10291874065945,kWh,Station_487,0.71,2024,46.22307230586821
+2024-02,2024-02-20,electricity,EV charging session - BMW i3,18.120951026827235,kWh,Station_119,0.71,2024,12.865875229047337
+2024-02,2024-02-20,electricity,EV charging session - Chevy Bolt,61.63104965912597,kWh,Station_162,0.71,2024,43.75804525797944
+2024-02,2024-02-20,electricity,EV charging session - Tesla Model 3,71.8059193887291,kWh,Station_198,0.71,2024,50.982202765997656
+2024-02,2024-02-20,electricity,EV charging session - Chevy Bolt,45.98918433743132,kWh,Station_498,0.71,2024,32.65232087957624
+2024-02,2024-02-20,electricity,EV charging session - Hyundai Kona,45.858999052265375,kWh,Station_486,0.71,2024,32.559889327108415
+2024-02,2024-02-20,electricity,EV charging session - BMW i3,55.691891653122006,kWh,Station_45,0.71,2024,39.54124307371662
+2024-02,2024-02-20,electricity,EV charging session - Chevy Bolt,23.050456238396517,kWh,Station_314,0.71,2024,16.365823929261527
+2024-02,2024-02-20,electricity,EV charging session - Nissan Leaf,39.97272424864232,kWh,Station_179,0.71,2024,28.38063421653605
+2024-02,2024-02-20,electricity,EV charging session - Hyundai Kona,21.05357940478484,kWh,Station_382,0.71,2024,14.948041377397237
+2024-02,2024-02-20,electricity,EV charging session - Hyundai Kona,8.789017000425101,kWh,Station_418,0.71,2024,6.240202070301821
+2024-02,2024-02-20,electricity,EV charging session - Chevy Bolt,97.6677653925048,kWh,Station_44,0.71,2024,69.34411342867841
+2024-02,2024-02-20,electricity,EV charging session - Chevy Bolt,39.94579631974886,kWh,Station_271,0.71,2024,28.361515387021687
+2024-02,2024-02-20,electricity,EV charging session - BMW i3,41.01292040629061,kWh,Station_78,0.71,2024,29.119173488466334
+2024-02,2024-02-20,electricity,EV charging session - Tesla Model 3,11.422192304640166,kWh,Station_326,0.71,2024,8.109756536294517
+2024-02,2024-02-20,electricity,EV charging session - Chevy Bolt,52.28437229318183,kWh,Station_178,0.71,2024,37.1219043281591
+2024-02,2024-02-20,electricity,EV charging session - Chevy Bolt,77.63234569193523,kWh,Station_357,0.71,2024,55.11896544127401
+2024-02,2024-02-20,electricity,EV charging session - Nissan Leaf,14.175393197160597,kWh,Station_498,0.71,2024,10.064529169984024
+2024-02,2024-02-20,electricity,EV charging session - Hyundai Kona,28.337522357857683,kWh,Station_416,0.71,2024,20.119640874078954
+2024-02,2024-02-20,electricity,EV charging session - Tesla Model 3,17.628897372729085,kWh,Station_451,0.71,2024,12.51651713463765
+2024-02,2024-02-20,electricity,EV charging session - Nissan Leaf,45.45111536306598,kWh,Station_3,0.71,2024,32.270291907776844
+2024-02,2024-02-20,electricity,EV charging session - BMW i3,49.66092549992548,kWh,Station_214,0.71,2024,35.25925710494709
+2024-02,2024-02-20,electricity,EV charging session - BMW i3,23.942080345214407,kWh,Station_342,0.71,2024,16.99887704510223
+2024-02,2024-02-20,electricity,EV charging session - Chevy Bolt,23.86992273236189,kWh,Station_74,0.71,2024,16.94764513997694
+2024-02,2024-02-21,electricity,EV charging session - Chevy Bolt,8.641282040664738,kWh,Station_51,0.71,2024,6.1353102488719635
+2024-02,2024-02-21,electricity,EV charging session - BMW i3,11.139612943722046,kWh,Station_67,0.71,2024,7.909125190042652
+2024-02,2024-02-21,electricity,EV charging session - Chevy Bolt,46.40242818798875,kWh,Station_332,0.71,2024,32.94572401347201
+2024-02,2024-02-21,electricity,EV charging session - Tesla Model 3,77.2662199543138,kWh,Station_93,0.71,2024,54.85901616756279
+2024-02,2024-02-21,electricity,EV charging session - Chevy Bolt,5.995140564565627,kWh,Station_176,0.71,2024,4.256549800841595
+2024-02,2024-02-21,electricity,EV charging session - Hyundai Kona,21.270741905550192,kWh,Station_145,0.71,2024,15.102226752940636
+2024-02,2024-02-21,electricity,EV charging session - Chevy Bolt,38.13860653803928,kWh,Station_7,0.71,2024,27.078410642007885
+2024-02,2024-02-21,electricity,EV charging session - Nissan Leaf,37.9980325281785,kWh,Station_269,0.71,2024,26.978603095006733
+2024-02,2024-02-21,electricity,EV charging session - Tesla Model 3,12.89314235582393,kWh,Station_376,0.71,2024,9.15413107263499
+2024-02,2024-02-21,electricity,EV charging session - Nissan Leaf,60.624560710723856,kWh,Station_322,0.71,2024,43.043438104613934
+2024-02,2024-02-21,electricity,EV charging session - Hyundai Kona,5.868319195612725,kWh,Station_138,0.71,2024,4.166506628885035
+2024-02,2024-02-21,electricity,EV charging session - Tesla Model 3,77.69879024520026,kWh,Station_88,0.71,2024,55.16614107409218
+2024-02,2024-02-21,electricity,EV charging session - Tesla Model 3,94.36532940921012,kWh,Station_17,0.71,2024,66.99938388053918
+2024-02,2024-02-21,electricity,EV charging session - Tesla Model 3,43.95822631658241,kWh,Station_52,0.71,2024,31.21034068477351
+2024-02,2024-02-21,electricity,EV charging session - Tesla Model 3,76.48074420185159,kWh,Station_134,0.71,2024,54.301328383314626
+2024-02,2024-02-21,electricity,EV charging session - Hyundai Kona,66.17819525015547,kWh,Station_211,0.71,2024,46.98651862761038
+2024-02,2024-02-21,electricity,EV charging session - Chevy Bolt,76.24242378732372,kWh,Station_325,0.71,2024,54.132120888999836
+2024-02,2024-02-21,electricity,EV charging session - Nissan Leaf,35.15737675512804,kWh,Station_480,0.71,2024,24.96173749614091
+2024-02,2024-02-21,electricity,EV charging session - Tesla Model 3,53.11979970086487,kWh,Station_458,0.71,2024,37.71505778761405
+2024-02,2024-02-21,electricity,EV charging session - Chevy Bolt,43.12603811805074,kWh,Station_393,0.71,2024,30.61948706381602
+2024-02,2024-02-21,electricity,EV charging session - Chevy Bolt,60.68153839035487,kWh,Station_219,0.71,2024,43.08389225715196
+2024-02,2024-02-21,electricity,EV charging session - Nissan Leaf,33.67446234201802,kWh,Station_205,0.71,2024,23.90886826283279
+2024-02,2024-02-22,electricity,EV charging session - Hyundai Kona,54.54859168539257,kWh,Station_211,0.71,2024,38.729500096628726
+2024-02,2024-02-22,electricity,EV charging session - BMW i3,14.11630705481829,kWh,Station_277,0.71,2024,10.022578008920984
+2024-02,2024-02-22,electricity,EV charging session - BMW i3,11.321914132806013,kWh,Station_24,0.71,2024,8.038559034292268
+2024-02,2024-02-22,electricity,EV charging session - Chevy Bolt,26.586710215463047,kWh,Station_486,0.71,2024,18.876564252978763
+2024-02,2024-02-22,electricity,EV charging session - Nissan Leaf,65.92220415676107,kWh,Station_4,0.71,2024,46.804764951300356
+2024-02,2024-02-22,electricity,EV charging session - BMW i3,37.51588423680197,kWh,Station_152,0.71,2024,26.6362778081294
+2024-02,2024-02-22,electricity,EV charging session - Chevy Bolt,20.07464990247556,kWh,Station_443,0.71,2024,14.253001430757648
+2024-02,2024-02-22,electricity,EV charging session - Hyundai Kona,10.390644028146834,kWh,Station_483,0.71,2024,7.377357259984252
+2024-02,2024-02-22,electricity,EV charging session - BMW i3,5.892835163588776,kWh,Station_259,0.71,2024,4.183912966148031
+2024-02,2024-02-22,electricity,EV charging session - Chevy Bolt,48.52491426934318,kWh,Station_324,0.71,2024,34.452689131233655
+2024-02,2024-02-22,electricity,EV charging session - Chevy Bolt,51.94497776365302,kWh,Station_357,0.71,2024,36.880934212193644
+2024-02,2024-02-22,electricity,EV charging session - Tesla Model 3,20.79043601283822,kWh,Station_168,0.71,2024,14.761209569115136
+2024-02,2024-02-22,electricity,EV charging session - Hyundai Kona,49.48345837435455,kWh,Station_176,0.71,2024,35.133255445791725
+2024-02,2024-02-22,electricity,EV charging session - Tesla Model 3,25.527547211644688,kWh,Station_310,0.71,2024,18.124558520267726
+2024-02,2024-02-22,electricity,EV charging session - Nissan Leaf,19.958025275991496,kWh,Station_291,0.71,2024,14.17019794595396
+2024-02,2024-02-22,electricity,EV charging session - Tesla Model 3,33.694161775319,kWh,Station_479,0.71,2024,23.92285486047649
+2024-02,2024-02-22,electricity,EV charging session - Tesla Model 3,45.15937317195059,kWh,Station_56,0.71,2024,32.063154952084915
+2024-02,2024-02-22,electricity,EV charging session - BMW i3,60.83110355266755,kWh,Station_108,0.71,2024,43.190083522393955
+2024-02,2024-02-22,electricity,EV charging session - Hyundai Kona,47.67827374967497,kWh,Station_296,0.71,2024,33.851574362269226
+2024-02,2024-02-22,electricity,EV charging session - Tesla Model 3,27.63793401856366,kWh,Station_461,0.71,2024,19.622933153180195
+2024-02,2024-02-22,electricity,EV charging session - Hyundai Kona,66.46105412754665,kWh,Station_324,0.71,2024,47.18734843055812
+2024-02,2024-02-23,electricity,EV charging session - Tesla Model 3,10.201613009568993,kWh,Station_141,0.71,2024,7.243145236793985
+2024-02,2024-02-23,electricity,EV charging session - BMW i3,67.61464385497968,kWh,Station_155,0.71,2024,48.00639713703557
+2024-02,2024-02-23,electricity,EV charging session - Chevy Bolt,8.936913796477242,kWh,Station_262,0.71,2024,6.345208795498841
+2024-02,2024-02-23,electricity,EV charging session - Nissan Leaf,26.4440331229724,kWh,Station_273,0.71,2024,18.775263517310403
+2024-02,2024-02-23,electricity,EV charging session - Tesla Model 3,42.01795949517358,kWh,Station_420,0.71,2024,29.832751241573238
+2024-02,2024-02-23,electricity,EV charging session - Hyundai Kona,27.99720488584749,kWh,Station_232,0.71,2024,19.878015468951716
+2024-02,2024-02-23,electricity,EV charging session - Nissan Leaf,34.54134762062127,kWh,Station_241,0.71,2024,24.524356810641102
+2024-02,2024-02-23,electricity,EV charging session - Nissan Leaf,67.07828216010658,kWh,Station_355,0.71,2024,47.62558033367567
+2024-02,2024-02-23,electricity,EV charging session - Tesla Model 3,39.70699556704798,kWh,Station_337,0.71,2024,28.191966852604068
+2024-02,2024-02-23,electricity,EV charging session - Nissan Leaf,6.448880265075534,kWh,Station_489,0.71,2024,4.578704988203629
+2024-02,2024-02-23,electricity,EV charging session - Hyundai Kona,30.751503981203896,kWh,Station_258,0.71,2024,21.833567826654765
+2024-02,2024-02-23,electricity,EV charging session - Nissan Leaf,28.80292498005887,kWh,Station_249,0.71,2024,20.450076735841797
+2024-02,2024-02-23,electricity,EV charging session - Hyundai Kona,30.98756655243088,kWh,Station_77,0.71,2024,22.001172252225924
+2024-02,2024-02-23,electricity,EV charging session - Tesla Model 3,85.03985430629427,kWh,Station_180,0.71,2024,60.37829655746893
+2024-02,2024-02-23,electricity,EV charging session - Chevy Bolt,47.76784734327861,kWh,Station_66,0.71,2024,33.915171613727814
+2024-02,2024-02-23,electricity,EV charging session - Nissan Leaf,57.45442116792438,kWh,Station_308,0.71,2024,40.79263902922631
+2024-02,2024-02-23,electricity,EV charging session - Chevy Bolt,45.93945507648217,kWh,Station_348,0.71,2024,32.61701310430234
+2024-02,2024-02-23,electricity,EV charging session - Hyundai Kona,49.53480945615692,kWh,Station_171,0.71,2024,35.169714713871414
+2024-02,2024-02-23,electricity,EV charging session - Nissan Leaf,52.73977320604877,kWh,Station_474,0.71,2024,37.445238976294625
+2024-02,2024-02-23,electricity,EV charging session - BMW i3,61.93297987243194,kWh,Station_22,0.71,2024,43.97241570942668
+2024-02,2024-02-23,electricity,EV charging session - Chevy Bolt,23.437875326038824,kWh,Station_367,0.71,2024,16.640891481487564
+2024-02,2024-02-23,electricity,EV charging session - Nissan Leaf,8.315805795177543,kWh,Station_107,0.71,2024,5.904222114576055
+2024-02,2024-02-23,electricity,EV charging session - Chevy Bolt,10.185000186311704,kWh,Station_439,0.71,2024,7.231350132281309
+2024-02,2024-02-23,electricity,EV charging session - Nissan Leaf,71.94505922956554,kWh,Station_323,0.71,2024,51.08099205299153
+2024-02,2024-02-24,electricity,EV charging session - Tesla Model 3,9.209067930589208,kWh,Station_227,0.71,2024,6.538438230718338
+2024-02,2024-02-24,electricity,EV charging session - Chevy Bolt,21.918495812082128,kWh,Station_444,0.71,2024,15.56213202657831
+2024-02,2024-02-24,electricity,EV charging session - BMW i3,21.795382498227173,kWh,Station_442,0.71,2024,15.474721573741292
+2024-02,2024-02-24,electricity,EV charging session - BMW i3,27.994930739365664,kWh,Station_396,0.71,2024,19.87640082494962
+2024-02,2024-02-24,electricity,EV charging session - Hyundai Kona,35.7622826922978,kWh,Station_216,0.71,2024,25.39122071153144
+2024-02,2024-02-24,electricity,EV charging session - Nissan Leaf,7.917185918511961,kWh,Station_69,0.71,2024,5.621202002143492
+2024-02,2024-02-24,electricity,EV charging session - Chevy Bolt,26.17745506640429,kWh,Station_84,0.71,2024,18.585993097147043
+2024-02,2024-02-24,electricity,EV charging session - Chevy Bolt,60.25144069020241,kWh,Station_39,0.71,2024,42.77852289004371
+2024-02,2024-02-24,electricity,EV charging session - Nissan Leaf,15.691719285120502,kWh,Station_13,0.71,2024,11.141120692435557
+2024-02,2024-02-24,electricity,EV charging session - BMW i3,54.82511333467084,kWh,Station_297,0.71,2024,38.925830467616294
+2024-02,2024-02-24,electricity,EV charging session - Tesla Model 3,65.23254316413059,kWh,Station_313,0.71,2024,46.315105646532714
+2024-02,2024-02-24,electricity,EV charging session - BMW i3,6.432324170240332,kWh,Station_181,0.71,2024,4.566950160870636
+2024-02,2024-02-24,electricity,EV charging session - Hyundai Kona,16.126089718922938,kWh,Station_493,0.71,2024,11.449523700435286
+2024-02,2024-02-24,electricity,EV charging session - Tesla Model 3,66.97990803084751,kWh,Station_268,0.71,2024,47.55573470190173
+2024-02,2024-02-24,electricity,EV charging session - Hyundai Kona,74.27670057664027,kWh,Station_13,0.71,2024,52.736457409414584
+2024-02,2024-02-24,electricity,EV charging session - Nissan Leaf,39.73385254628378,kWh,Station_120,0.71,2024,28.21103530786148
+2024-02,2024-02-24,electricity,EV charging session - Tesla Model 3,60.7251438890711,kWh,Station_458,0.71,2024,43.11485216124048
+2024-02,2024-02-24,electricity,EV charging session - Hyundai Kona,43.251453479602375,kWh,Station_353,0.71,2024,30.708531970517686
+2024-02,2024-02-24,electricity,EV charging session - Nissan Leaf,42.01165353037616,kWh,Station_57,0.71,2024,29.82827400656707
+2024-02,2024-02-24,electricity,EV charging session - BMW i3,68.18585286511737,kWh,Station_40,0.71,2024,48.41195553423333
+2024-02,2024-02-24,electricity,EV charging session - Nissan Leaf,18.895101661444063,kWh,Station_374,0.71,2024,13.415522179625285
+2024-02,2024-02-24,electricity,EV charging session - Chevy Bolt,13.75625150299386,kWh,Station_336,0.71,2024,9.76693856712564
+2024-02,2024-02-24,electricity,EV charging session - Nissan Leaf,63.65257024136892,kWh,Station_128,0.71,2024,45.19332487137193

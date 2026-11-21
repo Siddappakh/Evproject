@@ -1,0 +1,92 @@
+[
+  {
+    "category": "EV charging demand",
+    "dataset": "UrbanEV",
+    "url": "https://github.com/IntelligentSystemsLab/UrbanEV",
+    "access": "git",
+    "status": "downloaded",
+    "license": "CC0 1.0",
+    "revision": "44f2aa0c8d89f192bce00bafb0def74a21b39c68",
+    "notes": "Shenzhen public charging data, September 2022-February 2023. volume.csv is derived from rated pile power."
+  },
+  {
+    "category": "EV charging sessions",
+    "dataset": "User-provided ev_charging_patterns.csv",
+    "url": null,
+    "access": "local_archive",
+    "status": "processed",
+    "notes": "archive (5).zip; 1,254 session rows with energy, duration, vehicle, charger, state-of-charge, distance, and station fields. Provenance/license not included in the archive."
+  },
+  {
+    "category": "EV charging sessions",
+    "dataset": "ACN-Data (Caltech)",
+    "url": "https://ev.caltech.edu/dataset",
+    "access": "portal",
+    "status": "verified_page",
+    "notes": "Real charging sessions; follow the portal download instructions."
+  },
+  {
+    "category": "EV charging sessions",
+    "dataset": "ACN-Data static GitHub",
+    "url": "https://github.com/tongxin-li/ACN-Data-Static",
+    "access": "repository",
+    "status": "verified_page",
+    "notes": "Static dataset files and documentation."
+  },
+  {
+    "category": "EV vehicle efficiency",
+    "dataset": "EPA Fuel Economy downloadable files",
+    "url": "https://www.fueleconomy.gov/feg/download.shtml",
+    "access": "download_page",
+    "status": "verified_page",
+    "notes": "Vehicle efficiency and fuel-economy files."
+  },
+  {
+    "category": "India electricity emission factors",
+    "dataset": "CEA CO2 Baseline Database",
+    "url": "https://cea.nic.in/cdm-co2-baseline-database/?lang=en",
+    "access": "manual",
+    "status": "review_required",
+    "notes": "The workbook URL returned HTTP 404 during verification; locate the current CEA release before using it."
+  },
+  {
+    "category": "GPS/travel records",
+    "dataset": "Microsoft GeoLife GPS Trajectory Dataset",
+    "url": "https://www.microsoft.com/en-us/download/details.aspx?id=52367",
+    "access": "manual",
+    "status": "review_required",
+    "notes": "The page returned HTTP 403 to automated HEAD verification; download through a browser if still available."
+  },
+  {
+    "category": "Fuel consumption",
+    "dataset": "EPA Fuel Economy downloadable files",
+    "url": "https://www.fueleconomy.gov/feg/download.shtml",
+    "access": "download_page",
+    "status": "verified_page",
+    "notes": "Vehicle fuel economy and fuel-consumption fields."
+  },
+  {
+    "category": "Waste records",
+    "dataset": "World Bank What a Waste Global Database",
+    "url": "https://datacatalog.worldbank.org/search/dataset/0039597",
+    "access": "manual",
+    "status": "review_required",
+    "notes": "The workbook URL returned HTTP 404 during verification; search the current World Bank catalog entry."
+  },
+  {
+    "category": "Historical monthly activity data",
+    "dataset": "EIA Open Data",
+    "url": "https://www.eia.gov/opendata/",
+    "access": "api",
+    "status": "review_required",
+    "notes": "The portal returned HTTP 503 during verification; API key and dataset selection may be required."
+  },
+  {
+    "category": "Historical CO2 / energy context",
+    "dataset": "Our World in Data CO2 data CSV",
+    "url": "https://github.com/owid/co2-data/raw/refs/heads/master/owid-co2-data.csv",
+    "access": "direct_csv",
+    "status": "verified_download",
+    "notes": "Country-level historical emissions, primarily annual."
+  }
+]

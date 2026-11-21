@@ -48,9 +48,21 @@ print("4. Electricity calculate status:", elec.status_code, "Emissions kg:", ele
 assert elec.status_code == 201
 assert elec.json()["emissions_kg"] > 0
 
-# 5. Ingest IoT reading
-iot_read = s.post(f"{base}/api/iot/readings", json={
-    "device_id": "esp32-campus-meter",
+# 5. Register/simulate an isolated IoT device and capture its credential
+iot_device_id = f"esp32-e2e-{uuid.uuid4().hex[:8]}"
+simulated = s.post(f"{base}/api/iot/simulate", json={
+    "device_id": iot_device_id,
+    "power_w": 955.3,
+})
+print("5. IoT simulation status:", simulated.status_code, simulated.text)
+assert simulated.status_code == 200
+device_token = simulated.json()["device_token"]
+
+# 6. Ingest IoT reading
+iot_read = s.post(f"{base}/api/iot/readings", headers={
+    "X-Device-Token": device_token,
+}, json={
+    "device_id": iot_device_id,
     "voltage": 230.2,
     "current": 4.15,
     "power": 955.3,
@@ -84,9 +96,9 @@ print("7. Goal create status:", goal.status_code, "Target kg:", goal.json()["tar
 assert goal.status_code == 201
 
 # 8. Fetch IoT latest
-latest = s.get(f"{base}/api/iot/latest")
+latest = s.get(f"{base}/api/iot/latest", params={"device_id": iot_device_id})
 print("8. IoT Latest status:", latest.status_code, "Device:", latest.json()["latest_reading"]["device_id"])
 assert latest.status_code == 200
-assert latest.json()["latest_reading"]["device_id"] == "esp32-campus-meter"
+assert latest.json()["latest_reading"]["device_id"] == iot_device_id
 
 print("\n>>> ALL 8 END-TO-END FLOWS VERIFIED SUCCESSFULLY ON RUNNING SYSTEM! <<<")

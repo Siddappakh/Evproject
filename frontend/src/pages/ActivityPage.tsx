@@ -21,6 +21,7 @@ const categories: Array<{ value: Category; label: string }> = [
   { value: "transport", label: "Transportation" },
   { value: "fuel", label: "Fuel" },
   { value: "waste", label: "Waste" },
+  { value: "water", label: "Water" },
 ];
 
 function factorActivityUnit(factor: Factor) {
@@ -32,6 +33,10 @@ function currentDate() {
   return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(
     date.getDate()
   ).padStart(2, "0")}`;
+}
+
+function gasLabel(gasBasis: "CO2" | "CO2e") {
+  return gasBasis === "CO2" ? "kg CO₂" : "kg CO₂e";
 }
 
 export function ActivityPage() {
@@ -473,7 +478,7 @@ export function ActivityPage() {
                   <p className="mt-1">
                     {billSavedActivity.quantity} kWh × {billSavedActivity.factor_value}{" "}
                     {billSavedActivity.factor_unit} ={" "}
-                    <strong>{billSavedActivity.emissions_kg.toFixed(2)} kg CO₂e</strong>
+                    <strong>{billSavedActivity.emissions_kg.toFixed(2)} {gasLabel(billSavedActivity.factor_gas_basis)}</strong>
                   </p>
                   <Link
                     to={dashboardPath}
@@ -693,7 +698,7 @@ export function ActivityPage() {
               {previewValid && previewEmissions !== null ? (
                 <>
                   <p className="mt-1 text-xl font-black text-slate-900 dark:text-white">
-                    {previewEmissions.toFixed(2)} kg CO₂e
+                    {previewEmissions.toFixed(2)} {gasLabel(selectedFactor?.gas_basis ?? "CO2e")}
                   </p>
                   <p className="mt-1 text-xs text-slate-600 dark:text-slate-400">
                     Source: {selectedFactor?.source_name} · Year: {selectedFactor?.factor_year}
@@ -714,7 +719,7 @@ export function ActivityPage() {
                 <p className="font-bold">Activity saved successfully into persistent ledger.</p>
                 <p className="mt-1">
                   {saved.quantity} {saved.unit} × {saved.factor_value} {saved.factor_unit} ={" "}
-                  <strong>{saved.emissions_kg.toFixed(2)} kg CO₂e</strong>
+                  <strong>{saved.emissions_kg.toFixed(2)} {gasLabel(saved.factor_gas_basis)}</strong>
                 </p>
                 <Link
                   to={dashboardPath}

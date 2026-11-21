@@ -6,6 +6,8 @@ import { Link, useSearchParams } from "react-router-dom";
 import { Area, Bar, BarChart, CartesianGrid, Cell, ComposedChart, Legend, Line, Pie, PieChart, RadialBar, RadialBarChart, ResponsiveContainer, Scatter, ScatterChart, Tooltip, Treemap, XAxis, YAxis } from "recharts";
 import { EmptyState, ErrorState, LoadingState } from "../components/Feedback";
 import { PageHeader } from "../components/PageHeader";
+import { MlInsightsWidget } from "../components/MlInsightsWidget";
+import { UrbanEvForecastWidget } from "../components/UrbanEvForecastWidget";
 import { useWorkspace } from "../hooks/WorkspaceContext";
 import { api } from "../services/api";
 
@@ -48,6 +50,8 @@ export function AdvancedAnalyticsPage() {
   const kpi=payload.summary?.summary;
   if(loading&&!Object.keys(payload).length)return <LoadingState label="Loading advanced analytics…"/>;
   return <div id="analytics-report"><PageHeader eyebrow={`${roleLabel.toUpperCase()} ADVANCED ANALYTICS`} title="Carbon intelligence" highlight="at a glance." description="Server-calculated analytics from saved workspace records. Forecasts and benchmarks are explicitly estimated." action={<div className="flex gap-2"><button className="btn-secondary" onClick={exportPdf}><FileText className="h-4 w-4"/>PDF / CSV</button><Link to={`/${role}/activity`} className="btn-primary"><Plus className="h-4 w-4"/>Add data</Link></div>}/>
+    <MlInsightsWidget period={period} />
+    <UrbanEvForecastWidget />
     {payload.meta?.illustrative_demo_data&&<div className="mb-4 rounded-xl border border-pink-100 bg-pink-50 px-4 py-3 text-xs font-semibold text-[#1E2A4A]">Illustrative demo data · Add saved activity records to replace examples</div>}
     {error&&<div className="mb-4"><ErrorState message={error}/></div>}
     <div className="mb-5 grid gap-3 rounded-2xl border border-slate-100 bg-white/80 p-4 shadow-sm md:grid-cols-[160px_180px_1fr_auto]">

@@ -11,7 +11,15 @@ const categories: Array<{ value: Category; label: string }> = [
   { value: "transport", label: "Transportation" },
   { value: "fuel", label: "Fuel" },
   { value: "waste", label: "Waste" },
+  { value: "water", label: "Water" },
 ];
+
+function factorPeriod(factor: Factor) {
+  if (factor.effective_start && factor.effective_end) {
+    return `FY ${new Date(factor.effective_start).getFullYear()}-${String(new Date(factor.effective_end).getFullYear()).slice(-2)}`;
+  }
+  return String(factor.factor_year);
+}
 
 export function FactorsPage() {
   const [factors, setFactors] = useState<Factor[]>([]);
@@ -27,6 +35,10 @@ export function FactorsPage() {
   const [year, setYear] = useState(new Date().getFullYear().toString());
   const [region, setRegion] = useState("India");
   const [assumptions, setAssumptions] = useState("");
+  const [gasBasis, setGasBasis] = useState<"CO2" | "CO2e">("CO2e");
+  const [sourcePublication, setSourcePublication] = useState("");
+  const [methodology, setMethodology] = useState("");
+  const [classification, setClassification] = useState<Factor["classification"]>("unverified");
 
   async function loadFactors() {
     setError(null);
@@ -53,11 +65,15 @@ export function FactorsPage() {
         name: name.trim(),
         value: Number(value),
         unit: unit.trim(),
+        gas_basis: gasBasis,
         source_name: sourceName.trim(),
         source_url: sourceUrl.trim(),
+        source_publication: sourcePublication.trim(),
+        methodology: methodology.trim(),
         factor_year: Number(year),
         region: region.trim(),
         assumptions: assumptions.trim(),
+        classification,
       });
       setName("");
       setValue("");
@@ -65,6 +81,8 @@ export function FactorsPage() {
       setSourceName("");
       setSourceUrl("");
       setAssumptions("");
+      setSourcePublication("");
+      setMethodology("");
       await loadFactors();
     } catch (reason) {
       setError(reason instanceof Error ? reason.message : "Factor could not be saved.");
@@ -128,6 +146,27 @@ export function FactorsPage() {
                 <input className="form-input" type="url" required maxLength={2000} value={sourceUrl} onChange={(event) => setSourceUrl(event.target.value)} placeholder="https://…" />
               </label>
             </div>
+            <label className="form-label">Gas basis
+              <select className="form-input" value={gasBasis} onChange={(event) => setGasBasis(event.target.value as "CO2" | "CO2e")}>
+                <option value="CO2e">CO2e</option>
+                <option value="CO2">CO2</option>
+              </select>
+            </label>
+            <label className="form-label">Classification
+              <select className="form-input" value={classification} onChange={(event) => setClassification(event.target.value as Factor["classification"])}>
+                <option value="official">Official</option>
+                <option value="estimated">Estimated</option>
+                <option value="proxy">Proxy</option>
+                <option value="demonstration">Demonstration</option>
+                <option value="unverified">Unverified</option>
+              </select>
+            </label>
+            <label className="form-label">Source publication / version <span className="font-normal text-slate-400">(optional)</span>
+              <input className="form-input" maxLength={240} value={sourcePublication} onChange={(event) => setSourcePublication(event.target.value)} placeholder="Publication title, version, table or row" />
+            </label>
+            <label className="form-label">Methodology <span className="font-normal text-slate-400">(optional)</span>
+              <textarea className="form-input min-h-20 resize-y" maxLength={1000} value={methodology} onChange={(event) => setMethodology(event.target.value)} placeholder="Boundary, conversion, and applicability method" />
+            </label>
             <label className="form-label">Assumptions / limitations <span className="font-normal text-slate-400">(optional)</span>
               <textarea className="form-input min-h-24 resize-y" maxLength={1000} value={assumptions} onChange={(event) => setAssumptions(event.target.value)} placeholder="Boundary, technology, geography, or other caveats" />
             </label>
@@ -144,12 +183,14 @@ export function FactorsPage() {
               {factors.map((factor, index) => (
                 <motion.article key={factor.id} initial={{ opacity: 0, y: 5 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.025 }} className="rounded-xl border border-slate-100 p-4">
                   <div className="flex flex-wrap items-start justify-between gap-2">
-                    <div><h3 className="text-sm font-semibold text-slate-800">{factor.name}</h3><p className="mt-1 text-xs capitalize text-slate-400">{factor.category}  ·  {factor.region}  ·  {factor.factor_year}</p></div>
+                    <div><h3 className="text-sm font-semibold text-slate-800">{factor.name}</h3><p className="mt-1 text-xs capitalize text-slate-400">{factor.category}  ·  {factor.region}  ·  {factorPeriod(factor)}  ·  {factor.gas_basis}</p></div>
                     <strong className="rounded-lg bg-mint px-2.5 py-1.5 text-xs font-semibold text-leaf">{factor.value} {factor.unit}</strong>
                   </div>
+                  <span className="mt-2 inline-flex rounded-full border border-slate-200 px-2 py-1 text-[10px] font-semibold uppercase tracking-wide text-slate-500">{factor.classification}</span>
                   <a href={factor.source_url} target="_blank" rel="noreferrer" className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-leaf hover:underline">
                     {factor.source_name}<ExternalLink className="h-3 w-3" />
                   </a>
+                  {factor.source_publication && <p className="mt-2 text-xs text-slate-500">{factor.source_publication}</p>}
                   {factor.assumptions && <p className="mt-2 text-xs leading-5 text-slate-500">{factor.assumptions}</p>}
                 </motion.article>
               ))}

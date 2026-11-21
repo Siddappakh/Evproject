@@ -18,6 +18,8 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
+from starlette.middleware.gzip import GZipMiddleware
+from starlette.middleware.trustedhost import TrustedHostMiddleware
 from starlette.concurrency import run_in_threadpool
 
 from . import database
@@ -28,6 +30,8 @@ from . import iot as iot_service
 from . import explainable_ai
 from fastapi.middleware.cors import CORSMiddleware
 from . import analytics as analytics_service
+from ..ml import model_loader, predict as ml_predict
+from ..ml.train_urbanev_demand import FEATURES as URBANEV_FEATURES
 from .config import (
     COOKIE_SECURE,
     CSRF_COOKIE_NAME,
@@ -36,8 +40,12 @@ from .config import (
     ROOT_DIR,
     SESSION_COOKIE_NAME,
     SESSION_TTL_SECONDS,
+    ALLOWED_ORIGINS,
+    APP_ENV,
+    GEMINI_API_KEY,
+    TRUSTED_HOSTS,
 )
-from .rag import OpenAIProvider, ProviderError, ProviderUnavailable, RagService, is_provider_error
+from .rag import ProviderError, ProviderUnavailable, RagService, create_ai_provider, is_provider_error
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -51,15 +59,12 @@ async def lifespan(_: FastAPI):
 
 app = FastAPI(title="GreenTrack Carbon Platform", lifespan=lifespan)
 
+if APP_ENV == "production":
+    app.add_middleware(TrustedHostMiddleware, allowed_hosts=TRUSTED_HOSTS)
+app.add_middleware(GZipMiddleware, minimum_size=1000)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:5173",
-        "http://127.0.0.1:5173",
-        "http://localhost:8000",
-        "http://127.0.0.1:8000",
-        "http://localhost:3000",
-    ],
+    allow_origins=ALLOWED_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -69,7 +74,6 @@ PUBLIC_API = {
     ("GET", "/api/health"),
     ("POST", "/api/auth/register"),
     ("POST", "/api/auth/login"),
-    ("POST", "/api/iot/readings"),
 }
 UNSAFE_METHODS = {"POST", "PUT", "PATCH", "DELETE"}
 
@@ -81,6 +85,8 @@ def _utc_now() -> datetime:
 @app.middleware("http")
 async def authenticate_api_requests(request: Request, call_next):
     if not request.url.path.startswith("/api/"):
+        return await call_next(request)
+    if request.method == "OPTIONS":
         return await call_next(request)
 
     token = request.cookies.get(SESSION_COOKIE_NAME)
@@ -95,17 +101,17 @@ async def authenticate_api_requests(request: Request, call_next):
 
     # Allow IoT ingestion via device token or session
     if request.url.path == "/api/iot/readings" and request.method == "POST":
-        device_token = request.headers.get("X-Device-Token") or request.headers.get("Authorization", "").replace("Bearer ", "")
+        device_token = request.headers.get("X-Device-Token", "")
+        authorization = request.headers.get("Authorization", "")
+        if authorization.lower().startswith("bearer "):
+            device_token = authorization[7:].strip()
         if device_token:
             request.state.device_token = device_token
             return await call_next(request)
         if session:
+            request.state.principal = session
             return await call_next(request)
-        # If no session and no device token, allow device registration/ingestion with default device header
-        device_id_hdr = request.headers.get("X-Device-Id")
-        if device_id_hdr:
-            request.state.device_id_hdr = device_id_hdr
-            return await call_next(request)
+        return JSONResponse(status_code=401, content={"detail": "A valid IoT device credential is required."})
 
     if not session:
         return JSONResponse(status_code=401, content={"detail": "Sign in to continue."})
@@ -275,17 +281,24 @@ class FactorRequest(BaseModel):
     name: str = Field(min_length=2, max_length=120)
     value: float = Field(ge=0, le=1_000_000)
     unit: str = Field(min_length=5, max_length=40)
+    gas_basis: str = Field(default="CO2e", max_length=10)
     source_name: str = Field(min_length=2, max_length=160)
     source_url: str = Field(min_length=8, max_length=2000)
+    source_publication: str = Field(default="", max_length=240)
+    methodology: str = Field(default="", max_length=1000)
     factor_year: int = Field(ge=1900, le=2100)
     region: str = Field(min_length=2, max_length=120)
     assumptions: str = Field(default="", max_length=1000)
+    effective_start: str | None = Field(default=None, pattern=r"^\d{4}-\d{2}-\d{2}$")
+    effective_end: str | None = Field(default=None, pattern=r"^\d{4}-\d{2}-\d{2}$")
+    classification: str = Field(default="unverified", max_length=20)
+    last_verified_date: str | None = Field(default=None, pattern=r"^\d{4}-\d{2}-\d{2}$")
 
     @field_validator("category")
     @classmethod
     def valid_category(cls, value: str) -> str:
-        if value not in {"electricity", "transport", "fuel", "waste"}:
-            raise ValueError("Choose electricity, transport, fuel, or waste.")
+        if value not in {"electricity", "transport", "fuel", "waste", "water"}:
+            raise ValueError("Choose electricity, transport, fuel, waste, or water.")
         return value
 
     @field_validator("source_url")
@@ -300,8 +313,22 @@ class FactorRequest(BaseModel):
     @classmethod
     def valid_factor_unit(cls, value: str) -> str:
         parts = value.split("/")
-        if len(parts) != 2 or parts[0] != "kgCO2e" or not parts[1].strip():
-            raise ValueError("Use a factor unit like kgCO2e/kWh or kgCO2e/L.")
+        if len(parts) != 2 or parts[0] not in {"kgCO2", "kgCO2e"} or not parts[1].strip():
+            raise ValueError("Use a factor unit like kgCO2/kWh or kgCO2e/L.")
+        return value
+
+    @field_validator("gas_basis")
+    @classmethod
+    def valid_gas_basis(cls, value: str) -> str:
+        if value not in {"CO2", "CO2e"}:
+            raise ValueError("Gas basis must be CO2 or CO2e.")
+        return value
+
+    @field_validator("classification")
+    @classmethod
+    def valid_classification(cls, value: str) -> str:
+        if value not in {"official", "estimated", "demonstration", "proxy", "unverified"}:
+            raise ValueError("Invalid factor classification.")
         return value
 
 
@@ -320,8 +347,8 @@ class ActivityRequest(BaseModel):
     @field_validator("category")
     @classmethod
     def valid_category(cls, value: str) -> str:
-        if value not in {"electricity", "transport", "fuel", "waste"}:
-            raise ValueError("Choose electricity, transport, fuel, or waste.")
+        if value not in {"electricity", "transport", "fuel", "waste", "water"}:
+            raise ValueError("Choose electricity, transport, fuel, waste, or water.")
         return value
 
     @field_validator("activity_date")
@@ -341,6 +368,21 @@ class TargetRequest(BaseModel):
     monthly_target_kg: float | None = Field(default=None, gt=0, le=1_000_000_000)
 
 
+class MlPredictionRequest(BaseModel):
+    activity_ids: list[str] | None = Field(default=None, max_length=1000)
+    period: str | None = Field(default=None, pattern=r"^\d{4}-(0[1-9]|1[0-2])$")
+
+
+class MlForecastRequest(BaseModel):
+    periods: int = Field(default=6, ge=1, le=24)
+    period: str | None = Field(default=None, pattern=r"^\d{4}-(0[1-9]|1[0-2])$")
+
+
+class UrbanEvForecastRequest(BaseModel):
+    zone_id: str | None = Field(default=None, max_length=40)
+    horizon: int = Field(default=24, ge=1, le=168)
+
+
 class TripStartRequest(BaseModel):
     mode: str = Field(default="car", max_length=40)
     initial_point: dict[str, Any] | None = None
@@ -351,8 +393,7 @@ class TripPointsBatchRequest(BaseModel):
 
 
 class TripStopRequest(BaseModel):
-    factor_value: float | None = None
-    factor_name: str | None = None
+    passenger_km: float | None = Field(default=None, gt=0)
 
 
 class FacilityCreateRequest(BaseModel):
@@ -404,11 +445,11 @@ class ChallengeJoinRequest(BaseModel):
 
 
 class BulkImportRow(BaseModel):
-    category: str
-    description: str
-    quantity: float
-    unit: str
-    period: str
+    category: str = Field(pattern=r"^(electricity|transport|fuel|waste|water)$")
+    description: str = Field(min_length=2, max_length=160)
+    quantity: float = Field(gt=0, le=1_000_000_000)
+    unit: str = Field(min_length=1, max_length=40)
+    period: str = Field(pattern=r"^\d{4}-(0[1-9]|1[0-2])$")
     reporting_unit: str = ""
 
 
@@ -496,7 +537,7 @@ def health(request: Request) -> dict[str, object]:
     return {
         "status": "ok",
         "database": "connected",
-        "ai_provider_configured": bool(OPENAI_API_KEY),
+        "ai_provider_configured": bool(OPENAI_API_KEY or GEMINI_API_KEY),
         "ocr_available": bool(ocr_info["pymupdf_available"] or ocr_info["pypdf_available"]),
         "ocr_engine": "tesseract" if ocr_info["tesseract_installed"] else ("pdf_text_extractor" if ocr_info["pymupdf_available"] else "none"),
         "tesseract_installed": ocr_info["tesseract_installed"],
@@ -537,7 +578,7 @@ def factors(
 ) -> list[dict[str, object]]:
     principal = current_principal(request)
     workspace_id = require_onboarding(principal)
-    if category and category not in {"electricity", "transport", "fuel", "waste"}:
+    if category and category not in {"electricity", "transport", "fuel", "waste", "water"}:
         raise HTTPException(status_code=422, detail="Invalid emissions category.")
     return database.list_factors(workspace_id, category)
 
@@ -546,6 +587,11 @@ def factors(
 def add_factor(request: FactorRequest, http_request: Request) -> dict[str, object]:
     principal = require_admin(http_request)
     workspace_id = require_onboarding(principal)
+    if request.classification == "official" and not request.source_publication.strip():
+        raise HTTPException(
+            status_code=422,
+            detail="Official factors require a source publication or version.",
+        )
     return database.save_factor(
         workspace_id,
         request.category,
@@ -557,6 +603,13 @@ def add_factor(request: FactorRequest, http_request: Request) -> dict[str, objec
         request.factor_year,
         request.region.strip(),
         request.assumptions.strip(),
+        request.gas_basis,
+        request.source_publication.strip(),
+        request.methodology.strip(),
+        request.effective_start,
+        request.effective_end,
+        request.classification,
+        request.last_verified_date,
     )
 
 
@@ -573,14 +626,27 @@ def activities(
 def add_activity(request: ActivityRequest, http_request: Request) -> dict[str, object]:
     principal = current_principal(http_request)
     workspace_id = require_onboarding(principal)
-    factor = database.get_factor(request.factor_id, workspace_id) if request.factor_id else None
-    if not factor and not request.factor_id:
-        workspace_factors = database.list_factors(workspace_id, request.category)
-        matching = [f for f in workspace_factors if f["unit"].endswith("/" + request.unit) and f["value"] > 0]
-        if matching:
-            factor = matching[0]
+    requested_factor = database.get_factor(request.factor_id, workspace_id) if request.factor_id else None
+    if request.factor_id and not requested_factor:
+        raise HTTPException(status_code=404, detail="Emission factor not found in this workspace.")
+    if requested_factor:
+        denominator = requested_factor["unit"].rsplit("/", 1)[-1].lower()
+        if requested_factor["category"] != request.category or denominator != request.unit.lower():
+            raise HTTPException(status_code=422, detail="Selected factor is incompatible with this activity.")
+        if requested_factor["name"] == "CEA National Grid Electricity Baseline":
+            raise HTTPException(
+                status_code=422,
+                detail="The preserved legacy electricity factor cannot be used for new calculations.",
+            )
     if request.activity_date and not request.activity_date.startswith(request.period + "-"):
         raise HTTPException(status_code=422, detail="Activity date must be within the selected reporting month.")
+    factor = database.resolve_factor_for_activity(
+        workspace_id,
+        request.category,
+        request.unit,
+        request.activity_date or f"{request.period}-01",
+        request.factor_id,
+    )
     if factor:
         try:
             emissions_kg = calculate_emissions_kg(
@@ -668,6 +734,171 @@ def get_analytics(
     return response
 
 
+def _ml_records(
+    workspace_id: str, period: str | None, activity_ids: list[str] | None
+) -> list[dict[str, object]]:
+    records = database.list_activities(workspace_id, period)
+    if activity_ids is None:
+        return records
+    requested = set(activity_ids)
+    return [record for record in records if str(record["id"]) in requested]
+
+
+def _model_unavailable(error: FileNotFoundError) -> HTTPException:
+    return HTTPException(
+        status_code=503,
+        detail=f"ML model is not trained or available. Run the documented training command first. {error}",
+    )
+
+
+@app.get("/api/ml/model-status")
+def ml_model_status(request: Request) -> dict[str, object]:
+    require_onboarding(current_principal(request))
+    return model_loader.model_status()
+
+
+@app.get("/api/ml/model-metrics")
+def ml_model_metrics(request: Request) -> dict[str, object]:
+    require_onboarding(current_principal(request))
+    status = model_loader.model_status()
+    return {"metrics": {name: data for name, data in (status["metadata"] or {}).items()}}
+
+
+@app.post("/api/ml/predict-emissions")
+def ml_predict_emissions(payload: MlPredictionRequest, request: Request) -> dict[str, object]:
+    workspace_id = require_onboarding(current_principal(request))
+    records = _ml_records(workspace_id, payload.period, payload.activity_ids)
+    try:
+        predictions = ml_predict.predict_emissions(records)
+    except FileNotFoundError as error:
+        raise _model_unavailable(error) from error
+    return {
+        "predictions": predictions,
+        "record_count": len(records),
+        "model": "GradientBoostingRegressor",
+        "warning": "Predictions are estimates and are not measured emissions.",
+    }
+
+
+@app.post("/api/ml/detect-anomalies")
+def ml_detect_anomalies(payload: MlPredictionRequest, request: Request) -> dict[str, object]:
+    workspace_id = require_onboarding(current_principal(request))
+    records = _ml_records(workspace_id, payload.period, payload.activity_ids)
+    try:
+        alerts = ml_predict.detect_anomalies(records)
+    except FileNotFoundError as error:
+        raise _model_unavailable(error) from error
+    return {
+        "anomalies": alerts,
+        "record_count": len(records),
+        "model": "IsolationForest",
+        "warning": "Isolation Forest identifies unusual patterns; it does not establish cause.",
+    }
+
+
+@app.post("/api/ml/forecast-emissions")
+def ml_forecast_emissions(payload: MlForecastRequest, request: Request) -> dict[str, object]:
+    workspace_id = require_onboarding(current_principal(request))
+    records = database.list_activities(workspace_id)
+    try:
+        points = ml_predict.forecast_emissions(records, payload.periods)
+    except FileNotFoundError as error:
+        raise _model_unavailable(error) from error
+    return {
+        "forecast": points,
+        "record_count": len(records),
+        "model": "Ridge time trend",
+        "estimated": True,
+        "warning": "Forecast values are estimates and depend on the trained dataset.",
+    }
+
+
+@app.get("/api/urbanev/info")
+def urbanev_info(request: Request) -> dict[str, object]:
+    require_onboarding(current_principal(request))
+    return database.get_urbanev_info("44f2aa0c8d89f192bce00bafb0def74a21b39c68")
+
+
+@app.get("/api/urbanev/data")
+def urbanev_data(
+    request: Request,
+    zone_id: str | None = Query(default=None, max_length=40),
+    limit: int = Query(default=500, ge=1, le=5000),
+) -> list[dict[str, object]]:
+    require_onboarding(current_principal(request))
+    return database.list_urbanev_records(
+        "44f2aa0c8d89f192bce00bafb0def74a21b39c68", zone_id, limit
+    )
+
+
+@app.get("/api/urbanev/zones")
+def urbanev_zones(request: Request) -> list[str]:
+    require_onboarding(current_principal(request))
+    records = database.list_urbanev_records(
+        "44f2aa0c8d89f192bce00bafb0def74a21b39c68", limit=5000
+    )
+    return sorted({str(row["zone_id"]) for row in records})
+
+
+@app.get("/api/urbanev/model-status")
+def urbanev_model_status(request: Request) -> dict[str, object]:
+    require_onboarding(current_principal(request))
+    return model_loader.urbanev_demand_status()
+
+
+@app.get("/api/urbanev/metrics")
+def urbanev_metrics(request: Request) -> dict[str, object]:
+    require_onboarding(current_principal(request))
+    status = model_loader.urbanev_demand_status()
+    return status["metadata"] or {"status": "not_trained"}
+
+
+@app.post("/api/urbanev/forecast")
+def urbanev_forecast(
+    payload: UrbanEvForecastRequest, request: Request
+) -> dict[str, object]:
+    require_onboarding(current_principal(request))
+    status = model_loader.urbanev_demand_status()
+    if not status["available"]:
+        raise HTTPException(status_code=503, detail="UrbanEV demand model is not trained.")
+    records = database.list_urbanev_records(
+        "44f2aa0c8d89f192bce00bafb0def74a21b39c68", payload.zone_id, 5000
+    )
+    if not records:
+        raise HTTPException(status_code=404, detail="No UrbanEV records found for this zone.")
+    historical = records[-min(168, len(records)):]
+    predictions = ml_predict.predict_urbanev_demand(historical)
+    last = max(pd["recorded_at"] for pd in historical)
+    timestamp = datetime.fromisoformat(str(last).replace("Z", "+00:00"))
+    latest = historical[-1]
+    future = []
+    for offset in range(1, payload.horizon + 1):
+        point_time = timestamp + timedelta(hours=offset)
+        future.append({
+            "recorded_at": point_time.isoformat(),
+            "zone_id": latest["zone_id"],
+            "charging_volume_kwh": latest["charging_volume_kwh"],
+            "occupancy": latest["occupancy"],
+            "duration_hours": latest["duration_hours"],
+            "electricity_price": latest["electricity_price"],
+            "service_price": latest["service_price"],
+            "temperature": latest["temperature"],
+            "hour": point_time.hour,
+            "day_of_week": point_time.weekday(),
+            "month": point_time.month,
+        })
+    forecast = ml_predict.predict_urbanev_demand(future)
+    return {
+        "dataset": "UrbanEV",
+        "zone_id": payload.zone_id or "all",
+        "features": URBANEV_FEATURES,
+        "historical": predictions,
+        "forecast": forecast,
+        "metrics": status["metadata"]["metrics"],
+        "warning": "Forecasts estimate charging volume from UrbanEV Shenzhen data; they are not India-specific.",
+    }
+
+
 @app.put("/api/targets")
 def update_target(request: TargetRequest, http_request: Request) -> dict[str, float | None]:
     principal = require_admin(http_request)
@@ -719,18 +950,23 @@ def report_csv(
     writer.writerow([])
     writer.writerow([
         "Period", "Category", "Activity", "Reporting unit", "Quantity", "Unit",
-        "Emissions (kg CO2e)", "Factor name", "Factor value", "Factor unit", "Factor year",
-        "Factor region", "Factor source", "Factor source URL", "Assumptions",
+        "Emissions (kg)", "Gas basis", "Factor name", "Factor value", "Factor unit",
+        "Factor year", "Factor region", "Factor classification", "Source classification",
+        "Factor selection status", "Factor source",
+        "Source publication/version", "Factor source URL", "Methodology", "Assumptions",
     ])
     for row in database.list_activities(workspace_id, selected_period):
         writer.writerow([
             row["period"], row["category"], _safe_csv_text(row["description"]),
             _safe_csv_text(row["reporting_unit"]),
-            row["quantity"], row["unit"], row["emissions_kg"],
-            _safe_csv_text(row["factor_name"]), row["factor_value"],
-            row["factor_unit"], row["factor_year"], _safe_csv_text(row["factor_region"]),
-            _safe_csv_text(row["factor_source"]), _safe_csv_text(row["factor_source_url"]),
-            _safe_csv_text(row["assumptions"]),
+            row["quantity"], row["unit"], row["emissions_kg"], row["factor_gas_basis"],
+            _safe_csv_text(row["factor_name"]), row["factor_value"], row["factor_unit"],
+            row["factor_year"], _safe_csv_text(row["factor_region"]),
+            row["factor_classification"], row["factor_source_classification"],
+            row["factor_selection_status"], _safe_csv_text(row["factor_source"]),
+            _safe_csv_text(row["factor_source_publication"]),
+            _safe_csv_text(row["factor_source_url"]),
+            _safe_csv_text(row["factor_methodology"]), _safe_csv_text(row["assumptions"]),
         ])
     return StreamingResponse(
         iter([output.getvalue()]),
@@ -767,9 +1003,9 @@ def carbon_explanation(request: Request, period: str = Query(pattern=r"^\d{4}-(0
         "Do not add, estimate, or replace totals or emission factors."
     )
     ai_generated = False
-    if OPENAI_API_KEY:
+    if OPENAI_API_KEY or GEMINI_API_KEY:
         try:
-            explanation = OpenAIProvider().explain(facts)
+            explanation = create_ai_provider().explain(facts)
             ai_generated = True
         except Exception as error:
             logger.warning("Carbon explanation provider unavailable: %s", error)
@@ -924,6 +1160,12 @@ class IotSimulateRequest(BaseModel):
     power_w: float | None = Field(default=None, ge=0, le=50000)
 
 
+class IotDeviceRegisterRequest(BaseModel):
+    device_id: str = Field(min_length=2, max_length=64)
+    device_name: str = Field(default="GreenTrack IoT Device", min_length=2, max_length=120)
+    location: str = Field(default="", max_length=120)
+
+
 @app.post("/api/electricity/analyze-bill")
 async def analyze_electricity_bill(
     request: Request,
@@ -961,12 +1203,18 @@ def calculate_electricity_bill(
 
     # Match factor
     factor = None
-    if request.factor_id:
-        factor = database.get_factor(request.factor_id, workspace_id)
-    if not factor:
-        factors = database.list_factors(workspace_id, "electricity")
-        if factors:
-            factor = factors[0]
+    activity_date = request.activity_date or f"{request.period}-01"
+    requested_factor = database.get_factor(request.factor_id, workspace_id) if request.factor_id else None
+    if request.factor_id and not requested_factor:
+        raise HTTPException(status_code=404, detail="Emission factor not found in this workspace.")
+    if requested_factor and requested_factor["name"] == "CEA National Grid Electricity Baseline":
+        raise HTTPException(
+            status_code=422,
+            detail="The preserved legacy electricity factor cannot be used for new calculations.",
+        )
+    factor = database.resolve_factor_for_activity(
+        workspace_id, "electricity", "kWh", activity_date, request.factor_id
+    )
 
     if factor:
         try:
@@ -999,31 +1247,21 @@ def ingest_iot_reading(
     reading: iot_service.IotReadingRequest,
     request: Request,
 ) -> dict[str, object]:
-    # Determine workspace
+    credential = getattr(request.state, "device_token", "")
+    if not credential:
+        raise HTTPException(status_code=401, detail="A valid IoT device credential is required.")
+
     principal = getattr(request.state, "principal", None)
-    workspace_id = None
     if principal:
         workspace_id = str(principal["workspace_id"])
     else:
-        # Check if device is already registered
-        dev = database.get_iot_device(reading.device_id)
-        if dev:
-            workspace_id = str(dev["workspace_id"])
-        else:
-            # Associate with the primary workspace in the system
-            legacy = database.get_workspace(None)
-            if legacy:
-                workspace_id = legacy["id"]
-            else:
-                raise HTTPException(status_code=400, detail="No workspace registered to associate IoT device.")
+        device = database.get_iot_device(reading.device_id)
+        if not device:
+            raise HTTPException(status_code=401, detail="Unknown IoT device.")
+        workspace_id = str(device["workspace_id"])
 
-    # Register device if not exists
-    database.register_or_get_iot_device(
-        workspace_id=workspace_id,
-        device_id=reading.device_id,
-        device_name=f"Power Sensor {reading.device_id[-4:]}",
-        device_token=getattr(request.state, "device_token", None),
-    )
+    if not database.verify_iot_device(reading.device_id, credential, workspace_id):
+        raise HTTPException(status_code=401, detail="Invalid or revoked IoT device credential.")
 
     saved = database.save_iot_reading(
         device_id=reading.device_id,
@@ -1115,6 +1353,39 @@ def get_iot_summary(
     }
 
 
+@app.post("/api/iot/devices/register", status_code=201)
+def register_iot_device(req: IotDeviceRegisterRequest, request: Request) -> dict[str, object]:
+    principal = require_admin(request)
+    workspace_id = require_onboarding(principal)
+    try:
+        device = database.register_or_get_iot_device(
+            workspace_id=workspace_id,
+            device_id=req.device_id.strip(),
+            device_name=req.device_name.strip(),
+            location=req.location.strip(),
+        )
+    except ValueError as error:
+        raise HTTPException(status_code=409, detail=str(error)) from error
+    return {
+        "device": {
+            key: value
+            for key, value in device.items()
+            if key != "device_token"
+        },
+        "device_token": device["device_token"],
+        "warning": "Store this credential securely. It is not retained in plaintext.",
+    }
+
+
+@app.delete("/api/iot/devices/{device_id}", status_code=204)
+def revoke_iot_device(device_id: str, request: Request) -> Response:
+    principal = require_admin(request)
+    workspace_id = require_onboarding(principal)
+    if not database.revoke_iot_device(device_id, workspace_id):
+        raise HTTPException(status_code=404, detail="IoT device not found in this workspace.")
+    return Response(status_code=204)
+
+
 @app.post("/api/iot/simulate")
 def simulate_iot_reading(
     req: IotSimulateRequest,
@@ -1124,12 +1395,15 @@ def simulate_iot_reading(
     workspace_id = require_onboarding(principal)
     dev_id = req.device_id or "esp32-household-01"
 
-    database.register_or_get_iot_device(
-        workspace_id=workspace_id,
-        device_id=dev_id,
-        device_name=f"Smart Energy Monitor ({dev_id})",
-        location="Main Household Meter",
-    )
+    try:
+        device = database.register_or_get_iot_device(
+            workspace_id=workspace_id,
+            device_id=dev_id,
+            device_name=f"Smart Energy Monitor ({dev_id})",
+            location="Main Household Meter",
+        )
+    except ValueError as error:
+        raise HTTPException(status_code=409, detail=str(error)) from error
 
     latest = database.get_latest_iot_reading(workspace_id, dev_id)
     prev_kwh = latest["energy_kwh"] if latest else 125.4
@@ -1157,6 +1431,7 @@ def simulate_iot_reading(
         "status": "simulated",
         "reading": reading,
         "device_health": health_status,
+        "device_token": device["device_token"],
         "note": "Simulated hardware reading for demonstration and testing.",
     }
 
@@ -1244,40 +1519,64 @@ def trip_start(req: TripStartRequest, request: Request) -> dict[str, object]:
 
 @app.post("/api/trips/{trip_id}/points")
 def trip_add_points(trip_id: str, req: TripPointsBatchRequest, request: Request) -> dict[str, object]:
-    require_onboarding(current_principal(request))
-    return database.add_trip_points(trip_id, req.points)
+    workspace_id = require_onboarding(current_principal(request))
+    try:
+        return database.add_trip_points(trip_id, workspace_id, req.points)
+    except ValueError as error:
+        raise HTTPException(status_code=404, detail=str(error)) from error
 
 
 @app.post("/api/trips/{trip_id}/stop")
 def trip_stop(trip_id: str, req: TripStopRequest, request: Request) -> dict[str, object]:
     principal = current_principal(request)
     workspace_id = require_onboarding(principal)
-
-    factor_val = req.factor_value or 0.170
-    factor_name = req.factor_name or "Personal Vehicle"
-
-    trip = database.complete_trip(trip_id, factor_val=factor_val, factor_name=factor_name)
+    trip = database.get_trip(trip_id, workspace_id)
+    if not trip:
+        raise HTTPException(status_code=404, detail="Trip not found.")
+    activity_date = datetime.now().strftime("%Y-%m-%d")
+    mode = str(trip["mode"]).lower()
+    if mode in {"bus", "metro", "train"}:
+        if req.passenger_km is None:
+            raise HTTPException(
+                status_code=422,
+                detail="Passenger-km is required for public transport; occupancy is not inferred.",
+            )
+        activity_unit = "passenger-km"
+        calculation_quantity = req.passenger_km
+    else:
+        activity_unit = "vehicle-km"
+        calculation_quantity = float(trip["distance_km"])
+    factor = database.get_applicable_factor(
+        workspace_id, "transport", activity_unit, activity_date
+    )
+    if not factor:
+        raise HTTPException(
+            status_code=422,
+            detail=f"No compatible verified transport factor is available for {activity_unit}.",
+        )
+    trip = database.complete_trip(
+        trip_id,
+        factor_val=float(factor["value"]),
+        factor_name=str(factor["name"]),
+        calculation_quantity=calculation_quantity,
+    )
 
     # Save to activities ledger with data_origin="gps"
     if trip["distance_km"] > 0 and trip["emissions_kg"] > 0:
-        period = datetime.now().strftime("%Y-%m")
-        factors = database.list_factors(workspace_id, "transport")
-        f_id = factors[0]["id"] if factors else None
-        if f_id:
-            try:
-                database.create_activity(
-                    workspace_id=workspace_id,
-                    category="transport",
-                    description=f"GPS Trip ({trip['mode'].capitalize()}) - {trip['distance_km']} km",
-                    quantity=trip["distance_km"],
-                    unit="km",
-                    period=period,
-                    reporting_unit="GPS Tracking",
-                    factor=factors[0],
-                    data_origin="gps",
-                )
-            except Exception:
-                pass
+        period = activity_date[:7]
+        database.save_activity(
+            workspace_id=workspace_id,
+            category="transport",
+            description=f"GPS Trip ({trip['mode'].capitalize()}) - {calculation_quantity} {activity_unit}",
+            quantity=calculation_quantity,
+            unit=activity_unit,
+            period=period,
+            activity_date=activity_date,
+            reporting_unit="GPS Tracking",
+            factor=factor,
+            emissions_kg=float(trip["emissions_kg"]),
+            data_origin="gps",
+        )
 
     return trip
 
@@ -1358,10 +1657,26 @@ def get_events(request: Request) -> list[dict[str, object]]:
 @app.post("/api/college/events", status_code=201)
 def calculate_event(req: EventEmissionCreateRequest, request: Request) -> dict[str, object]:
     workspace_id = require_onboarding(current_principal(request))
+    if req.meals_served > 0:
+        raise HTTPException(
+            status_code=422,
+            detail="Catering emissions were not calculated: no traceable per-meal emission factor is configured.",
+        )
 
-    gen_kg = req.generator_kwh * 0.71
-    meal_kg = req.meals_served * 1.5
-    travel_kg = req.travel_km * 0.089
+    electricity_factor = database.get_applicable_factor(
+        workspace_id, "electricity", "kWh", req.event_date
+    )
+    travel_factor = database.get_applicable_factor(
+        workspace_id, "transport", "passenger-km", req.event_date
+    )
+    if not electricity_factor or not travel_factor:
+        raise HTTPException(
+            status_code=422,
+            detail="Seed verified electricity and passenger-km factors before calculating an event.",
+        )
+    gen_kg = req.generator_kwh * float(electricity_factor["value"])
+    meal_kg = 0.0
+    travel_kg = req.travel_km * float(travel_factor["value"])
 
     total_kg = round(gen_kg + meal_kg + travel_kg, 2)
     breakdown = {
@@ -1406,13 +1721,16 @@ def add_challenge(req: GreenChallengeCreateRequest, request: Request) -> dict[st
 def join_challenge(challenge_id: str, req: ChallengeJoinRequest, request: Request) -> dict[str, object]:
     principal = current_principal(request)
     workspace_id = require_onboarding(principal)
-    return database.join_green_challenge(
-        challenge_id=challenge_id,
-        workspace_id=workspace_id,
-        student_name=req.student_name,
-        department_or_hostel=req.department_or_hostel,
-        user_id=str(principal["id"]) if "id" in principal else None,
-    )
+    try:
+        return database.join_green_challenge(
+            challenge_id=challenge_id,
+            workspace_id=workspace_id,
+            student_name=req.student_name,
+            department_or_hostel=req.department_or_hostel,
+            user_id=str(principal["id"]) if "id" in principal else None,
+        )
+    except ValueError as error:
+        raise HTTPException(status_code=404, detail=str(error)) from error
 
 
 @app.get("/api/college/leaderboard")
@@ -1464,22 +1782,34 @@ def bulk_import(req: BulkImportRequest, request: Request) -> dict[str, object]:
     errors = []
 
     for idx, row in enumerate(req.rows):
-        factors = database.list_factors(workspace_id, row.category)
-        if not factors:
-            errors.append(f"Row {idx+1}: No factor found for {row.category}")
-            continue
-
-        factor = factors[0]
         try:
-            database.create_activity(
+            activity_date = f"{row.period}-01"
+            factor = database.resolve_factor_for_activity(
+                workspace_id,
+                row.category,
+                row.unit,
+                activity_date,
+            )
+            if not factor:
+                errors.append(f"Row {idx+1}: No compatible factor found for {row.category} ({row.unit})")
+                continue
+            emissions_kg = calculate_emissions_kg(
+                row.quantity,
+                row.unit,
+                row.category,
+                factor,
+            )
+            database.save_activity(
                 workspace_id=workspace_id,
                 category=row.category,
                 description=row.description,
                 quantity=row.quantity,
                 unit=row.unit,
                 period=row.period,
+                activity_date=activity_date,
                 reporting_unit=row.reporting_unit,
                 factor=factor,
+                emissions_kg=emissions_kg,
                 data_origin="bulk_import",
             )
             imported_count += 1
@@ -1515,5 +1845,3 @@ def frontend_route(frontend_path: str) -> Response:
     if frontend_path == "api" or frontend_path.startswith("api/"):
         raise HTTPException(status_code=404, detail="API endpoint not found.")
     return index()
-
-

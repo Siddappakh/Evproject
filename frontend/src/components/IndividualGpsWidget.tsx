@@ -1,7 +1,6 @@
 import {
   Car,
   Bike,
-  Bus,
   Footprints,
   MapPin,
   Play,
@@ -25,7 +24,6 @@ interface IndividualGpsWidgetProps {
 const MODES = [
   { id: "car", label: "Car (Petrol)", icon: Car, factor: 0.170 },
   { id: "motorcycle", label: "2-Wheeler", icon: Bike, factor: 0.045 },
-  { id: "bus", label: "Transit Bus", icon: Bus, factor: 0.089 },
   { id: "bicycle", label: "Active Bicycle", icon: Bike, factor: 0.0 },
   { id: "walking", label: "Walking", icon: Footprints, factor: 0.0 },
 ];
@@ -92,13 +90,12 @@ export function IndividualGpsWidget({
     if (!activeTrip) return;
     setLoading(true);
     try {
-      const modeObj = MODES.find((m) => m.id === selectedMode) || MODES[0];
       // Push sample points
       await api.addTripPoints(activeTrip.id, [
         { latitude: 12.9800, longitude: 77.6200, accuracy: 12.0, timestamp: Date.now() / 1000 },
         { latitude: 12.9950, longitude: 77.6450, accuracy: 15.0, timestamp: Date.now() / 1000 + 300 },
       ]);
-      const completed = await api.stopTrip(activeTrip.id, modeObj.factor, modeObj.label);
+      const completed = await api.stopTrip(activeTrip.id);
       setActiveTrip(null);
       setTracking(false);
       setTripNotice(

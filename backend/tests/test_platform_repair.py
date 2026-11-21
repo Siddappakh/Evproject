@@ -1,4 +1,5 @@
 import io
+from pathlib import Path
 import pytest
 from fastapi.testclient import TestClient
 
@@ -209,9 +210,47 @@ def test_iot_device_health_staleness():
 def test_iot_api_endpoints_and_simulation(client):
     setup_workspace_and_factors(client)
 
-    # 1. Ingest IoT reading
+    missing = client.post(
+        "/api/iot/readings",
+        json={
+            "device_id": "esp32-campus-main",
+            "voltage": 230.0,
+            "current": 4.5,
+            "power": 1035.0,
+            "energy_kwh": 450.5,
+        },
+    )
+    assert missing.status_code == 401
+
+    unknown = client.post(
+        "/api/iot/readings",
+        headers={"X-Device-Token": "invalid-or-unknown-token"},
+        json={
+            "device_id": "esp32-campus-main",
+            "voltage": 230.0,
+            "current": 4.5,
+            "power": 1035.0,
+            "energy_kwh": 450.5,
+        },
+    )
+    assert unknown.status_code == 401
+
+    # 1. Register and obtain a device credential
+    registration = client.post(
+        "/api/iot/devices/register",
+        json={
+            "device_id": "esp32-campus-main",
+            "device_name": "Campus Main Meter",
+            "location": "Campus",
+        },
+    )
+    assert registration.status_code == 201
+    device_token = registration.json()["device_token"]
+
+    # 2. Ingest with the valid credential
     ingest = client.post(
         "/api/iot/readings",
+        headers={"X-Device-Token": device_token},
         json={
             "device_id": "esp32-campus-main",
             "voltage": 230.0,
@@ -224,6 +263,35 @@ def test_iot_api_endpoints_and_simulation(client):
     )
     assert ingest.status_code == 201
     assert ingest.json()["status"] == "success"
+
+    invalid = client.post(
+        "/api/iot/readings",
+        headers={"Authorization": "Bearer wrong-device-token"},
+        json={
+            "device_id": "esp32-campus-main",
+            "voltage": 230.0,
+            "current": 4.5,
+            "power": 1035.0,
+            "energy_kwh": 450.6,
+        },
+    )
+    assert invalid.status_code == 401
+
+    revoked = client.delete("/api/iot/devices/esp32-campus-main")
+    assert revoked.status_code == 204
+
+    after_revoke = client.post(
+        "/api/iot/readings",
+        headers={"X-Device-Token": device_token},
+        json={
+            "device_id": "esp32-campus-main",
+            "voltage": 230.0,
+            "current": 4.5,
+            "power": 1035.0,
+            "energy_kwh": 450.7,
+        },
+    )
+    assert after_revoke.status_code == 401
 
     # 2. Get latest IoT reading
     latest = client.get("/api/iot/latest")
@@ -279,6 +347,21 @@ def test_explainable_ai_endpoint(client):
     assert "formula" in body["recommendations"][0]
     assert "what_happened" in body
     assert "uncertainty_and_assumptions" in body
+
+
+def test_production_deployment_requires_tls_and_secure_cookies():
+    root = Path(__file__).resolve().parents[2]
+    compose = (root / "docker-compose.production.yml").read_text(encoding="utf-8")
+    nginx = (root / "frontend" / "nginx.conf").read_text(encoding="utf-8")
+
+    assert "GREENTRACK_COOKIE_SECURE: ${GREENTRACK_COOKIE_SECURE:-true}" in compose
+    assert '"443:443"' in compose
+    assert ":/etc/nginx/tls:ro" in compose
+    assert "listen 443 ssl;" in nginx
+    assert "return 301 https://$host$request_uri;" in nginx
+    assert "ssl_certificate /etc/nginx/tls/fullchain.pem;" in nginx
+    assert "ssl_certificate_key /etc/nginx/tls/privkey.pem;" in nginx
+    assert "Strict-Transport-Security" in nginx
 
 
 def test_reduction_goals_management(client):

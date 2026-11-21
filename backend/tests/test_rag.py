@@ -8,6 +8,7 @@ from pypdf import PdfWriter
 
 from backend.app import database
 from backend.app import main
+from backend.app import rag as rag_module
 from backend.app.rag import (
     ProviderError,
     RagService,
@@ -197,6 +198,10 @@ def test_http_upload_chat_and_source_citation(temporary_database, monkeypatch):
 
 def test_health_ui_and_missing_credentials(temporary_database, monkeypatch):
     monkeypatch.setattr(main, "OPENAI_API_KEY", None)
+    monkeypatch.setattr(main, "GEMINI_API_KEY", None)
+    monkeypatch.setattr(rag_module, "OPENAI_API_KEY", None)
+    monkeypatch.setattr(rag_module, "GEMINI_API_KEY", None)
+    monkeypatch.setattr(rag_module, "AI_PROVIDER", "auto")
 
     with TestClient(main.app) as client:
         authenticate(client)
@@ -217,6 +222,17 @@ def test_health_ui_and_missing_credentials(temporary_database, monkeypatch):
     assert chat.status_code == 503
     assert sample.status_code == 503
     assert blank_question.status_code == 422
+
+
+def test_health_reports_configured_gemini_provider(temporary_database, monkeypatch):
+    monkeypatch.setattr(main, "OPENAI_API_KEY", None)
+    monkeypatch.setattr(main, "GEMINI_API_KEY", "test-gemini-key")
+
+    with TestClient(main.app) as client:
+        health = client.get("/api/health")
+
+    assert health.status_code == 200
+    assert health.json()["ai_provider_configured"] is True
 
 
 def test_upload_rejects_bad_source_url(temporary_database):

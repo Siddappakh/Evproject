@@ -1,0 +1,32 @@
+{
+  "model": "UrbanEV charging demand HistGradientBoostingRegressor",
+  "model_version": "urbanev-demand-v1",
+  "dataset": "UrbanEV",
+  "dataset_version": "44f2aa0c8d89f192bce00bafb0def74a21b39c68",
+  "trained_at": "2026-11-02T18:04:14.497302+00:00",
+  "training_start": "2022-09-01T00:00:00",
+  "training_end": "2023-01-23T19:00:00",
+  "testing_start": "2023-01-23T19:00:00",
+  "testing_end": "2023-02-28T23:00:00",
+  "features": [
+    "zone_code",
+    "hour",
+    "day_of_week",
+    "month",
+    "occupancy",
+    "duration_hours",
+    "electricity_price",
+    "service_price",
+    "temperature"
+  ],
+  "target": "zone-hour charging volume (kWh)",
+  "metrics": {
+    "mae_kwh": 51.073216,
+    "rmse_kwh": 173.906454,
+    "mape_percent": 62.113435,
+    "r2": 0.952474,
+    "baseline_mae_kwh": 324.984583
+  },
+  "artifact_path": "C:\\Users\\Siddappa\\OneDrive\\Desktop\\EVmicroproject\\EV_carbon-footprint-and-reduction\\models\\urbanev_demand_model.joblib",
+  "status": "success"
+}

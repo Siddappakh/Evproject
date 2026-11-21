@@ -42,11 +42,18 @@ export interface Factor {
   name: string;
   value: number;
   unit: string;
+  gas_basis: "CO2" | "CO2e";
   source_name: string;
   source_url: string;
+  source_publication: string;
+  methodology: string;
   factor_year: number;
   region: string;
   assumptions: string;
+  effective_start?: string | null;
+  effective_end?: string | null;
+  classification: "official" | "estimated" | "demonstration" | "proxy" | "unverified";
+  last_verified_date?: string | null;
 }
 
 export interface Activity {
@@ -62,11 +69,20 @@ export interface Activity {
   factor_name: string;
   factor_value: number;
   factor_unit: string;
+  factor_gas_basis: "CO2" | "CO2e";
   factor_source: string;
   factor_source_url: string;
+  factor_source_publication: string;
+  factor_methodology: string;
   factor_year: number;
   factor_region: string;
   assumptions: string;
+  factor_effective_start?: string | null;
+  factor_effective_end?: string | null;
+  factor_classification: "official" | "estimated" | "demonstration" | "proxy" | "unverified";
+  factor_source_classification?: "official" | "estimated" | "demonstration" | "proxy" | "unverified";
+  factor_selection_status?: "exact" | "direct" | "proxy";
+  factor_last_verified_date?: string | null;
   emissions_kg: number;
   data_origin?: string;
   scope?: "scope_1" | "scope_2" | "scope_3";
@@ -96,6 +112,7 @@ export interface DashboardData {
   monthly_target_kg: number | null;
   previous_period: string;
   previous_total_kg: number;
+  gas_basis: "CO2" | "CO2e" | "mixed" | null;
   categories: CategoryBreakdown[];
   daily: DailyPoint[];
   trend: TrendPoint[];
@@ -336,6 +353,55 @@ export interface Recommendation {
   reason: string;
   estimated_savings_kg: number | null;
   savings_note: string;
+}
+
+export interface MlPrediction {
+  predicted_emissions_kg: number;
+  unit: "kgCO2e";
+  model: string;
+  estimated: true;
+}
+
+export interface MlForecastPoint extends MlPrediction {
+  period: string;
+}
+
+export interface MlAnomaly {
+  record_id: string | null;
+  date: string | null;
+  category: string | null;
+  anomaly_score: number;
+  is_anomaly: boolean;
+  observed_emissions_kg: number;
+  explanation: string;
+  limitations: string;
+}
+
+export interface MlModelStatus {
+  available: boolean;
+  models: Record<string, { available: boolean; path: string }>;
+  metadata: Record<string, Record<string, unknown>> | null;
+}
+
+export interface UrbanEvRecord {
+  recorded_at: string;
+  zone_id: string;
+  charging_volume_kwh: number;
+  occupancy: number | null;
+  duration_hours: number | null;
+  electricity_price: number | null;
+  service_price: number | null;
+  temperature: number | null;
+}
+
+export interface UrbanEvForecastResponse {
+  dataset: "UrbanEV";
+  zone_id: string;
+  features: string[];
+  historical: Array<{ recorded_at: string; actual_kwh: number; predicted_kwh: number; zone_id: string }>;
+  forecast: Array<{ recorded_at: string; predicted_kwh: number; estimated: true; zone_id: string }>;
+  metrics: Record<string, number | null>;
+  warning: string;
 }
 
 export interface GpsTrip {
